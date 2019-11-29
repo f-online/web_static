@@ -1,46 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Häufig gestellte Fragen und Antworten</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+---
+title: "Häufig gestellte Fragen und Antworten zu F-Online"
+slug: "faq"
+date: 2019-11-29T20:28:05+01:00
+draft: false
+---
 
-    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/fonts.css">
-    <link rel="stylesheet" href="./css/style.css?ver=1.1">
-
-    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png?v=Lbb9RGQygJ">
-    <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png?v=Lbb9RGQygJ">
-    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png?v=Lbb9RGQygJ">
-    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png?v=Lbb9RGQygJ">
-    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png?v=Lbb9RGQygJ">
-    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png?v=Lbb9RGQygJ">
-    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png?v=Lbb9RGQygJ">
-    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png?v=Lbb9RGQygJ">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png?v=Lbb9RGQygJ">
-    <link rel="icon" type="image/png" href="/favicon-32x32.png?v=Lbb9RGQygJ" sizes="32x32">
-    <link rel="icon" type="image/png" href="/favicon-96x96.png?v=Lbb9RGQygJ" sizes="96x96">
-    <link rel="icon" type="image/png" href="/android-chrome-192x192.png?v=Lbb9RGQygJ" sizes="192x192">
-    <link rel="icon" type="image/png" href="/favicon-16x16.png?v=Lbb9RGQygJ" sizes="16x16">
-    <link rel="manifest" href="/manifest.json?v=Lbb9RGQygJ">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg?v=Lbb9RGQygJ" color="#275ab1">
-    <link rel="shortcut icon" href="/favicon.ico?v=Lbb9RGQygJ">
-    <meta name="apple-mobile-web-app-title" content="F-Online">
-    <meta name="application-name" content="F-Online">
-    <meta name="msapplication-TileColor" content="#275ab1">
-    <meta name="msapplication-TileImage" content="/mstile-144x144.png?v=Lbb9RGQygJ">
-    <meta name="theme-color" content="#275ab1">
-
-</head>
 <body class="faq">
 <header>
     <div class="container">
         <nav class="nav-header d-flex justify-content-between">
-            <a href="/" class="main-logo"><img src="img/fonline-logo.png" alt="F-Online Logo"></a>
+            <a href="/" class="main-logo"><img src="/img/fonline-logo.png" alt="F-Online Logo"></a>
             <div class="nav-bg-xbootstrap">
                 <div class="navbar-xbootstrap">
-                    <img src="img/icon-menu.png" height="20" alt="menu icon">
+                    <img src="/img/icon-menu.png" height="20" alt="menu icon">
                 </div>
             </div>
             <div class="nav-xbootstrap">
@@ -143,7 +115,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/mobile/1.5.0-alpha.1/jquery.mobile-1.5.0-alpha.1.min.js"></script>
 
-<script src="./js/bootstrap.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
 
 <script>
     $(document).ready(function(){
@@ -159,4 +131,3 @@
 
 
 </body>
-</html>

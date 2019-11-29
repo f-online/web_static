@@ -1,0 +1,7 @@
+baseURL = "http://f-online.at/"
+languageCode = "de-AT"
+title = "F-Online"
+disableKinds = ["taxonomy", "taxonomyTerm"]
+
+[permalinks]
+  posts = "/:slug/"
