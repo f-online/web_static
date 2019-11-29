@@ -98,6 +98,7 @@ img, a{
 
 a.read-more{
     color: #275bb2;
+    display: block;
 }
 
 p {
@@ -150,7 +151,7 @@ h1 {
 }
 
 .bg-img-mac{
-    // background-image: url("../img/bg-mac.png");    
+    // background-image: url("../img/bg-mac.png");
     background-repeat: no-repeat;
     background-size: contain;
     background-position-y: calc(50% + 100px);
@@ -600,6 +601,10 @@ a.nav-link {
         padding: .7rem ;
     }
 }
+
+.comment-height {
+  min-height: 210px;
+}
 /* End index page */
 
 /* Start menu */
@@ -640,12 +645,12 @@ header {
                     left: 10%;
                     -webkit-transition: 0.3s ease;
                     transition: 0.3s ease;
-                }                
+                }
             }
             &.active {
                 a {
-                    color: #343234;         
-                    
+                    color: #343234;
+
                     &:after {
                         background-color: #275bb2;
                     }
@@ -656,8 +661,8 @@ header {
                     color: #343234;
                     &:after {
                         background-color: #275bb2;
-                    } 
-                }               
+                    }
+                }
             }
         }
     }

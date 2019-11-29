@@ -91,6 +91,7 @@ img, a {
 
 a.read-more {
   color: #275bb2;
+  display: block;
 }
 
 p {
@@ -577,6 +578,9 @@ a.nav-link {
   }
 }
 
+.comment-height {
+  min-height: 210px;
+}
 /* End index page */
 /* Start menu */
 header {
@@ -889,6 +893,5 @@ footer a, footer p {
     font-size: 11px;
   }
 }
-
 /* End FAQ page */
 /*# sourceMappingURL=style.css.map */
