@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>F-Online - unsere Unterstützer</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/fonts.css">
+    <link rel="stylesheet" href="./css/style.css?ver=1.1">
+
+</head>
+<body class="faq">
+<header>
+    <div class="container">
+        <nav class="nav-header d-flex justify-content-between">
+            <a href="/" class="main-logo"><img src="img/fonline-logo.png" alt="fonline logo"></a>
+            <div class="nav-bg-xbootstrap">
+                <div class="navbar-xbootstrap">
+                    <img src="img/icon-menu.png" height="20" alt="menu icon">
+                </div>
+            </div>
+            <div class="nav-xbootstrap">
+                <ul>
+                  <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+                  <li class="nav-item"><a href="/fahrschulen" class="nav-link">Fahrschulen</a></li>
+                  <li class="nav-item"><a href="/faq" class="nav-link">Fragen?</a></li>
+                  <li class="nav-item"><a href="/about" class="nav-link">Kontakt</a></li>
+                </ul>
+            </div>
+            <div class="nav-socials">
+                <ul>
+                    <li><a href="https://www.facebook.com/fonline.at" class="nav-link"><img src="img/icon-soc-fb.png" alt="facebook"></a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<div class="page-content">
+    <div class="page-information">
+      <div class="article">
+        <h2>Unsere Unterstützer</h2>
+        <hr>
+        <ul>
+          <li><a href="https://www.bernhardhummel.at" target="_blank">Unser Freund & Experte Bernard Hummel</a></li><br>
+          <li><a href="https://www.zebra.at" target="_blank">Fahrschule ZEBRA</a></li>
+          <li><a href="https://www.polivka.at" target="_blank">Fahrschule POLIVKA</a></li>
+          <li><a href="https://www.drivemistelbach.at" garget="_blank">Fahrschule Drive Mistelbach</a></li>
+        </ul>
+      </div>
+      <br>
+      <div class="article">
+        <h2>Werben auf F-Online.at</h2>
+        <hr>
+        <ul>
+          <li>Sprechen Sie potentielle Führerscheinkandidaten direkt an</li>
+          <li>Bewerben Sie Ihre Fahrschule an prominenter Position</li>
+          <li>Zielgerecht gesteuert, zum Beispiel nur bei Besucher aus Ihrem Bundesland</li>
+        </ul>
+        <p class="unstyled">
+          Erreichen Sie Ihre Zielgruppe schnell, effektiv und zielgerichtet. Holen Sie die potentiellen FahrschülerInnnen direkt bei Ihrer Suche nach einer geeigneten Fahrschule in Ihrer Umgebung ab und heben Sie sich von den Mitbewerbern ab.<br>
+          Senden Sie uns eine Email an <a href="#" onClick="javascript:document.location=Array('m','a','i','l','t','o',':','w','e','r','b','u','n','g','@','f','-','o','n','l','i','n','e','.','a','t').join('');" style="white-space: nowrap;"><script>document.write(Array('w','e','r','b','u','n','g','@','f','-','o','n','l','i','n','e','.','a','t').join(''));</script></a>
+        </p>
+      </div>
+    </div>
+</div>
+
+<footer class="text-center">
+    <div class="container d-inline-flex justify-content-center flex-wrap">
+        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 text-left"><p>© F-Online.at | <a href="/about" class="">Impressum</a></p></div>
+
+        <div class="col-xl-6 col-lg-6 col-md-12 nav-footer d-none d-lg-block">
+            <nav>
+                <ul class="footer-navigation d-inline-flex justify-content-center">
+                    <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="/fahrschulen" class="nav-link">Fahrschulen</a></li>
+                    <li class="nav-item"><a href="/faq" class="nav-link">Fragen?</a></li>
+                    <li class="nav-item"><a href="/about" class="nav-link">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
+
+
+        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 text-right">
+            <a href="mailto:info@f-online.at">info@f-online.at</a>
+        </div>
+    </div>
+</footer>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.5.0-alpha.1/jquery.mobile-1.5.0-alpha.1.min.js"></script>
+
+<script src="./js/bootstrap.min.js"></script>
+
+<script>
+    $(document).ready(function(){
+        $('.navbar-xbootstrap').click(function(e){
+            e.preventDefault();
+            $('.nav-xbootstrap').toggleClass('visible');
+            $('body').toggleClass('cover-bg');
+        });
+
+        $.mobile.loading().hide();
+    });
+</script>
+
+
+</body>
+</html>

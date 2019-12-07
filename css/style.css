@@ -894,4 +894,15 @@ footer a, footer p {
   }
 }
 /* End FAQ page */
+
+@media (max-width: 700px)  {
+    .floating-image {
+        margin-bottom: 40px;
+    }
+}
+@media (min-width: 701px)  {
+    .floating-image {
+        float: right;
+    }
+}
 /*# sourceMappingURL=style.css.map */
