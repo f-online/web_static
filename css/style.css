@@ -25,13 +25,6 @@ body {
   font-family: HelveticaNeue;
   font-size: 85%;
   background: #e2e1e1;
-  /* Old browsers */
-  /* FF3.6-15 */
-  /* Chrome10-25,Safari5.1-6 */
-  background: -webkit-gradient(linear, left top, left bottom, from(#e2e1e1), color-stop(59%, #e4e4e4), color-stop(60%, #ececeb), color-stop(60%, #ececeb), color-stop(60%, #cecece), color-stop(60%, #eaeae9), to(#ebeae9));
-  background: linear-gradient(to bottom, #e2e1e1 0%, #e4e4e4 59%, #ececeb 60%, #ececeb 60%, #cecece 60%, #eaeae9 60%, #ebeae9 100%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2e1e1', endColorstr='#ebeae9',GradientType=0 );
 }
 
 .row {
