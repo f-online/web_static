@@ -54,17 +54,22 @@ color: #343234;
     text-decoration: none;
 }
 
-.store-box li {
-    max-width: 49%;
-}
+.store-box {
+  margin-top: 20px;
+  margin-bottom: 40px;
 
-.store-box a{
-    max-width: 56%;
-}
+  li {
+      max-width: 49%;
+  }
 
-.store-box img{
-    max-width: 96%;
-    max-height: 48px;
+  a {
+      max-width: 56%;
+  }
+
+  img {
+      max-width: 96%;
+      max-height: 48px;
+  }
 }
 
 ::-webkit-input-placeholder {
@@ -746,8 +751,8 @@ header {
 
 /* End menu */
 
-/* Start FAQ page */
-body.faq {
+/* Start Content page */
+body.content {
     background-color: #fafafa;
     div[data-role="page"] {
         background-color: #fafafa;

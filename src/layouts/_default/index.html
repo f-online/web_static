@@ -7,14 +7,12 @@
 
     <div class="wrapper wrapper-content d-inline-flex justify-content-center p-3 px-sm-0 my-4">
 
-        <div class="bg-img-mac col-xl-8 col-lg-8 col-md-1 m-2"></div>
-
+        <div id="fonline-background" class="bg-img-mac col-xl-8 col-lg-8 col-md-1 m-2"></div>
 
         <div class="form-container col-xl-4 col-lg-4 col-sm-8 p-4 pt-5  text-center bg-white">
 
             <h1>F-Online.at - das kostenlose<br>Führerschein-Lernportal</h1>
             <p>Wir sind und bleiben <a href="/faq">gratis</a> mit den <a href="/faq">offiziellen Fragen</a></p>
-
 
             <form action="//app.f-online.at/auth">
                 <div class="form-group">
@@ -26,27 +24,19 @@
                 <button type="submit" class="btn btn-default w-100 bg-fbcolor">Login</button>
             </form>
 
-
             <div class="row">
                 <div class="col-6 text-left my-3 px-0"><a href="//app.f-online.at/#register">Lernkonto erstellen</a></div>
                 <div class="col-6 text-right my-3 px-0"><a href="//app.f-online.at/#forgotpwd" class="text-dark">Passwort vergessen?</a></div>
-
             </div>
 
-
             <div class="store-box d-flex justify-content-center">
-
                     <a href="https://play.google.com/store/apps/details?id=at.f_online.android"  class="text-left">
-                        <img alt="Verfügbar im GooglePlay Store" src="img/google-play-download-android-app.svg">
+                        <img alt="Verfügbar im GooglePlay Store" src="/img/google-play-download-android-app.svg">
                     </a>
 
                     <a href="https://apps.apple.com/at/app/f-online/id1119605799" class="text-right">
-                        <img alt="Verfügbar im iOS App Store" src="img/download-on-the-app-store-apple.svg">
+                        <img alt="Verfügbar im iOS App Store" src="/img/download-on-the-app-store-apple.svg">
                     </a>
-
-
-
-
             </div>
 
             <!-- slider -->
@@ -104,9 +94,7 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
-
 
                 <!-- Indicators -->
                 <ul class="carousel-indicators mt-4 pt-3">
@@ -114,7 +102,6 @@
                     <li data-target="#features" data-slide-to="1"></li>
                     <li data-target="#features" data-slide-to="2"></li>
                 </ul>
-
             </div>
 
             <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
@@ -123,12 +110,9 @@
               <input type="image" src="https://www.paypalobjects.com/de_DE/AT/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
               <img alt="" border="0" src="https://www.paypal.com/de_AT/i/scr/pixel.gif" width="1" height="1" />
             </form>
-
         </div>
-
     </div>
 <!-- END of content container -->
-
 
 <div class="wrapper footer d-inline-flex justify-content-center">
 
@@ -146,73 +130,49 @@
             </div>
             <div class="nav-bg-xbootstrap">
                 <div class="navbar-xbootstrap">
-                    <img src="img/icon-menu.png" height="20">
+                    <img src="/img/icon-menu.png" height="20">
                 </div>
 
-                <a href="/" class="title-mobile"><img src="img/fonline-logo.png"></a>
+                <a href="/" class="title-mobile"><img src="/img/fonline-logo.png"></a>
 
                 <ul class="title-social-menu">
-                    <li><a href="https://www.facebook.com/fonline.at" class="nav-link"><img src="img/icon-soc-fb.png"></a></li>
-                    <li><a href="https://twitter.com/fonline_at" class="nav-link"><img src="img/twitter.png"></a></li>
+                    <li><a href="https://www.facebook.com/fonline.at" class="nav-link"><img src="/img/icon-soc-fb.png"></a></li>
+                    <li><a href="https://twitter.com/fonline_at" class="nav-link"><img src="/img/twitter.png"></a></li>
                 </ul>
 
             </div>
         </nav>
     </div>
 
-
     <div class="col-xl-3 col-md-3 col-sm-6 text-right">
         <ul class="footer-contact-menu">
             <li><a href="mailto:info@f-online.at">info@f-online.at</a></li>
-            <li class="footer-social"><a href="https://www.facebook.com/fonline.at"><img src="img/icon-soc-fb.png"></a></li>
-            <li class="footer-social"><a href="https://twitter.com/fonline_at"><img src="img/twitter.png"></a></li>
+            <li class="footer-social"><a href="https://www.facebook.com/fonline.at"><img src="/img/icon-soc-fb.png"></a></li>
+            <li class="footer-social"><a href="https://twitter.com/fonline_at"><img src="/img/twitter.png"></a></li>
         </ul>
     </div>
-
 </div>
-
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://code.jquery.com/mobile/1.5.0-alpha.1/jquery.mobile-1.5.0-alpha.1.min.js"></script>
-
-<script src="./js/bootstrap.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/js/bootstrap.min.js"></script>
 <script>
-    var imagePath = 'url("img/bg-mac.png")';
-    $(document).ready(function(){
-        $('.navbar-xbootstrap').click(function(e){
-            e.preventDefault();
-            $('.nav-xbootstrap').toggleClass('visible');
-            $('body').toggleClass('cover-bg');
-        });
-
-        $("#features").swiperight(function() {
-            $(this).carousel('prev');
-        });
-
-        $("#features").swipeleft(function() {
-            $(this).carousel('next');
-        });
-
-        $.mobile.loading().hide();
-    });
+    var imagePath = 'url("/img/bg-mac.png")';
 
     if (window.outerWidth > 1024) {
         showImage(imagePath);
     }
 
-    $( window ).resize(function() {
+    window.addEventListener('resize', function() {
         showImage((window.outerWidth > 1024) ? imagePath : 'none');
     });
 
     function showImage(imagePath) {
-        $('.bg-img-mac').css({backgroundImage: imagePath});
+        document.getElementById('fonline-background').style.backgroundImage = imagePath;
     }
 
 
 </script>
-
-
 </body>
 
 {{ end }}
