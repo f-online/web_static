@@ -8,6 +8,6 @@ disableKinds = ["taxonomy", "taxonomyTerm"]
 [markup.goldmark.renderer]
   unsafe= true
 
-[Params]
+[params]
   fonlineDateCheck = "08.12.2019"
   fonlineDateUpdate = "01.09.2019"
