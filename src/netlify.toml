@@ -30,7 +30,19 @@ HUGO_VERSION = "0.60.1"
 HUGO_ENABLEGITINFO = "true"
 
 [[redirects]]
-  from = "/news"
+  from = "/news/*"
   to = "/"
   status = 301
+  force = false
+
+[[redirects]]
+  from = "/fahrschulen/*"
+  to = "/fahrschulen"
+  status = 301
   force = true
+
+[[redirects]]
+  from = "/fahrschule/*"
+  to = "/fahrschulen"
+  status = 301
+  force = false
