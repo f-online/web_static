@@ -36,7 +36,7 @@ HUGO_ENABLEGITINFO = "true"
   force = false
 
 [[redirects]]
-  from = "/fahrschulen/*"
+  from = "/fahrschulen/tirol"
   to = "/fahrschulen"
   status = 301
   force = false
