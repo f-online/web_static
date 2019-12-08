@@ -46,3 +46,8 @@ HUGO_ENABLEGITINFO = "true"
   to = "/fahrschulen"
   status = 301
   force = false
+
+[[redirects]]
+  from = "/*"
+  to = "/404"
+  status = 404
