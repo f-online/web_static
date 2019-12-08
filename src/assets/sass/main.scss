@@ -150,6 +150,14 @@ h1 {
     color: #383838;
 }
 
+h1.headline {
+    font-size: 200%;
+}
+
+.login-form {
+  margin-top: 20px;
+}
+
 .bg-img-mac{
     // background-image: url("../img/bg-mac.png");
     background-repeat: no-repeat;
@@ -158,8 +166,17 @@ h1 {
     background-position-x: left;
     margin-left: -145px!important;
     width: 700px;
-
 }
+
+.fonline-logo {
+    margin-left: 145px;
+    margin-top: 40px;
+
+    img {
+      height: 150px;
+    }
+}
+
 .bg-fbcolor{
     -o-object-fit: contain;
        object-fit: contain;
@@ -185,7 +202,7 @@ h1 {
     background-color: #275bb2;
 }
 
-.carousel-item {
+.carousel-inner {
     padding: 15px;
     border-radius: 15px;
     background-color: #ececec;
@@ -221,6 +238,7 @@ h1 {
 
 .carousel-indicators li{
     margin: 0px 7px;
+    background-color: #999999;
 }
 
 
@@ -602,8 +620,24 @@ a.nav-link {
     }
 }
 
-.comment-height {
-  min-height: 210px;
+.review-text {
+  --lh: 1.62em;
+  --max-lines: 3;
+  position: relative;
+  line-height: var(--lh);
+  max-height: calc(var(--lh) * var(--max-lines));
+  overflow: hidden;
+  padding-right: 1.25rem; /* space for ellipsis */
+}
+.review-text::before {
+  position: absolute;
+  content: "[...]";
+  inset-block-end: 0; /* "bottom" */
+  inset-inline-end: 0; /* "right" */
+}
+
+.review-link {
+  float: right;
 }
 /* End index page */
 

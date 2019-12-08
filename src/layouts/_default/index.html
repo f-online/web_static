@@ -7,14 +7,23 @@
 
     <div class="wrapper wrapper-content d-inline-flex justify-content-center p-3 px-sm-0 my-4">
 
-        <div id="fonline-background" class="bg-img-mac col-xl-8 col-lg-8 col-md-1 m-2"></div>
+        <div id="fonline-background" class="bg-img-mac col-xl-8 col-lg-8 col-md-1 m-2">
+            <div class="fonline-logo"><img src="/img/fonline-logo.png"></div>
+        </div>
 
         <div class="form-container col-xl-4 col-lg-4 col-sm-8 p-4 pt-5  text-center bg-white">
 
-            <h1>F-Online.at - das kostenlose<br>Führerschein-Lernportal</h1>
-            <p>Wir sind und bleiben <a href="/faq">gratis</a> mit den <a href="/faq">offiziellen Fragen</a></p>
+            <h1 class="headline">Kostenlos für den<br>Führerschein lernen</h1>
+            <p>mit den <a href="/faq">offiziellen Fragen</a> für die österreichische Fahrprüfung. Wir sind und bleiben gratis!</p>
 
-            <form action="//app.f-online.at/auth">
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+              <input type="hidden" name="cmd" value="_s-xclick" />
+              <input type="hidden" name="hosted_button_id" value="RL9PYUBA3MJ2S" />
+              <input type="image" src="https://www.paypalobjects.com/de_DE/AT/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+              <img alt="" border="0" src="https://www.paypal.com/de_AT/i/scr/pixel.gif" width="1" height="1" />
+            </form>
+
+            <form action="//app.f-online.at/auth" class="login-form">
                 <div class="form-group">
                     <input type="email" class="form-control" id="email" placeholder="Email" name="username">
                 </div>
@@ -25,7 +34,7 @@
             </form>
 
             <div class="row">
-                <div class="col-6 text-left my-3 px-0"><a href="//app.f-online.at/#register">Lernkonto erstellen</a></div>
+                <div class="col-6 text-left my-3 px-0"><a href="//app.f-online.at/#register" class="text-dark">Lernkonto erstellen</a></div>
                 <div class="col-6 text-right my-3 px-0"><a href="//app.f-online.at/#forgotpwd" class="text-dark">Passwort vergessen?</a></div>
             </div>
 
@@ -45,7 +54,7 @@
                 <!-- The slideshow -->
                 <div class="carousel-inner">
 
-                    <div class="carousel-item ">
+                    <div class="carousel-item active">
                         <div class="row">
                             <div class="col-9 text-left">
                                 <h4>Ines</h4>
@@ -53,16 +62,18 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-12 text-justify mt-2 comment-height">
-                                <p>
+                            <div class="col-12 text-justify mt-2">
+                                <p class="review-text">
                                   super app! habe ausschließlich mit dieser app gelernt - alle fragen sind enthalten und man kann sich exzellent auf die prüfung vorbereiten 👍 ein lob an die Entwickler und das Team der App das es dazu noch gratis ist 👏🎉 da die app gratis ist, ist natürlich auch Werbung im spiel, die aber auf keinen Fall zu übertrieben oder lästig ist 👍
+                                </p>
+                                <p class="review-link">
                                   <a href="https://play.google.com/store/apps/details?id=at.f_online.android&reviewId=gp%3AAOqpTOH2oCxULUd0ur3I2BMS3drNj3t_lsngO6gmIa9FtZJRPiNlJZe9U4_o3W-NUggrQu0XUiD9GQvAH_5sgs8" class="read-more">zum Kommentar</a>
                                 </p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="carousel-item ">
+                    <div class="carousel-item">
                         <div class="row">
                             <div class="col-9 text-left">
                                 <h4>Romana</h4>
@@ -70,16 +81,18 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-12 text-justify mt-2 comment-height">
-                                <p>
+                            <div class="col-12 text-justify mt-2">
+                                <p class="review-text">
                                   Super App zum Lernen! Immer und überall. Sehr gut ist auch die Prüfungssimulation um zu sehen, wie weit man das Gelernte verstanden und verinnerlicht hat! TOP
+                                </p>
+                                <p class="review-link">
                                   <a href="https://play.google.com/store/apps/details?id=at.f_online.android&reviewId=gp%3AAOqpTOHPwpqTqj9wLw4QYLq-8BLG4LMQjCk29ZAZj2WrVBNxfyWAFzChRGo4JP7wCavtQvmfSlpLPMYChr84sDg" class="read-more">zum Kommentar</a>
                                 </p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="carousel-item active">
+                    <div class="carousel-item">
                         <div class="row">
                             <div class="col-9 text-left">
                                 <h4>Julia</h4>
@@ -87,9 +100,11 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-12 text-justify mt-2 comment-height">
-                                <p>
+                            <div class="col-12 text-justify mt-2">
+                                <p class="review-text">
                                   super! Die Aufbereitung der Fragen in Kombination mit den Lehrvideos ist sehr gut. Ich habe auch das Buch, das meiner Meinung nach mehr Bilder und praktische Beispiele vertragen könnte. Doch in Kombination mit der App ergänzt es einander. Man merkt, dass der Mensch, der dahinter steht, sein Herzblut reingesteckt hat.
+                                </p>
+                                <p class="review-link">
                                   <a href="https://play.google.com/store/apps/details?id=at.f_online.android&reviewId=gp%3AAOqpTOGMm1RJeo7LdC1ioHq515TFkj4Jn5h2n8cAYEHHqOwOCCZ0jtVTSMWqo1ikxzvnVQqPZPswLaiM8BAujdM" class="read-more">zum Kommentar</a></p>
                             </div>
                         </div>
@@ -97,19 +112,13 @@
                 </div>
 
                 <!-- Indicators -->
-                <ul class="carousel-indicators mt-4 pt-3">
+                <ul class="carousel-indicators mt-3">
                     <li data-target="#features" data-slide-to="0" class="active"></li>
                     <li data-target="#features" data-slide-to="1"></li>
                     <li data-target="#features" data-slide-to="2"></li>
                 </ul>
             </div>
 
-            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-              <input type="hidden" name="cmd" value="_s-xclick" />
-              <input type="hidden" name="hosted_button_id" value="RL9PYUBA3MJ2S" />
-              <input type="image" src="https://www.paypalobjects.com/de_DE/AT/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
-              <img alt="" border="0" src="https://www.paypal.com/de_AT/i/scr/pixel.gif" width="1" height="1" />
-            </form>
         </div>
     </div>
 <!-- END of content container -->
