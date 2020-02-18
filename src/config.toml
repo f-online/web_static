@@ -9,5 +9,5 @@ disableKinds = ["taxonomy", "taxonomyTerm"]
   unsafe= true
 
 [params]
-  fonlineDateCheck = "08.12.2019"
+  fonlineDateCheck = "18.02.2020"
   fonlineDateUpdate = "01.09.2019"
