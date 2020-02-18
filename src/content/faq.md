@@ -37,7 +37,6 @@ draft: false
         <p>Du kannst uns jederzeit kontaktieren:<br>
           Per Email: <a href="mailto:info@f-online.at">info@f-online.at</a><br>
           Per Facebook: <a href="https://www.facebook.com/fonline.at">https://www.facebook.com/fonline.at</a><br>
-          Per Twitter: <a href="https://twitter.com/fonline_at">https://twitter.com/fonline_at</a><br>
         </p>
       </li>
     </ol>
