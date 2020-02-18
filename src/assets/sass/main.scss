@@ -966,3 +966,25 @@ footer {
         float: right;
     }
 }
+
+.fahrschulen {
+    ul {
+        padding-left: 0;
+    }
+    li {
+        list-style: none;
+        display: inline-block;
+        margin: 1em;
+    }
+    .logo {
+        margin-bottom: 2em;
+        text-align: center;
+        img {
+            max-width: 200px;
+            max-height: 200px;
+        }
+    }
+    .data {
+        text-align: center;
+    }
+}
