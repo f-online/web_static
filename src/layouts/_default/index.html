@@ -8,7 +8,10 @@
     <div class="wrapper wrapper-content d-inline-flex justify-content-center p-3 px-sm-0 my-4">
 
         <div class="bg-img-mac col-xl-8 col-lg-8 col-md-1 m-2">
-            <div class="fonline-logo"><img src="/img/bg-mac.png"></div>
+            <picture>
+                <source media="(max-width: 1024px)" srcset="/img/blank.png">
+                <img src="/img/bg-mac.png">
+            </picture>
         </div>
 
         <div class="form-container col-xl-4 col-lg-4 col-sm-8 p-4 pt-5  text-center bg-white">
@@ -146,6 +149,7 @@
 
                 <ul class="title-social-menu">
                     <li><a href="https://www.facebook.com/fonline.at" class="nav-link"><img src="/img/icon-soc-fb.png"></a></li>
+                    <li><a href="https://twitter.com/fonline_at" class="nav-link"><img src="/img/twitter.png"></a></li>
                 </ul>
 
             </div>
@@ -166,17 +170,8 @@
 <script>
     var imagePath = 'url("/img/bg-mac.png")';
 
-    $(document).ready(function() {
-      $('.navbar-xbootstrap').click(function(e){
-          e.preventDefault();
-          $('.nav-xbootstrap').toggleClass('visible');
-          $('body').toggleClass('cover-bg');
-      });
-    });
-
-    if (window.outerWidth > 1024) {
-        showImage(imagePath);
-    }
+{{ partial "matomo.html" . }}
+{{ partial "consent.html" . }}
 
     window.addEventListener('resize', function() {
         showImage((window.outerWidth > 1024) ? imagePath : 'none');
