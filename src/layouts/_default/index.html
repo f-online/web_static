@@ -166,6 +166,14 @@
 <script>
     var imagePath = 'url("/img/bg-mac.png")';
 
+    $(document).ready(function() {
+      $('.navbar-xbootstrap').click(function(e){
+          e.preventDefault();
+          $('.nav-xbootstrap').toggleClass('visible');
+          $('body').toggleClass('cover-bg');
+      });
+    });
+
     if (window.outerWidth > 1024) {
         showImage(imagePath);
     }
