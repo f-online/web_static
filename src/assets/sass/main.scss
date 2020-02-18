@@ -620,11 +620,7 @@ a.nav-link {
   overflow: hidden;
   padding-right: 1.25rem; /* space for ellipsis */
 }
-.review-text::before {
-  content: "[...]";
-  inset-block-end: 0; /* "bottom" */
-  inset-inline-end: 0; /* "right" */
-}
+
 
 .review-link {
   float: right;
