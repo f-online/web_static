@@ -329,3 +329,9 @@
   display: none !important;
 }
 
+.cookie-notice .cm-btn {
+  display: none;
+  &.cm-btn-success, &.cm-btn-info {
+    display: inline-block;
+  }
+}

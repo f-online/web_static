@@ -49,16 +49,22 @@ var klaroConfig = {
         // bundled translations.
         de: {
             consentModal: {
+                title: "Informationen, die wir speichern",
                 description:
-                    'Hier können Sie einsehen und anpassen, welche Information wir über Sie sammeln. Einträge die als "Beispiel" gekennzeichnet sind dienen lediglich zu Demonstrationszwecken und werden nicht wirklich verwendet.',
+                    'Hier können Sie einsehen und anpassen, welche Information wir über Sie speichern. Einträge die als "Beispiel" gekennzeichnet sind dienen lediglich zu Demonstrationszwecken und werden nicht wirklich verwendet.',
             },
             matomo: {
-                description: 'Sammeln von Besucherstatistiken',
+                description: 'Daten für Besucherstatistiken',
             },
             purposes: {
-                analytics: 'Besucher-Statistiken'
+                analytics: 'Besucher-Statistiken',
             },
-            ok: 'Ja, ich bin einverstanden'
+            ok: 'Ja, ich bin einverstanden',
+            consentNotice: {
+                learnMore: 'Einstellungen & Informationen'
+            },
+            poweredBy: "Dialog powered by Klaro!"
+
         }
     },
 
