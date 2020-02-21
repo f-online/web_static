@@ -1,0 +1,9 @@
+# These rules will change if you change your site’s custom domains or HTTPS settings
+
+# Redirect domain aliases to primary domain
+https://f-online.at/* https://www.f-online.at/:splat 301!
+http://f-online.at/* https://www.f-online.at/:splat 301!
+http://www.f-online.at/* https://www.f-online.at/:splat 301!
+
+# Optional: Redirect default Netlify subdomain to primary domain
+https://f-online.netlify.com/* https://www.f-online.at/:splat 301!
