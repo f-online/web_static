@@ -331,6 +331,7 @@
 
 .cookie-notice .cm-btn {
   display: none;
+  margin-bottom: 1em;
   &.cm-btn-success, &.cm-btn-info {
     display: inline-block;
   }
