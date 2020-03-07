@@ -36,55 +36,55 @@ HUGO_ENABLEGITINFO = "true"
   force = false
 
 [[redirects]]
-  from = "/fahrschulen/burgenland"
+  from = "/fahrschulen/burgenland/*"
   to = "/fahrschulen"
   status = 301
   force = false
 
 [[redirects]]
-  from = "/fahrschulen/kaernten"
+  from = "/fahrschulen/kaernten/*"
   to = "/fahrschulen"
   status = 301
   force = false
 
 [[redirects]]
-  from = "/fahrschulen/niederoesterreich"
+  from = "/fahrschulen/niederoesterreich/*"
   to = "/fahrschulen"
   status = 301
   force = false
 
 [[redirects]]
-  from = "/fahrschulen/oberoesterreich"
+  from = "/fahrschulen/oberoesterreich/*"
   to = "/fahrschulen"
   status = 301
   force = false
 
 [[redirects]]
-  from = "/fahrschulen/salzburg"
+  from = "/fahrschulen/salzburg/*"
   to = "/fahrschulen"
   status = 301
   force = false
 
 [[redirects]]
-  from = "/fahrschulen/steiermark"
+  from = "/fahrschulen/steiermark/*"
   to = "/fahrschulen"
   status = 301
   force = false
 
 [[redirects]]
-  from = "/fahrschulen/tirol"
+  from = "/fahrschulen/tirol/*"
   to = "/fahrschulen"
   status = 301
   force = false
 
 [[redirects]]
-  from = "/fahrschulen/vorarlberg"
+  from = "/fahrschulen/vorarlberg/*"
   to = "/fahrschulen"
   status = 301
   force = false
 
 [[redirects]]
-  from = "/fahrschulen/wien"
+  from = "/fahrschulen/wien/*"
   to = "/fahrschulen"
   status = 301
   force = false
