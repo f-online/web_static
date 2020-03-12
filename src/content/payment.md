@@ -15,7 +15,7 @@ draft: false
     <p>Für nur 4.99 EUR kannst du dein F-Online Lernkonto von der Werbung befreien. Egal ob du am Handy, Tablet oder am Computer lernst, du siehst keine Werbung mehr und unterstützt F-Online mit deinem werbefreien Konto.</p>
     <hr>
     <div id="email-provided"><p>Werbefreies Lernkonto <span class="email">email</span> für 4,99 EUR (inkl. Mwst.)</p></div>
-    <div id="payment-done"><p>Vielen Dank! Dein Lernkonto <span class="email">email</span> wird innerhalb weniger Minuten von der Werbung freigeschalten. Zur Lernapp <a href="https://app.f-online.at">app.f-online.at</a>.</p></div>
+    <div id="payment-done"><p>Vielen Dank! Dein Lernkonto <span class="email">email</span> wird innerhalb weniger Minuten von der Werbung freigeschalten. Zurück zur Lernapp <a href="https://app.f-online.at/#logout">app.f-online.at</a>.</p></div>
     <div id="paypal-button-container"></div>
     <div id="no-email-provided"><p>Um die Werbefreie Version zu kaufen, melde dich bitte zuerst in der App unter <a href="https://app.f-online.at">app.f-online.at</a> an und klicke dann auf den Kaufbutton.</p></div>
     <hr>
