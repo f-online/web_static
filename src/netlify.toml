@@ -33,67 +33,67 @@ HUGO_ENABLEGITINFO = "true"
   from = "/news/*"
   to = "/"
   status = 301
-  force = false
+  force = true
 
 [[redirects]]
   from = "/fahrschulen/burgenland/*"
   to = "/fahrschulen"
   status = 301
-  force = false
+  force = true
 
 [[redirects]]
   from = "/fahrschulen/kaernten/*"
   to = "/fahrschulen"
   status = 301
-  force = false
+  force = true
 
 [[redirects]]
   from = "/fahrschulen/niederoesterreich/*"
   to = "/fahrschulen"
   status = 301
-  force = false
+  force = true
 
 [[redirects]]
   from = "/fahrschulen/oberoesterreich/*"
   to = "/fahrschulen"
   status = 301
-  force = false
+  force = true
 
 [[redirects]]
   from = "/fahrschulen/salzburg/*"
   to = "/fahrschulen"
   status = 301
-  force = false
+  force = true
 
 [[redirects]]
   from = "/fahrschulen/steiermark/*"
   to = "/fahrschulen"
   status = 301
-  force = false
+  force = true
 
 [[redirects]]
   from = "/fahrschulen/tirol/*"
   to = "/fahrschulen"
   status = 301
-  force = false
+  force = true
 
 [[redirects]]
   from = "/fahrschulen/vorarlberg/*"
   to = "/fahrschulen"
   status = 301
-  force = false
+  force = true
 
 [[redirects]]
   from = "/fahrschulen/wien/*"
   to = "/fahrschulen"
   status = 301
-  force = false
+  force = true
 
 [[redirects]]
   from = "/fahrschule/*"
   to = "/fahrschulen"
   status = 301
-  force = false
+  force = true
 
 [[redirects]]
   from = "/*"

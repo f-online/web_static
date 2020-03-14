@@ -975,4 +975,18 @@ footer {
     }
 }
 
+/* Payment */
+
+#paypal-button-container {
+    max-width: 400px;
+}
+
+#no-email-provided,#payment-done {
+    font-size: 150%;
+}
+
+#email-provided, #payment-done {
+    display: none;
+}
+
 @import "../klaro/klaro";
