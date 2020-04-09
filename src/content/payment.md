@@ -5,7 +5,7 @@ date: 2019-12-07T19:50:00+01:00
 draft: false
 ---
 
-<script src="https://www.paypal.com/sdk/js?client-id=AZSY91wmLtgontLFAURtcaCKurguU2EpSfTrnazUAS0vvsigH0eOg7Kol6QRwWGuNMX_iKDFLJMLaCUp&currency=EUR">
+<script src="https://www.paypal.com/sdk/js?client-id=Ad8dd58EhUXHIa-6hqrtvgkvdH7flIoFYcs6JKF5ExhcirOnbXAbFOna-TDknQamOs6pJGV592Xdfy52&currency=EUR">
 </script>
 
 <div class="page-information">
@@ -22,7 +22,6 @@ draft: false
     <p><b>30-Tage Geld zurück!</b> Solltest du mit der werbefreien Version nicht zufrieden sein, erhältst du innerhalb 30 Tagen, auch ohne Angabe von Gründen, dein Geld zurück. Sende dazu einfach ein Email an info@f-online.at.</p>
   </div>
 </div>
-
 
 <script>
 
