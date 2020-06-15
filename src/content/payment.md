@@ -47,15 +47,17 @@ function emailGiven(email) {
 
     emailFields = document.getElementsByClassName("email");
     for (var i = 0; i < emailFields.length; i++) {
-        emailFields[i].innerHTML = account; 
+        emailFields[i].innerHTML = account;
     };  
 }
 
 function paymentDone(details) {
-    document.getElementById("email-provided").style.display = "none"; 
-    document.getElementById("no-email-provided").style.display = "none"; 
-    document.getElementById("payment-done").style.display = "block"; 
-    document.getElementById("paypal-button-container").style.display = "none"; 
+    document.getElementById("email-provided").style.display = "none";
+    document.getElementById("no-email-provided").style.display = "none";
+    document.getElementById("payment-done").style.display = "block";
+    document.getElementById("paypal-button-container").style.display = "none";
+    var _paq = window._paq || [];
+    _paq.push(['trackEvent', 'upgrade', 'paid']);
 }
 
 var account = getUrlParam('account');
