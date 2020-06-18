@@ -62,7 +62,7 @@ function paymentDone(details) {
 
 var account = getUrlParam('account');
 
-if (account){ 
+if (account) {
 
     emailGiven(account);
 
