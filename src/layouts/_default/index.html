@@ -48,74 +48,42 @@
                     </a>
             </div>
 
+
             <!-- slider -->
             <div id="features" class="carousel slide mt-4" data-ride="carousel">
 
                 <!-- The slideshow -->
                 <div class="carousel-inner">
 
-                    <div class="carousel-item active">
-                        <div class="row">
-                            <div class="col-9 text-left">
-                                <h4>Ines</h4>
-                                <span class="date">10.10.2019 (Android PlayStore)</span>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 text-justify mt-2">
-                                <p class="review-text">
-                                  super app! habe ausschließlich mit dieser app gelernt - alle fragen sind enthalten und man kann sich exzellent auf die prüfung vorbereiten 👍 ein lob an die Entwickler und das Team der App das es dazu noch gratis ist 👏🎉 da die app gratis ist, ist natürlich auch Werbung im spiel, die aber auf keinen Fall zu übertrieben oder lästig ist 👍
-                                </p>
-                                <p class="review-link">
-                                  <a href="https://play.google.com/store/apps/details?id=at.f_online.android&reviewId=gp%3AAOqpTOH2oCxULUd0ur3I2BMS3drNj3t_lsngO6gmIa9FtZJRPiNlJZe9U4_o3W-NUggrQu0XUiD9GQvAH_5sgs8" class="read-more">zum Kommentar</a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                    {{ range $index, $review := .Params.reviews }}
 
-                    <div class="carousel-item">
+                    <div class="carousel-item {{ if eq $index 0 }}active{{ end }}">
                         <div class="row">
                             <div class="col-9 text-left">
-                                <h4>Romana</h4>
-                                <span class="date">22.09.2019 (Android PlayStore)</span>
+                                <h4>{{ $review.name }}</h4>
+                                <span class="date">{{ $review.date }} ({{ if eq $review.store "android" }}Android PlayStore{{ else }}Apple App Store{{ end }})</span>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-12 text-justify mt-2">
                                 <p class="review-text">
-                                  Super App zum Lernen! Immer und überall. Sehr gut ist auch die Prüfungssimulation um zu sehen, wie weit man das Gelernte verstanden und verinnerlicht hat! TOP
+                                  {{ $review.text }}
                                 </p>
                                 <p class="review-link">
-                                  <a href="https://play.google.com/store/apps/details?id=at.f_online.android&reviewId=gp%3AAOqpTOHPwpqTqj9wLw4QYLq-8BLG4LMQjCk29ZAZj2WrVBNxfyWAFzChRGo4JP7wCavtQvmfSlpLPMYChr84sDg" class="read-more">zum Kommentar</a>
+                                  <a href="{{ if eq $review.store "android" }}https://play.google.com/store/apps/details?id=at.f_online.android&reviewId={{ $review.id }}{{ else }}https://apps.apple.com/de/app/f-online/id1119605799{{ end }}" class="read-more">zum Kommentar</a>
                                 </p>
                             </div>
                         </div>
-                    </div>
+                    </div>                    
 
-                    <div class="carousel-item">
-                        <div class="row">
-                            <div class="col-9 text-left">
-                                <h4>Julia</h4>
-                                <span class="date">25.07.2019 (Android PlayStore)</span>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 text-justify mt-2">
-                                <p class="review-text">
-                                  super! Die Aufbereitung der Fragen in Kombination mit den Lehrvideos ist sehr gut. Ich habe auch das Buch, das meiner Meinung nach mehr Bilder und praktische Beispiele vertragen könnte. Doch in Kombination mit der App ergänzt es einander. Man merkt, dass der Mensch, der dahinter steht, sein Herzblut reingesteckt hat.
-                                </p>
-                                <p class="review-link">
-                                  <a href="https://play.google.com/store/apps/details?id=at.f_online.android&reviewId=gp%3AAOqpTOGMm1RJeo7LdC1ioHq515TFkj4Jn5h2n8cAYEHHqOwOCCZ0jtVTSMWqo1ikxzvnVQqPZPswLaiM8BAujdM" class="read-more">zum Kommentar</a></p>
-                            </div>
-                        </div>
-                    </div>
+                    {{ end }}
                 </div>
 
                 <!-- Indicators -->
                 <ul class="carousel-indicators mt-3">
-                    <li data-target="#features" data-slide-to="0" class="active"></li>
-                    <li data-target="#features" data-slide-to="1"></li>
-                    <li data-target="#features" data-slide-to="2"></li>
+                    {{ range $index, $review := .Params.reviews }}
+                    <li data-target="#features" data-slide-to="{{ $index }}" {{ if eq $index 0 }}class="active"{{ end }}></li>
+                    {{ end }}
                 </ul>
             </div>
 
