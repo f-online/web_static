@@ -25,7 +25,7 @@ draft: false
       </li>
       <li>
         <div class="title"><a name="faq2">Welche Prüfungsfragen werden verwendet?</a></div>
-        <p>Auf F-Online werden nur die offiziellen Fragen des Verkehrsministeriums (letzte Aktualisierung: {{% fonlineDateUpdate %}}; von uns das letzte Mal auf Änderungen geprüft: {{% fonlineDateCheck %}}) verwendet (wie auf der Führerschein-CD). Die Fragen erhalten wir direkt vom Ministerium. Derzeit sind es über 3.000 Fragen, die wir auf F-Online in den verschiedensten Führerscheinklassen (A,B,C,...) anbieten können. Änderungen des Verkehrsministeriums werden sofort auf F-Online aktualisiert. Die Fragen sind daher immer aktuell und up to date (Fragenstand: {{% fonlineDateUpdate %}}).</p>
+        <p>Auf F-Online werden nur die offiziellen Fragen des österreichichen Verkehrsministeriums verwendet (letzte Aktualisierung  {{% fonlineDateCheck %}}; Fragenstand Ministerium: {{% fonlineDateUpdate %}}). Die Fragen erhalten wir direkt vom Ministerium. Derzeit sind es über 3.000 Fragen, die wir auf F-Online in den verschiedensten Führerscheinklassen (A,B,C,...) anbieten können. Änderungen des Verkehrsministeriums werden sofort auf F-Online aktualisiert. Die Fragen sind daher immer aktuell und up to date (Fragenstand: {{% fonlineDateUpdate %}}).</p>
       </li>
       <li>
         <div class="title"><a name="faq3">Wie wird F-Online finanziert?</a></div>

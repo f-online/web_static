@@ -10,5 +10,5 @@ baseURL = "https://www.f-online.at"
   unsafe= true
 
 [params]
-  fonlineDateCheck = "25.08.2020"
-  fonlineDateUpdate = "20.02.2021"
+  fonlineDateCheck = "20.02.2021"
+  fonlineDateUpdate = "25.08.2020"
