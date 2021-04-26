@@ -21,6 +21,9 @@ draft: false
       <br>
       <a href="mailto:info@f-online.at">info@f-online.at</a><br>
       UID: <span class="uid">ATU38362008</span>
+      <br>
+      <br>
+      <a href="https://mediadaten.f-online.at">Werben auf F-Online/Mediadaten</a><br>
     </p>
   </div>
   <br>
