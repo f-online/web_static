@@ -1,12 +1,14 @@
 import * as React from 'react';
-import Row from '../components/Row';
+import FAQ from '../components/FAQ';
+import Features from '../components/Features';
+import Team from '../components/Team';
 
 export default function IndexPage() {
   return (
-    <div className="bg-blue-500">
-      <Row columns={2}>
-        TODO
-      </Row>
-    </div>
+    <>
+      <Features className="bg-fonline-50" />
+      <Team />
+      <FAQ className="bg-fonline-50" />
+    </>
   );
 }
