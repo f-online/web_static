@@ -20,4 +20,7 @@ module.exports = {
     'no-underscore-dangle': 0,
   },
   plugins: ['html', 'prettier', 'react-hooks'],
+  env: {
+    browser: true,
+  },
 };
