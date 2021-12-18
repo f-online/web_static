@@ -43,7 +43,7 @@ export default function Team({ className }) {
   ];
 
   return (
-    <Section  className={className}>
+    <Section className={className}>
       <SectionHeader
         title="Unser Team"
         subtitle="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum obcaecati dignissimos quae quo ad iste ipsum officiis deleniti asperiores sit."
@@ -61,8 +61,8 @@ export default function Team({ className }) {
               </a>
 
             </div>
-            <p className="text-xl text-fonline-500">{teammember.name}</p>
-            <p className="text-gray-500">{teammember.function}</p>
+            <p className="text-xl text-fonline-500 p-0">{teammember.name}</p>
+            <p className="text-gray-500 p-0">{teammember.function}</p>
           </div>
         ))}
       </div>

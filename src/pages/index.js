@@ -8,7 +8,7 @@ export default function IndexPage() {
     <>
       <Features className="bg-fonline-50" />
       <Team />
-      <FAQ className="bg-fonline-50" />
+      <FAQ className="bg-fonline-50" limit={5} />
     </>
   );
 }

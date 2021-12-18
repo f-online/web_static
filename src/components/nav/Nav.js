@@ -21,16 +21,20 @@ export default function Nav() {
       to: '/faq',
       text: 'FAQ',
     },
+    {
+      to: '/kontakt',
+      text: 'Kontakt',
+    },
   ];
 
   return (
-    <section>
+    <div>
       <Helmet>
         <script src="/scripts/burger.js" />
       </Helmet>
 
       <DesktopNav internalLinks={internalLinks} />
       <MobileNav internalLinks={internalLinks} />
-    </section>
+    </div>
   );
 }
