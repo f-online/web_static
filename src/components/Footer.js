@@ -9,7 +9,7 @@ export default function Footer() {
       </div>
       <div>
         <Link to="/impressum" className="pr-4">Impressum</Link>
-        <Link to="/toc">Terms and conditions</Link>
+        <Link to="/agb">AGB</Link>
       </div>
 
     </footer>
