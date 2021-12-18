@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @layer base {
-  p:not(:first-child) {
+  p {
     @apply py-5;
   }
 
