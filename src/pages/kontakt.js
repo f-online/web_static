@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from '../components/Button';
+import ButtonLink from '../components/ButtonLink';
 import ContactData from '../components/ContactData';
 import Section from '../components/Section';
 import SectionHeader from '../components/SectionHeader';
@@ -29,7 +29,7 @@ export default function Kontakt() {
         </p>
 
         <p>
-          <Button to="https://mediadaten.f-online.at/" text="Zu den Mediadaten" />
+          <ButtonLink to="https://mediadaten.f-online.at/" text="Zu den Mediadaten" />
         </p>
       </Section>
     </>

@@ -1,6 +1,5 @@
-import { Link } from 'gatsby';
 import React from 'react';
-import Button from './Button';
+import ButtonLink from './ButtonLink';
 import Section from './Section';
 import SectionHeader from './SectionHeader';
 
@@ -71,7 +70,7 @@ export default function FAQ({ className, limit = 0 }) {
 
       <div>
         {faqs.map((faq) => (
-          <details key={`faq${faq.id}`} className="bg-white p-5 text-center mb-5 drop-shadow-lg text-lg transition-all">
+          <details key={`faq${faq.id}`} className="bg-white p-5 text-center mb-5 drop-shadow-lg text-lg transition-all rounded">
             <summary className="font-semibold cursor-pointer select-none">
               {faq.question}
             </summary>
@@ -86,7 +85,7 @@ export default function FAQ({ className, limit = 0 }) {
       {limit > 0
         && (
           <div className="text-center mt-10">
-            <Button to="/faq" text="Alle Fragen anzeigen" />
+            <ButtonLink to="/faq" text="Alle Fragen anzeigen" />
           </div>
         )}
     </Section>
