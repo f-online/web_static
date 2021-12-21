@@ -45,8 +45,8 @@ export default function Features({ className }) {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         {features.map((feature) => (
-          <div className="text-center p-5 border-b-4 border-transparent hover:border-fonline-500 hover:shadow-2xl transition-shadow" key={`feature${feature.id}`}>
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-20 w-20 mx-auto stroke-fonline-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <div className="text-center p-5 border-b-4 border-transparent hover:border-fonline-700 hover:shadow-2xl transition-shadow" key={`feature${feature.id}`}>
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-20 w-20 mx-auto stroke-fonline-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
             </svg>
             <h5 className="text-2xl mt-3 mb-4">{feature.headline}</h5>
