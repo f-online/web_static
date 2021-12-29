@@ -7,7 +7,7 @@ import SectionHeader from '../components/SectionHeader';
 export default function Kontakt() {
   return (
     <>
-      <Section className="text-center">
+      <Section className="text-center bg-fonline-50">
         <SectionHeader
           title="Kontakt"
         />
