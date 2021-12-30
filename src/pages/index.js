@@ -3,6 +3,7 @@ import FAQ from '../components/FAQ';
 import Features from '../components/Features';
 import Team from '../components/Team';
 import Section from '../components/Section';
+import Reviews from '../components/Reviews';
 
 export default function IndexPage() {
   return (
@@ -65,9 +66,11 @@ export default function IndexPage() {
 
       <Features className="bg-fonline-50" />
 
-      <Team />
+      <Reviews limit={6} />
 
-      <FAQ className="bg-fonline-50" limit={5} />
+      <Team className="bg-fonline-50" />
+
+      <FAQ limit={5} />
     </>
   );
 }
