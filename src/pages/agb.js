@@ -2,7 +2,7 @@ import React from 'react';
 import Section from '../components/Section';
 import SectionHeader from '../components/SectionHeader';
 
-export default function AGB() {
+export default function TOCPage() {
   return (
     <>
       <Section>

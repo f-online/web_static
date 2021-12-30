@@ -3,7 +3,7 @@ import ContactData from '../components/ContactData';
 import Section from '../components/Section';
 import SectionHeader from '../components/SectionHeader';
 
-export default function Impressum() {
+export default function ImpressumPage() {
   return (
     <Section className="text-center">
       <SectionHeader

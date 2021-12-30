@@ -4,7 +4,7 @@ import ContactData from '../components/ContactData';
 import Section from '../components/Section';
 import SectionHeader from '../components/SectionHeader';
 
-export default function Kontakt() {
+export default function ContaktPage() {
   return (
     <>
       <Section className="text-center bg-fonline-50">
