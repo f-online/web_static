@@ -4,6 +4,7 @@ import Features from '../components/Features';
 import Team from '../components/Team';
 import Section from '../components/Section';
 import Reviews from '../components/Reviews';
+import Quote from '../components/Quote';
 
 export default function IndexPage() {
   return (
@@ -67,6 +68,12 @@ export default function IndexPage() {
       <Features className="bg-fonline-50" />
 
       <Reviews limit={6} />
+
+      <Quote
+        author="Otto Fürst von Bismarck"
+        year={2018}
+        qoute="Die erste Generation schafft Vermögen, die zweite verwaltet Vermögen, die dritte studiert Kunstgeschichte, und die vierte verkommt."
+      />
 
       <Team className="bg-fonline-50" />
 
