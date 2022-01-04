@@ -6,6 +6,7 @@ import Team from '../components/Team';
 import Section from '../components/Section';
 import Reviews from '../components/Reviews';
 import Quote from '../components/Quote';
+import Waves from '../components/Waves';
 
 export default function IndexPage() {
   return (
@@ -72,6 +73,8 @@ export default function IndexPage() {
             <p />
           </div>
         </Section>
+
+        <Waves />
       </div>
 
       <Features className="bg-fonline-50" />
