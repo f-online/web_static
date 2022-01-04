@@ -4,7 +4,7 @@ import Section from './Section';
 export default function Quote({
   qoute,
   author,
-  year = 'unknown',
+  year,
   className,
 }) {
   return (
@@ -15,7 +15,10 @@ export default function Quote({
           <p className="text-4xl text-center px-5">{qoute}</p>
           <div className="text-9xl text-right leading-tight h-3 -mt-20">”</div>
         </div>
-        <div className="italic mt-24">{`- ${author} (${year})`}</div>
+        <div className="italic mt-24">
+          {`- ${author}`}
+          {year && ` (${year})`}
+        </div>
       </div>
     </Section>
   );
