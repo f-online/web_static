@@ -17,7 +17,9 @@ export default function UpgradePage() {
 
         <div className="bg-white px-10 py-4 rounded-xl max-w-2xl mx-auto">
           <p>
-            Für nur 4.99 EUR kannst du dein F-Online Lernkonto von der Werbung befreien. Egal ob du am Handy, Tablet oder am Computer lernst, du siehst keine Werbung mehr und unterstützt F-Online mit deinem werbefreien Konto.
+            Für nur 4.99 EUR kannst du dein F-Online Lernkonto von der Werbung befreien.
+            Egal ob du am Handy, Tablet oder am Computer lernst, du siehst keine Werbung
+            mehr und unterstützt F-Online mit deinem werbefreien Konto.
           </p>
 
           <div id="email-provided">
@@ -55,7 +57,10 @@ export default function UpgradePage() {
           <p>
             <b>30-Tage Geld zurück!</b>
             {' '}
-            Solltest du mit der werbefreien Version nicht zufrieden sein, erhältst du innerhalb 30 Tagen, auch ohne Angabe von Gründen, dein Geld zurück. Sende dazu einfach ein Email an info@f-online.at.
+            Solltest du mit der werbefreien Version nicht zufrieden sein,
+            erhältst du innerhalb 30 Tagen,
+            auch ohne Angabe von Gründen, dein Geld zurück.
+            Sende dazu einfach ein Email an info@f-online.at.
           </p>
         </div>
       </Section>
