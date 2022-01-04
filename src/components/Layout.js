@@ -5,12 +5,14 @@ import Nav from './nav/Nav';
 
 export default function Layout({ children }) {
   return (
-    <>
+    <div className="flex flex-col h-screen justify-between">
       <Nav />
 
-      {children}
+      <main className="mb-auto">
+        {children}
+      </main>
 
       <Footer />
-    </>
+    </div>
   );
 }
