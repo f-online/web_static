@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { BiDonateHeart } from 'react-icons/bi';
 import FAQ from '../components/FAQ';
 import Features from '../components/Features';
 import Team from '../components/Team';
@@ -44,8 +45,15 @@ export default function IndexPage() {
                 </div>
               </div>
 
-              <div>
+              <div className="flex">
                 <input type="submit" value="Anmelden" className="w-full cursor-pointer py-4 px-10 bg-fonline-500 hover:bg-fonline-700 text-white font-bold rounded-l-xl rounded-t-xl transition duration-200 no-underline hover:text-white" />
+                <a
+                  className="bg-teal-600 text-white hover:bg-teal-800 hover:text-white ml-2 py-4 px-10 inline-flex items-center rounded-r-xl rounded-t-xl no-underline"
+                  href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RL9PYUBA3MJ2S&source=url"
+                >
+                  <BiDonateHeart className="mr-2" />
+                  Spenden
+                </a>
               </div>
             </form>
 
@@ -61,6 +69,7 @@ export default function IndexPage() {
               {' '}
               dein gratis Lernkonto!
             </p>
+            <p />
           </div>
         </Section>
       </div>
