@@ -52,12 +52,15 @@ export default function Reviews({ className, limit }) {
       />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         {reviews.map((review) => (
-          <div className="bg-fonline-50 rounded-l-xl rounded-t-xl p-4">
+          <div className="flex flex-col justify-between bg-fonline-50 rounded-l-xl rounded-t-xl p-4">
             <Stars value={review.rating} />
-            <div className="my-2 italic">{review.content}</div>
-            <div className="flex place-content-between text-gray-500">
-              <div>{`- ${review.username}`}</div>
-              <div className="text-xs inline-flex items-center ml-2 ">
+            <div className="mt-2 mb-auto italic">{review.content}</div>
+            <div className="flex justify-between mt-2 text-gray-500">
+              <div>
+                {`- ${review.username}`}
+              </div>
+
+              <div className="text-xs inline-flex items-center ml-2">
                 {review.platform === 'iOS'
                 && (
                 <>
