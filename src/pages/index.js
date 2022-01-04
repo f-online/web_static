@@ -12,7 +12,7 @@ export default function IndexPage() {
       <div className="bg-gradient-to-r from-fonline-600 via-fonline-700 to-fonline-500 ">
         <Section containerClassName="flex flex-col lg:flex-row">
           <div className="w-full pr-10 text-white text-left font-bold order-2 lg:order-1">
-            <img src="https://d33wubrfki0l68.cloudfront.net/a33b57a4be108ccdf2a32e3702272ed5c4904952/7e28f/img/bg-mac.png" />
+            <img src="https://d33wubrfki0l68.cloudfront.net/a33b57a4be108ccdf2a32e3702272ed5c4904952/7e28f/img/bg-mac.png" alt="Example Mockup on Macbook and Phone" />
           </div>
           <div className="bg-white p-6 rounded text-center order-1 lg:order-2">
             <h1 className="text-4xl font-semibold">Kostenlos für den Führerschein lernen</h1>
