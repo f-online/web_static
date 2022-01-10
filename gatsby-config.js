@@ -1,3 +1,5 @@
+require('dotenv').config({ path: '.env' });
+
 module.exports = {
   siteMetadata: {
     siteUrl: 'https://www.f-online.at',
@@ -9,5 +11,14 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     'gatsby-plugin-postcss',
+    {
+      resolve: 'gatsby-source-sanity',
+      options: {
+        projectId: 't9maew4z',
+        dataset: 'production',
+        watchMode: true,
+        token: process.env.SANITY_TOKEN,
+      },
+    },
   ],
 };
