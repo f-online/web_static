@@ -6,6 +6,7 @@ import Quote from '../components/Quote';
 import SectionHeader from '../components/SectionHeader';
 import Team from '../components/Team';
 import FAQ from '../components/FAQ';
+import Reviews from '../components/Reviews';
 
 export default function StaticPage({ data: { staticPage } }) {
   return (
@@ -67,6 +68,19 @@ export default function StaticPage({ data: { staticPage } }) {
           );
         }
 
+        if (section._type === 'reviewObject') {
+          return (
+            <Section className={cssClass}>
+              <SectionHeader
+                title={section.title}
+                subtitle={section.subTitle}
+              />
+
+              <Reviews limit={section.limit} />
+            </Section>
+          );
+        }
+
         // Fallback for not known elements
         return <></>;
       })}
@@ -101,6 +115,12 @@ export const query = graphql`
           subTitle
         }
         ... on SanityFaqObject {
+          _type
+          title
+          subTitle
+          limit
+        }
+        ... on SanityReviewObject {
           _type
           title
           subTitle
