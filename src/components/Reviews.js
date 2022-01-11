@@ -9,7 +9,7 @@ import Stars from './Stars';
 export default function Reviews({ className, limit }) {
   const { reviews } = useStaticQuery(graphql`
     query {
-      reviews: allSanityReview {
+      reviews: allSanityReview(filter: {countries: {elemMatch: {countryCode: {eq: "at"}}}}) {
         nodes {
           id
           name
