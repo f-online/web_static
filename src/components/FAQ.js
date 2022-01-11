@@ -2,10 +2,8 @@ import BlockContent from '@sanity/block-content-to-react';
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import ButtonLink from './ButtonLink';
-import Section from './Section';
-import SectionHeader from './SectionHeader';
 
-export default function FAQ({ className, limit = 0 }) {
+export default function FAQ({ limit = 0 }) {
   const { faqs } = useStaticQuery(graphql`
     query {
       faqs: allSanityFaq(filter: {countries: {elemMatch: {countryCode: {eq: "at"}}}}) {
@@ -25,12 +23,7 @@ export default function FAQ({ className, limit = 0 }) {
   }
 
   return (
-    <Section className={className}>
-      <SectionHeader
-        title="Frequently Asked Questions (FAQ)"
-        subtitle="Hast du Fragen oder funktioniert etwas nicht? Nachfolgend findest du die meist gestellten Fragen - vielleicht ist deine Antwort bereits dabei!"
-      />
-
+    <>
       <div>
         {faqNodes.map((faq) => (
           <details key={`faq${faq.id}`} className="bg-white p-5 text-center mb-5 drop-shadow-lg text-lg transition-all rounded">
@@ -51,6 +44,6 @@ export default function FAQ({ className, limit = 0 }) {
             <ButtonLink to="/faq" text="Alle Fragen anzeigen" />
           </div>
         )}
-    </Section>
+    </>
   );
 }

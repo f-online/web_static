@@ -1,12 +1,13 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
-import { AiFillApple, AiFillAndroid } from 'react-icons/ai';
+import {
+  AiFillApple, AiFillAndroid, AiOutlineStar, AiFillStar,
+} from 'react-icons/ai';
 import ButtonLink from './ButtonLink';
 import Section from './Section';
 import SectionHeader from './SectionHeader';
-import Stars from './Stars';
 
-export default function Reviews({ className, limit }) {
+export default function Reviews({ limit }) {
   const { reviews } = useStaticQuery(graphql`
     query {
       reviews: allSanityReview(filter: {countries: {elemMatch: {countryCode: {eq: "at"}}}}) {
@@ -21,14 +22,16 @@ export default function Reviews({ className, limit }) {
     }
   `);
 
+  let reviewNodes = reviews.nodes;
+
+  if (limit > 0) {
+    reviewNodes = reviewNodes.slice(0, limit);
+  }
+
   return (
-    <Section className={className}>
-      <SectionHeader
-        title="Reviews"
-        subtitle="Das sagen andere Nutzer über F-Online"
-      />
+    <>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-        {reviews.nodes.map((review) => (
+        {reviewNodes.map((review) => (
           <div className="flex flex-col justify-between bg-fonline-50 rounded-l-xl rounded-t-xl p-4">
             <Stars value={review.stars} />
             <div className="mt-2 mb-auto italic">{review.reviewText}</div>
@@ -57,12 +60,31 @@ export default function Reviews({ className, limit }) {
           </div>
         ))}
       </div>
+
       {limit > 0
         && (
           <div className="text-center mt-10">
             <ButtonLink to="/reviews" text="Mehr Reviews anzeigen" />
           </div>
         )}
-    </Section>
+    </>
+  );
+}
+
+function Stars({
+  value, max = 5, size = 25, className,
+}) {
+  const fullStars = new Array(value).fill(0);
+  const emptyStars = new Array(max - value).fill(0);
+
+  return (
+    <span className={`inline-flex text-fonline-500 ${className}`}>
+      {fullStars.map(() => (
+        <AiFillStar size={size} />
+      ))}
+      {emptyStars.map(() => (
+        <AiOutlineStar size={size} />
+      ))}
+    </span>
   );
 }

@@ -1,8 +1,6 @@
 import React from 'react';
-import Section from './Section';
-import SectionHeader from './SectionHeader';
 
-export default function Features({ className }) {
+export default function Features() {
   const features = [
     {
       id: 0,
@@ -37,12 +35,7 @@ export default function Features({ className }) {
   ];
 
   return (
-    <Section className={className}>
-      <SectionHeader
-        title="Warum F-Online?"
-        subtitle="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum obcaecati dignissimos quae quo ad iste ipsum officiis deleniti asperiores sit."
-      />
-
+    <>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         {features.map((feature) => (
           <div className="text-center p-5 border-b-4 border-transparent hover:border-fonline-700 hover:shadow-2xl transition-shadow" key={`feature${feature.id}`}>
@@ -54,6 +47,6 @@ export default function Features({ className }) {
           </div>
         ))}
       </div>
-    </Section>
+    </>
   );
 }

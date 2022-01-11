@@ -7,6 +7,7 @@ import Section from '../components/Section';
 import Reviews from '../components/Reviews';
 import Quote from '../components/Quote';
 import Waves from '../components/Waves';
+import SectionHeader from '../components/SectionHeader';
 
 export default function IndexPage() {
   return (
@@ -77,9 +78,23 @@ export default function IndexPage() {
         <Waves />
       </div>
 
-      <Features className="bg-fonline-50" />
+      <Section className="bg-fonline-50">
+        <SectionHeader
+          title="Warum F-Online?"
+          subtitle="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum obcaecati dignissimos quae quo ad iste ipsum officiis deleniti asperiores sit."
+        />
+        
+        <Features />
+      </Section>
 
-      <Reviews limit={6} />
+      <Section>
+        <SectionHeader
+          title="Reviews"
+          subtitle="Das sagen andere Nutzer über F-Online"
+        />
+
+        <Reviews limit={6} />
+      </Section>
 
       <Quote
         author="Otto Fürst von Bismarck"
@@ -87,9 +102,23 @@ export default function IndexPage() {
         qoute="Die erste Generation schafft Vermögen, die zweite verwaltet Vermögen, die dritte studiert Kunstgeschichte, und die vierte verkommt."
       />
 
-      <Team className="bg-fonline-50" />
+      <Section className="bg-fonline-50">
+        <SectionHeader
+          title="Unser Team"
+          subtitle="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum obcaecati dignissimos quae quo ad iste ipsum officiis deleniti asperiores sit."
+        />
 
-      <FAQ limit={5} />
+        <Team />
+      </Section>
+
+      <Section>
+        <SectionHeader
+          title="Frequently Asked Questions (FAQ)"
+          subtitle="Hast du Fragen oder funktioniert etwas nicht? Nachfolgend findest du die meist gestellten Fragen - vielleicht ist deine Antwort bereits dabei!"
+        />
+
+        <FAQ limit={5} />
+      </Section>
     </>
   );
 }
