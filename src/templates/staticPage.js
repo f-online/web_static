@@ -5,18 +5,19 @@ import Section from '../components/Section';
 import Quote from '../components/Quote';
 import SectionHeader from '../components/SectionHeader';
 import Team from '../components/Team';
+import FAQ from '../components/FAQ';
 
 export default function StaticPage({ data: { staticPage } }) {
   return (
     <>
       {staticPage.sections.map((section, index) => {
-        if (section._type === 'section') {
         // Stripe background
-          let cssClass = '';
-          if (index === 0 || index % 2 === 0) {
-            cssClass = 'bg-fonline-50';
-          }
+        let cssClass = '';
+        if (index === 0 || index % 2 === 0) {
+          cssClass = 'bg-fonline-50';
+        }
 
+        if (section._type === 'section') {
           // special cases
           if ((staticPage.slug.current === 'impressum' && index === 0) || staticPage.slug.current === 'kontakt') {
             cssClass += ' text-center';
@@ -42,13 +43,26 @@ export default function StaticPage({ data: { staticPage } }) {
 
         if (section._type === 'teamObject') {
           return (
-            <Section>
+            <Section className={cssClass}>
               <SectionHeader
                 title={section.title}
                 subtitle={section.subTitle}
               />
 
               <Team />
+            </Section>
+          );
+        }
+
+        if (section._type === 'faqObject') {
+          return (
+            <Section className={cssClass}>
+              <SectionHeader
+                title={section.title}
+                subtitle={section.subTitle}
+              />
+
+              <FAQ limit={section.limit} />
             </Section>
           );
         }
@@ -85,6 +99,12 @@ export const query = graphql`
           _type
           title
           subTitle
+        }
+        ... on SanityFaqObject {
+          _type
+          title
+          subTitle
+          limit
         }
       }
     }
