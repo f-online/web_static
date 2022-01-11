@@ -83,7 +83,7 @@ export default function IndexPage() {
           title="Warum F-Online?"
           subtitle="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum obcaecati dignissimos quae quo ad iste ipsum officiis deleniti asperiores sit."
         />
-        
+
         <Features />
       </Section>
 

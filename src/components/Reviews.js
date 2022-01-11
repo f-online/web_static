@@ -4,8 +4,6 @@ import {
   AiFillApple, AiFillAndroid, AiOutlineStar, AiFillStar,
 } from 'react-icons/ai';
 import ButtonLink from './ButtonLink';
-import Section from './Section';
-import SectionHeader from './SectionHeader';
 
 export default function Reviews({ limit }) {
   const { reviews } = useStaticQuery(graphql`
