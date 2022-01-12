@@ -7,6 +7,7 @@ import SectionHeader from '../components/SectionHeader';
 import Team from '../components/Team';
 import FAQ from '../components/FAQ';
 import Reviews from '../components/Reviews';
+import Features from '../components/Features';
 
 export default function StaticPage({ data: { staticPage } }) {
   return (
@@ -81,6 +82,19 @@ export default function StaticPage({ data: { staticPage } }) {
           );
         }
 
+        if (section._type === 'featureObject') {
+          return (
+            <Section className={cssClass}>
+              <SectionHeader
+                title={section.title}
+                subtitle={section.subTitle}
+              />
+
+              <Features limit={section.limit} />
+            </Section>
+          );
+        }
+
         // Fallback for not known elements
         return <></>;
       })}
@@ -121,6 +135,12 @@ export const query = graphql`
           limit
         }
         ... on SanityReviewObject {
+          _type
+          title
+          subTitle
+          limit
+        }
+        ... on SanityFeatureObject {
           _type
           title
           subTitle
