@@ -71,7 +71,15 @@ export default function IndexPage() {
               {' '}
               dein gratis Lernkonto!
             </p>
-            <p />
+
+            <p className="flex gap-4 justify-center">
+              <a href="https://apps.apple.com/at/app/f-online/id1119605799">
+                <img src="/download-app-store.svg" alt="Download on App Store" className="h-16" />
+              </a>
+              <a href="https://play.google.com/store/apps/details?id=at.f_online.android">
+                <img src="/download-play-store.svg" alt="Download on Play Store" className="h-16" />
+              </a>
+            </p>
           </div>
         </Section>
 
@@ -81,7 +89,7 @@ export default function IndexPage() {
       <Section className="bg-fonline-50">
         <SectionHeader
           title="Warum F-Online?"
-          subtitle="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum obcaecati dignissimos quae quo ad iste ipsum officiis deleniti asperiores sit."
+          subtitle="F-Online bietet dir kostenlos eine vollumfängliche Lernapplikation mit allen offiziellen Fragen zur Führerscheinprüfung. Überzeuge dich am besten selbst!"
         />
 
         <Features />
@@ -105,7 +113,7 @@ export default function IndexPage() {
       <Section className="bg-fonline-50">
         <SectionHeader
           title="Unser Team"
-          subtitle="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum obcaecati dignissimos quae quo ad iste ipsum officiis deleniti asperiores sit."
+          subtitle="Das Team hinter F-Online steht mit Leidenschaft hinter der Idee, eine kostenfreie Führerscheinbildung für alle anzubieten."
         />
 
         <Team />
