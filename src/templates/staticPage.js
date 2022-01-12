@@ -8,10 +8,13 @@ import Team from '../components/Team';
 import FAQ from '../components/FAQ';
 import Reviews from '../components/Reviews';
 import Features from '../components/Features';
+import SEO from '../components/SEO';
 
 export default function StaticPage({ data: { staticPage } }) {
   return (
     <>
+      <SEO title={staticPage.title} />
+
       {staticPage.sections.map((section, index) => {
         // Stripe background
         let cssClass = '';

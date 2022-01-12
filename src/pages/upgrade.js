@@ -2,10 +2,13 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import Section from '../components/Section';
 import SectionHeader from '../components/SectionHeader';
+import SEO from '../components/SEO';
 
 export default function UpgradePage() {
   return (
     <>
+      <SEO title="Upgrade zur werbefreien Version" />
+
       <Helmet>
         <script src="https://www.paypal.com/sdk/js?client-id=Ad8dd58EhUXHIa-6hqrtvgkvdH7flIoFYcs6JKF5ExhcirOnbXAbFOna-TDknQamOs6pJGV592Xdfy52&currency=EUR" />
         <script src="/scripts/upgrade.js" />

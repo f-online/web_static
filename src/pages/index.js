@@ -8,10 +8,13 @@ import Reviews from '../components/Reviews';
 import Quote from '../components/Quote';
 import Waves from '../components/Waves';
 import SectionHeader from '../components/SectionHeader';
+import SEO from '../components/SEO';
 
 export default function IndexPage() {
   return (
     <>
+      <SEO title="Kostenlos für den Führerschein lernen!" />
+
       <div className="bg-gradient-to-r from-fonline-600 via-fonline-700 to-fonline-500 ">
         <Section containerClassName="flex flex-col lg:flex-row">
           <div className="w-full pr-10 text-white text-left font-bold order-2 lg:order-1">
