@@ -1,6 +1,7 @@
 [build]
   command = "npm install && npm run build"
   publish = "public"
+  environment = { NODE_VERSION = "16" }
  
 [[plugins]]
   package = "netlify-plugin-gatsby-cache"
