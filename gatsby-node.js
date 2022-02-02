@@ -3,7 +3,7 @@ const path = require('path');
 exports.createPages = async ({ graphql, actions }) => {
   console.info('[CreateStaticPages] Start creating static pages');
 
-  const staticPageTemplate = path.resolve('./src/templates/StaticPage.js');
+  const staticPageTemplate = path.resolve('./src/templates/staticPage.js');
 
   const { data } = await graphql(`
     query {
