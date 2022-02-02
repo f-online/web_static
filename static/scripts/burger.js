@@ -1,6 +1,7 @@
+/* eslint-disable prefer-const */
 // open
-const burger = document.querySelectorAll('.navbar-burger');
-const menu = document.querySelectorAll('.navbar-menu');
+let burger = document.querySelectorAll('.navbar-burger');
+let menu = document.querySelectorAll('.navbar-menu');
 
 if (burger.length && menu.length) {
   for (let i = 0; i < burger.length; i += 1) {
@@ -13,8 +14,8 @@ if (burger.length && menu.length) {
 }
 
 // close
-const close = document.querySelectorAll('.navbar-close');
-const backdrop = document.querySelectorAll('.navbar-backdrop');
+let close = document.querySelectorAll('.navbar-close');
+let backdrop = document.querySelectorAll('.navbar-backdrop');
 
 if (close.length) {
   for (let i = 0; i < close.length; i += 1) {
