@@ -27,7 +27,7 @@ export default function Footer() {
       </div>
       <div>
         {footerLinks.map((footerLink) => (
-          <Link to={footerLink.slug.current} key={footerLink.id} className="pr-4">{footerLink.title}</Link>
+          <Link to={`/${footerLink.slug.current}`} key={footerLink.id} className="pr-4">{footerLink.title}</Link>
         ))}
       </div>
 
