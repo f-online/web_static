@@ -38,7 +38,7 @@ export default function DrivingSchoolsPage() {
   const drivingSchoolsRegions = [];
 
   // group by region
-  drivingschools.foreach((drivingschool) => {
+  drivingschools.forEach((drivingschool) => {
     drivingSchoolsGroupedByRegion[drivingschool.region.name] = [
       ...drivingSchoolsGroupedByRegion[drivingschool.region.name] || [],
       drivingschool,
