@@ -37,7 +37,7 @@ export default function DrivingSchoolsPage() {
   const drivingSchoolsRegions = [];
 
   // group by region
-  drivingschools.map((drivingschool) => {
+  drivingschools.foreach((drivingschool) => {
     drivingSchoolsGroupedByRegion[drivingschool.region.name] = [
       ...drivingSchoolsGroupedByRegion[drivingschool.region.name] || [],
       drivingschool,
@@ -72,7 +72,10 @@ export default function DrivingSchoolsPage() {
                 {region.drivingSchools.map((drivingSchool) => (
                   <div className="p-5 rounded-lg text-center border-b-4 hover:bg-white border-transparent hover:border-fonline-500 hover:shadow-2xl transition-shadow duration-300">
                     <div className="flex items-center justify-center h-40 mb-3">
-                      <GatsbyImage image={drivingSchool.logo.asset.gatsbyImageData} alt={drivingSchool.name} />
+                      <GatsbyImage
+                        image={drivingSchool.logo.asset.gatsbyImageData}
+                        alt={drivingSchool.name}
+                      />
                     </div>
                     <div>
                       <strong>{drivingSchool.name}</strong>
