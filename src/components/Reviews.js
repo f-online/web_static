@@ -30,7 +30,10 @@ export default function Reviews({ limit }) {
     <>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         {reviewNodes.map((review) => (
-          <div className="flex flex-col justify-between bg-fonline-50 rounded-l-xl rounded-t-xl p-4">
+          <div
+            className="flex flex-col justify-between bg-fonline-50 rounded-l-xl rounded-t-xl p-4"
+            key={review.id}
+          >
             <Stars value={review.stars} />
             <div className="mt-2 mb-auto italic">{review.reviewText}</div>
             <div className="flex justify-between mt-2 text-gray-500">

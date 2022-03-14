@@ -7,12 +7,13 @@ import SEO from '../components/SEO';
 
 export default function DrivingSchoolsPage() {
   const { drivingschoolNodes } = useStaticQuery(graphql`
-    query MyQuery {
+    query {
       drivingschoolNodes: allSanityDrivingSchool(
         filter: {country: {countryCode: {eq: "at"}}}
         sort: {fields: zip}
       ) {
         nodes {
+          id
           name
           zip
           street
@@ -64,13 +65,16 @@ export default function DrivingSchoolsPage() {
 
         <div>
           {drivingSchoolsRegions.map((region) => (
-            <div className="my-10">
+            <div className="my-10" key={region.regionName}>
               <h3 className="text-2xl text-center font-bold mb-2 text-gray-800">{region.regionName}</h3>
               <div className="w-10 h-0.5 bg-fonline-500 mx-auto mb-3" />
               <h4 className="text-center text-gray-500 max-w-md mx-auto mb-5">{`${region.drivingSchools.length} Fahrschulen sind in ${region.regionName} zu finden`}</h4>
               <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10">
                 {region.drivingSchools.map((drivingSchool) => (
-                  <div className="p-5 rounded-lg text-center border-b-4 hover:bg-white border-transparent hover:border-fonline-500 hover:shadow-2xl transition-shadow duration-300">
+                  <div
+                    className="p-5 rounded-lg text-center border-b-4 hover:bg-white border-transparent hover:border-fonline-500 hover:shadow-2xl transition-shadow duration-300"
+                    key={drivingSchool.id}
+                  >
                     <div className="flex items-center justify-center h-40 mb-3">
                       <GatsbyImage
                         image={drivingSchool.logo.asset.gatsbyImageData}

@@ -26,7 +26,7 @@ export default function FAQ({ limit = 0 }) {
     <>
       <div>
         {faqNodes.map((faq) => (
-          <details key={`faq${faq.id}`} className="bg-white p-5 text-center mb-5 drop-shadow-lg text-lg transition-all rounded">
+          <details key={faq.id} className="bg-white p-5 text-center mb-5 drop-shadow-lg text-lg transition-all rounded">
             <summary className="font-semibold cursor-pointer select-none">
               {faq.question}
             </summary>

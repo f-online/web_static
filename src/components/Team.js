@@ -25,7 +25,7 @@ export default function Team() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
       {team.nodes.map((teammember) => (
-        <div className="flex flex-col align-items-center text-center p-5" key={`team${teammember.id}`}>
+        <div className="flex flex-col align-items-center text-center p-5" key={teammember.id}>
           <div className="mx-auto mb-5 relative">
             <GatsbyImage image={teammember.image.asset.gatsbyImageData} alt={teammember.name} className="h-40 w-40 rounded-full" />
             <a href={`mailto:${teammember.mail}`} className="absolute h-6 w-6 right-0 bottom-2 p-5 bg-fonline-500 hover:bg-fonline-700 rounded-l-xl rounded-t-xl">
