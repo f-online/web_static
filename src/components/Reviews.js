@@ -34,7 +34,7 @@ export default function Reviews({ limit }) {
             className="flex flex-col justify-between bg-fonline-50 rounded-l-xl rounded-t-xl p-4"
             key={review.id}
           >
-            <Stars value={review.stars} />
+            <Stars value={review.stars} keySuffix={review.id} />
             <div className="mt-2 mb-auto italic">{review.reviewText}</div>
             <div className="flex justify-between mt-2 text-gray-500">
               <div>
@@ -73,18 +73,20 @@ export default function Reviews({ limit }) {
 }
 
 function Stars({
-  value, max = 5, size = 25, className,
+  value, max = 5, size = 25, className, keySuffix,
 }) {
   const fullStars = new Array(value).fill(0);
   const emptyStars = new Array(max - value).fill(0);
 
+  console.log(keySuffix);
+
   return (
     <span className={`inline-flex text-fonline-500 ${className}`}>
       {fullStars.map(() => (
-        <AiFillStar size={size} />
+        <AiFillStar size={size} key={`filled-${keySuffix}`} />
       ))}
       {emptyStars.map(() => (
-        <AiOutlineStar size={size} />
+        <AiOutlineStar size={size} key={`empty-${keySuffix}`} />
       ))}
     </span>
   );
