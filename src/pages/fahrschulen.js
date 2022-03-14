@@ -1,84 +1,61 @@
+import { graphql, useStaticQuery } from 'gatsby';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import React from 'react';
 import Section from '../components/Section';
 import SectionHeader from '../components/SectionHeader';
 import SEO from '../components/SEO';
 
 export default function DrivingSchoolsPage() {
-  const drivingSchoolsAreas = [
-    {
-      state: 'Niederösterreich',
-      schools: [{
-        name: 'Fahrschule POLIVKA',
-        street: 'Kremser Landstr.76',
-        city: '3100 St. Pölten',
-        web: 'www.polivka.at',
-      },
-      {
-        name: 'Fahrschule POLIVKA',
-        street: 'Kremser Landstr.76',
-        city: '3100 St. Pölten',
-        web: 'www.polivka.at',
-      },
-      {
-        name: 'Fahrschule POLIVKA',
-        street: 'Kremser Landstr.76',
-        city: '3100 St. Pölten',
-        web: 'www.polivka.at',
-      },
-      {
-        name: 'Fahrschule POLIVKA',
-        street: 'Kremser Landstr.76',
-        city: '3100 St. Pölten',
-        web: 'www.polivka.at',
-      },
-      {
-        name: 'Fahrschule POLIVKA',
-        street: 'Kremser Landstr.76',
-        city: '3100 St. Pölten',
-        web: 'www.polivka.at',
-      },
-      {
-        name: 'Fahrschule POLIVKA',
-        street: 'Kremser Landstr.76',
-        city: '3100 St. Pölten',
-        web: 'www.polivka.at',
-      },
-      {
-        name: 'Fahrschule POLIVKA',
-        street: 'Kremser Landstr.76',
-        city: '3100 St. Pölten',
-        web: 'www.polivka.at',
-      },
-      {
-        name: 'Fahrschule POLIVKA',
-        street: 'Kremser Landstr.76',
-        city: '3100 St. Pölten',
-        web: 'www.polivka.at',
-      },
-      ],
-    },
-    {
-      state: 'Salzburg',
-      schools: [{
-        name: 'Fahrschule POLIVKA',
-        street: 'Kremser Landstr.76',
-        city: '3100 St. Pölten',
-        web: 'www.polivka.at',
-      },
-      {
-        name: 'Fahrschule POLIVKA',
-        street: 'Kremser Landstr.76',
-        city: '3100 St. Pölten',
-        web: 'www.polivka.at',
-      },
-      ],
-    },
-  ];
+  const { drivingschoolNodes } = useStaticQuery(graphql`
+    query MyQuery {
+      drivingschoolNodes: allSanityDrivingSchool(
+        filter: {country: {countryCode: {eq: "at"}}}
+        sort: {fields: zip}
+      ) {
+        nodes {
+          name
+          zip
+          street
+          city
+          region {
+            name
+          }
+          url
+          logo {
+            asset {
+              gatsbyImageData
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  const drivingschools = drivingschoolNodes.nodes;
+
+  const drivingSchoolsGroupedByRegion = [];
+  const drivingSchoolsRegions = [];
+
+  // group by region
+  drivingschools.map((drivingschool) => {
+    drivingSchoolsGroupedByRegion[drivingschool.region.name] = [
+      ...drivingSchoolsGroupedByRegion[drivingschool.region.name] || [],
+      drivingschool,
+    ];
+  });
+
+  // eslint-disable-next-line no-restricted-syntax
+  for (const [key, value] of Object.entries(drivingSchoolsGroupedByRegion)) {
+    drivingSchoolsRegions.push({
+      regionName: key,
+      drivingSchools: value,
+    });
+  }
 
   return (
     <>
       <SEO title="Fahrschulen" />
-      
+
       <Section className="bg-fonline-50">
         <SectionHeader
           title="Fahrschulen"
@@ -86,29 +63,33 @@ export default function DrivingSchoolsPage() {
         />
 
         <div>
-          {drivingSchoolsAreas.map((area) => (
+          {drivingSchoolsRegions.map((region) => (
             <div className="my-10">
-              <h3 className="text-2xl text-center font-bold mb-2 text-gray-800">{area.state}</h3>
+              <h3 className="text-2xl text-center font-bold mb-2 text-gray-800">{region.regionName}</h3>
               <div className="w-10 h-0.5 bg-fonline-500 mx-auto mb-3" />
-              <h4 className="text-center text-gray-500 max-w-md mx-auto mb-5">{`${area.schools.length} Fahrschulen sind in ${area.state} zu finden`}</h4>
+              <h4 className="text-center text-gray-500 max-w-md mx-auto mb-5">{`${region.drivingSchools.length} Fahrschulen sind in ${region.regionName} zu finden`}</h4>
               <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10">
-                {area.schools.map((school) => (
+                {region.drivingSchools.map((drivingSchool) => (
                   <div className="p-5 rounded-lg text-center border-b-4 hover:bg-white border-transparent hover:border-fonline-500 hover:shadow-2xl transition-shadow duration-300">
-                    <strong>{school.name}</strong>
-                    <br />
-                    {school.street}
-                    <br />
-                    {school.city}
-                    <br />
-                    <a href={school.web}>{school.web}</a>
-                    <br />
+                    <div className="flex items-center justify-center h-40 mb-3">
+                      <GatsbyImage image={drivingSchool.logo.asset.gatsbyImageData} alt={drivingSchool.name} />
+                    </div>
+                    <div>
+                      <strong>{drivingSchool.name}</strong>
+                      <br />
+                      {drivingSchool.street}
+                      <br />
+                      {`${drivingSchool.zip} ${drivingSchool.city}`}
+                      <br />
+                      <a href={drivingSchool.url}>{drivingSchool.url}</a>
+                      <br />
+                    </div>
                   </div>
                 ))}
               </div>
             </div>
           ))}
         </div>
-
       </Section>
     </>
   );
