@@ -2,8 +2,10 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 
 export default function SEO({
-  children, title, description, siteTitleTemplate,
+  children, title, description, socialImageUrl, siteTitleTemplate,
 }) {
+  const currentURL = typeof window !== 'undefined' ? window.location.href : '';
+
   return (
     <Helmet titleTemplate={siteTitleTemplate || '%s - F-Online'}>
       <html lang="de" />
@@ -17,7 +19,7 @@ export default function SEO({
       <meta charSet="utf-8" />
       <meta
         name="description"
-        content={description || ''}
+        content={description}
       />
 
       {/* Themecolor */}
@@ -25,6 +27,18 @@ export default function SEO({
         name="theme-color"
         content="#275BB2"
       />
+
+      {/* Social Tags */}
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content={currentURL} />
+      <meta property="og:image" content={socialImageUrl} />
+
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={socialImageUrl} />
+      <meta name="twitter:card" content="summary_large_image" />
 
       {children}
     </Helmet>

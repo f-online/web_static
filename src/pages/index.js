@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { BiDonateHeart } from 'react-icons/bi';
+import { graphql, useStaticQuery } from 'gatsby';
 import FAQ from '../components/FAQ';
 import Features from '../components/Features';
 import Team from '../components/Team';
@@ -11,9 +12,33 @@ import SectionHeader from '../components/SectionHeader';
 import SEO from '../components/SEO';
 
 export default function IndexPage() {
+  const { indexNodes } = useStaticQuery(graphql`
+    query {
+      indexNodes: allSanityCountry(filter: {countryCode: {eq: "at"}}) {
+        nodes {
+          seo {
+            title
+            description
+            socialImage {
+              asset {
+                url
+              }
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  const indexInfo = indexNodes.nodes[0];
+
   return (
     <>
-      <SEO title="Kostenlos für den Führerschein lernen!" />
+      <SEO
+        title={indexInfo.seo.title}
+        description={indexInfo.seo.description}
+        socialImageUrl={indexInfo.seo.socialImage.asset.url}
+      />
 
       <div className="bg-gradient-to-r from-fonline-600 via-fonline-700 to-fonline-500 ">
         <Section containerClassName="flex flex-col lg:flex-row">

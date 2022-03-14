@@ -13,7 +13,11 @@ import SEO from '../components/SEO';
 export default function StaticPage({ data: { staticPage } }) {
   return (
     <>
-      <SEO title={staticPage.title} />
+      <SEO
+        title={staticPage.seo.title}
+        description={staticPage.seo.description}
+        socialImageUrl={staticPage.seo.socialImage?.asset?.url}
+      />
 
       {staticPage.sections.map((section, index) => {
         // Stripe background
@@ -112,6 +116,15 @@ export const query = graphql`
       title
       slug {
         current
+      }
+      seo {
+        title
+        description
+        socialImage {
+          asset {
+            url
+          }
+        }
       }
       sections {
         ... on SanityQuote {
