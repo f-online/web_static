@@ -20,5 +20,16 @@ module.exports = {
         token: process.env.SANITY_TOKEN,
       },
     },
+    {
+      resolve: 'gatsby-plugin-matomo',
+      options: {
+        siteId: '16',
+        matomoUrl: 'https://piwik.inlupus.at/',
+        matomoPhpScript: 'matomo.php',
+        matomoJsScript: 'matomo.js',
+        siteUrl: '*.f-online.app',
+        dev: true,
+      },
+    },
   ],
 };
