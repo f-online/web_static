@@ -1,37 +1,42 @@
-import BlockContent from '@sanity/block-content-to-react';
 import { graphql } from 'gatsby';
+import BlockContent from '@sanity/block-content-to-react';
 import React from 'react';
+import FAQ from '../components/FAQ';
+import Features from '../components/Features';
+import Team from '../components/Team';
 import Section from '../components/Section';
+import Reviews from '../components/Reviews';
 import Quote from '../components/Quote';
 import SectionHeader from '../components/SectionHeader';
-import Team from '../components/Team';
-import FAQ from '../components/FAQ';
-import Reviews from '../components/Reviews';
-import Features from '../components/Features';
 import SEO from '../components/SEO';
+import Login from '../components/Login';
 
-export default function StaticPage({ data: { staticPage } }) {
+export default function countryIndexPage({ data: { country } }) {
   return (
     <>
       <SEO
-        title={staticPage.seo.title}
-        description={staticPage.seo.description}
-        socialImageUrl={staticPage.seo.socialImage?.asset?.url}
+        title={country.seo.title}
+        description={country.seo.description}
+        socialImageUrl={country.seo.socialImage?.asset?.url}
       />
 
-      {staticPage.sections.map((section, index) => {
+      {country.sections.map((section, index) => {
         // Stripe background
-        let cssClass = '';
+        let cssClass = 'bg-fonline-50';
         if (index === 0 || index % 2 === 0) {
-          cssClass = 'bg-fonline-50';
+          cssClass = '';
+        }
+
+        if (section._type === 'loginObject') {
+          return (
+            <Login
+              title={section.title}
+              subTitle={section.subTitle}
+              screenshot={section.screenshot.asset.gatsbyImageData}/>
+          );
         }
 
         if (section._type === 'section') {
-          // special cases
-          if ((staticPage.slug.current === 'impressum' && index === 0) || staticPage.slug.current === 'kontakt') {
-            cssClass += ' text-center';
-          }
-
           return (
             <Section className={cssClass}>
               <SectionHeader
@@ -111,12 +116,10 @@ export default function StaticPage({ data: { staticPage } }) {
 
 export const query = graphql`
   query ($documentId: String!) {
-    staticPage: sanityStaticPage(id: { eq: $documentId }) {
+    country: sanityCountry(id: { eq: $documentId }) {
       id
-      title
-      slug {
-        current
-      }
+      name
+      countryCode
       seo {
         title
         description
@@ -161,6 +164,16 @@ export const query = graphql`
           title
           subTitle
           limit
+        }
+        ... on SanityLoginObject {
+          _type
+          title
+          subTitle
+          screenshot {
+            asset {
+              gatsbyImageData
+            }
+          }
         }
       }
     }
