@@ -1,11 +1,12 @@
 const path = require('path');
+const { title } = require('process');
 
 exports.createPages = async ({ graphql, actions }) => {
   console.info('[CreateStaticPages] Start creating static pages');
 
   const staticPageTemplate = path.resolve('./src/templates/staticPage.js');
 
-  const { data } = await graphql(`
+  const { data: { staticPages } } = await graphql(`
     query {
       staticPages: allSanityStaticPage {
         nodes {
@@ -14,21 +15,34 @@ exports.createPages = async ({ graphql, actions }) => {
           slug {
             current
           }
+          country {
+            countryCode
+          }
+          seo {
+            title
+            description
+          }
         }
       }
     }
   `);
-  // 3. Loop over each pizza and create a page
-  data.staticPages.nodes.forEach((staticPage) => {
+
+  staticPages.nodes.forEach((staticPage) => {
+    const staticPagePath = `${staticPage.country.countryCode}/${staticPage.slug.current}`;
+
     actions.createPage({
-      path: `${staticPage.slug.current}`,
+      path: staticPagePath,
       component: staticPageTemplate,
       context: {
         staticPageId: staticPage.id,
+        seo: {
+          title: staticPage.seo.title,
+          description: staticPage.seo.description,
+        },
       },
     });
     console.info(
-      `[CreateStaticPages] Created page for ${staticPage.title} (path: /${staticPage.slug.current})`,
+      `[CreateStaticPages] Created page for ${staticPage.title} (path: /${staticPagePath})`,
     );
   });
 

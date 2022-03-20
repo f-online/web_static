@@ -23,6 +23,9 @@ export default function Nav() {
             slug {
               current
             }
+            country {
+              countryCode
+            }
           }
         }
       }
@@ -65,7 +68,7 @@ export default function Nav() {
               <Link
                 className="text-sm"
                 activeClassName="text-sm text-fonline-500 font-bold"
-                to={`/${headerLink.slug.current}`}
+                to={`/${headerLink.country.countryCode}/${headerLink.slug.current}`}
               >
                 {headerLink.title}
               </Link>
@@ -81,7 +84,7 @@ export default function Nav() {
         </a>
         <a
           className="hidden lg:inline-block py-2 px-6 bg-fonline-500 hover:bg-fonline-300 text-sm text-white font-bold rounded-l-xl rounded-t-xl transition duration-200"
-          href="app.f-online.at"
+          href="https://app.f-online.at/#register"
         >
           Sign up
         </a>
@@ -119,7 +122,7 @@ export default function Nav() {
                 >
                   <Link
                     className="block text-fonline-400 p-3 hover:bg-fonline-50 hover:font-semibold hover:text-fonline-500 rounded"
-                    to={`/${headerLink.slug.current}`}
+                    to={`/${headerLink.country.countryCode}/${headerLink.slug.current}`}
                   >
                     {headerLink.title}
                   </Link>
@@ -130,7 +133,7 @@ export default function Nav() {
           <div className="mt-auto">
             <div className="pt-6">
               <a className="block px-4 py-3 mb-3 leading-loose text-xs text-center font-semibold leading-none bg-gray-50 hover:bg-gray-100 rounded-l-xl rounded-t-xl" href="#">Sign in</a>
-              <a className="block px-4 py-3 mb-2 leading-loose text-xs text-center text-white font-semibold bg-fonline-600 hover:bg-fonline-700 rounded-l-xl rounded-t-xl" href="#">Sign Up</a>
+              <a className="block px-4 py-3 mb-2 leading-loose text-xs text-center text-white font-semibold bg-fonline-600 hover:bg-fonline-700 rounded-l-xl rounded-t-xl" href="https://app.f-online.at/#register">Sign Up</a>
             </div>
           </div>
         </nav>
