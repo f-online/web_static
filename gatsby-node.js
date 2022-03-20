@@ -30,7 +30,7 @@ async function generateStaticPages(staticPages, actions) {
 }
 
 async function generateCountryIndexPages(countries, actions) {
-  console.info('[GenerateCountryIndexPagesStaticPages] Start generating');
+  console.info('[GenerateCountryIndexPages] Start generating');
 
   const template = path.resolve('./src/templates/countryIndexPage.js');
   countries.nodes.forEach((node) => {
@@ -49,19 +49,51 @@ async function generateCountryIndexPages(countries, actions) {
         },
       });
       console.info(
-        `[GenerateCountryIndexPagesStaticPages] Created page for ${node.name} (path: /${nodePath})`,
+        `[GenerateCountryIndexPages] Created page for ${node.name} (path: /${nodePath})`,
       );
     } else {
-      console.info(`[GenerateCountryIndexPagesStaticPages] Skipped country "${node.title}" due to render flag.`);
+      console.info(`[GenerateCountryIndexPages] Skipped country "${node.name}" due to render flag.`);
     }
   });
-  console.info('[GenerateCountryIndexPagesStaticPages] Finished generating');
+  console.info('[GenerateCountryIndexPages] Finished generating');
+
+  if (countries.nodes.filter((country) => country.render).length === 1) {
+    const activeCountry = countries.nodes.filter((country) => country.render)[0];
+    actions.createRedirect({
+      fromPath: '/',
+      toPath: `${activeCountry.countryCode}`,
+      isPermanent: true,
+    });
+
+    console.info(`[GenerateCountryIndexPages] Created redirect from / to /${activeCountry.countryCode} as only one country is active`);
+  }
+}
+
+async function generateDrivingSchoolPages(drivingSchools, actions) {
+  console.info('[GenerateDricingSchoolPages] Start generating');
+
+  const template = path.resolve('./src/templates/drivingSchoolCountry.js');
+  drivingSchools.countryCode.forEach((drivingSchoolCountryCode) => {
+    const nodePath = `${drivingSchoolCountryCode}/fahrschulen`;
+
+    actions.createPage({
+      path: nodePath,
+      component: template,
+      context: {
+        countryCode: drivingSchoolCountryCode,
+      },
+    });
+    console.info(
+      `[GenerateDricingSchoolPages] Created page for Fahrschulen (${drivingSchoolCountryCode}) (path: /${nodePath})`,
+    );
+  });
+  console.info('[GenerateDricingSchoolPages] Finished generating');
 }
 
 exports.createPages = async ({ graphql, actions }) => {
   console.info('[SiteGeneration] Fetching data');
 
-  const { data: { staticPages, countries } } = await graphql(`
+  const { data: { staticPages, countries, drivingSchools } } = await graphql(`
     query {
       staticPages: allSanityStaticPage {
         nodes {
@@ -92,6 +124,20 @@ exports.createPages = async ({ graphql, actions }) => {
           render
         }
       }
+      drivingSchools: allSanityDrivingSchool {
+        nodes {
+          id
+          name
+          region {
+            name
+          }
+          country {
+            countryCode
+          }
+        }
+        countryCode: distinct(field: region___country___countryCode)
+        regionNames: distinct(field: region___name)
+      }
     }
   `);
 
@@ -101,6 +147,7 @@ exports.createPages = async ({ graphql, actions }) => {
   await Promise.all([
     generateStaticPages(staticPages, actions),
     generateCountryIndexPages(countries, actions),
+    generateDrivingSchoolPages(drivingSchools, actions),
   ]);
 
   console.info('[SiteGeneration] Finished generating pages');

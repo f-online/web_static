@@ -1,44 +1,18 @@
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import React from 'react';
 import Section from '../components/Section';
 import SectionHeader from '../components/SectionHeader';
 import SEO from '../components/SEO';
 
-export default function DrivingSchoolsPage() {
-  const { drivingschoolNodes } = useStaticQuery(graphql`
-    query {
-      drivingschoolNodes: allSanityDrivingSchool(
-        filter: {country: {countryCode: {eq: "at"}}}
-        sort: {fields: zip}
-      ) {
-        nodes {
-          id
-          name
-          zip
-          street
-          city
-          region {
-            name
-          }
-          url
-          logo {
-            asset {
-              gatsbyImageData
-            }
-          }
-        }
-      }
-    }
-  `);
-
-  const drivingschools = drivingschoolNodes.nodes;
+export default function countryIndexPage({ data: { drivingSchools } }) {
+  const drivingSchoolNodes = drivingSchools.nodes;
 
   const drivingSchoolsGroupedByRegion = [];
   const drivingSchoolsRegions = [];
 
   // group by region
-  drivingschools.forEach((drivingschool) => {
+  drivingSchoolNodes.forEach((drivingschool) => {
     drivingSchoolsGroupedByRegion[drivingschool.region.name] = [
       ...drivingSchoolsGroupedByRegion[drivingschool.region.name] || [],
       drivingschool,
@@ -101,3 +75,29 @@ export default function DrivingSchoolsPage() {
     </>
   );
 }
+
+export const query = graphql`
+  query ($countryCode: String!) {
+    drivingSchools: allSanityDrivingSchool(
+        filter: {country: {countryCode: {eq: $countryCode}}}
+        sort: {fields: zip}
+      ) {
+        nodes {
+          id
+          name
+          zip
+          street
+          city
+          region {
+            name
+          }
+          url
+          logo {
+            asset {
+              gatsbyImageData
+            }
+          }
+        }
+      }
+  }
+`;
