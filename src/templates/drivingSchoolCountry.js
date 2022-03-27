@@ -1,11 +1,12 @@
 import { graphql } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import React from 'react';
+import Layout from '../components/Layout';
 import Section from '../components/Section';
 import SectionHeader from '../components/SectionHeader';
 import SEO from '../components/SEO';
 
-export default function countryIndexPage({ data: { drivingSchools } }) {
+export default function countryIndexPage({ pageContext, data: { drivingSchools } }) {
   const drivingSchoolNodes = drivingSchools.nodes;
 
   const drivingSchoolsGroupedByRegion = [];
@@ -28,7 +29,7 @@ export default function countryIndexPage({ data: { drivingSchools } }) {
   }
 
   return (
-    <>
+    <Layout countryCode={pageContext.countryCode}>
       <SEO title="Fahrschulen" />
 
       <Section className="bg-fonline-50">
@@ -72,7 +73,7 @@ export default function countryIndexPage({ data: { drivingSchools } }) {
           ))}
         </div>
       </Section>
-    </>
+    </Layout>
   );
 }
 

@@ -1,22 +1,26 @@
 import BlockContent from '@sanity/block-content-to-react';
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
+import filterNodeByMultipleCountryCodes from '../utils/filterNodeByMultipleCountryCodes';
 import ButtonLink from './ButtonLink';
 
-export default function FAQ({ limit = 0 }) {
+export default function FAQ({ limit = 0, countryCode }) {
   const { faqs } = useStaticQuery(graphql`
     query {
-      faqs: allSanityFaq(filter: {countries: {elemMatch: {countryCode: {eq: "at"}}}}) {
+      faqs: allSanityFaq {
         nodes {
           id
           question
           _rawAnswer
+          countries {
+            countryCode
+          }
         }
       }
     }
   `);
 
-  let faqNodes = faqs.nodes;
+  let faqNodes = filterNodeByMultipleCountryCodes(faqs.nodes, countryCode);
 
   if (limit > 0) {
     faqNodes = faqNodes.slice(0, limit);

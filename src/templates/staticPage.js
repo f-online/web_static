@@ -9,10 +9,11 @@ import FAQ from '../components/FAQ';
 import Reviews from '../components/Reviews';
 import Features from '../components/Features';
 import SEO from '../components/SEO';
+import Layout from '../components/Layout';
 
 export default function StaticPage({ data: { staticPage } }) {
   return (
-    <>
+    <Layout countryCode={staticPage.country.countryCode}>
       <SEO
         title={staticPage.seo.title}
         description={staticPage.seo.description}
@@ -33,7 +34,7 @@ export default function StaticPage({ data: { staticPage } }) {
           }
 
           return (
-            <Section className={cssClass}>
+            <Section className={cssClass} key={section.id}>
               <SectionHeader
                 title={section.title}
                 subtitle={section.subtitle}
@@ -46,58 +47,63 @@ export default function StaticPage({ data: { staticPage } }) {
 
         if (section._type === 'quote') {
           return (
-            <Quote qoute={section.quote} author={section.author} year={section.year} />
+            <Quote
+              qoute={section.quote}
+              author={section.author}
+              year={section.year}
+              key={section.key}
+            />
           );
         }
 
         if (section._type === 'teamObject') {
           return (
-            <Section className={cssClass}>
+            <Section className={cssClass} key={section.id}>
               <SectionHeader
                 title={section.title}
                 subtitle={section.subTitle}
               />
 
-              <Team />
+              <Team countryCode={staticPage.country.countryCode} />
             </Section>
           );
         }
 
         if (section._type === 'faqObject') {
           return (
-            <Section className={cssClass}>
+            <Section className={cssClass} key={section.id}>
               <SectionHeader
                 title={section.title}
                 subtitle={section.subTitle}
               />
 
-              <FAQ limit={section.limit} />
+              <FAQ limit={section.limit} countryCode={staticPage.country.countryCode} />
             </Section>
           );
         }
 
         if (section._type === 'reviewObject') {
           return (
-            <Section className={cssClass}>
+            <Section className={cssClass} key={section.id}>
               <SectionHeader
                 title={section.title}
                 subtitle={section.subTitle}
               />
 
-              <Reviews limit={section.limit} />
+              <Reviews limit={section.limit} countryCode={staticPage.country.countryCode} />
             </Section>
           );
         }
 
         if (section._type === 'featureObject') {
           return (
-            <Section className={cssClass}>
+            <Section className={cssClass} key={section.id}>
               <SectionHeader
                 title={section.title}
                 subtitle={section.subTitle}
               />
 
-              <Features limit={section.limit} />
+              <Features limit={section.limit} countryCode={staticPage.country.countryCode} />
             </Section>
           );
         }
@@ -105,7 +111,7 @@ export default function StaticPage({ data: { staticPage } }) {
         // Fallback for not known elements
         return <></>;
       })}
-    </>
+    </Layout>
   );
 }
 
@@ -125,6 +131,9 @@ export const query = graphql`
             url
           }
         }
+      }
+      country {
+        countryCode
       }
       sections {
         ... on SanityQuote {

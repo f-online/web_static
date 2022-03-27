@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import Logo from './Logo';
 
-export default function Nav() {
+export default function Nav({ countryCode }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   function closeMenu() {
@@ -15,7 +15,7 @@ export default function Nav() {
 
   const { headerLinksNodes } = useStaticQuery(graphql`
     query {
-      headerLinksNodes: allSanityCountry(filter: {countryCode: {eq: "at"}}) {
+      headerLinksNodes: allSanityCountry {
         nodes {
           staticPageHeaderLinks {
             id
@@ -27,12 +27,18 @@ export default function Nav() {
               countryCode
             }
           }
+          countryCode
         }
       }
     }
   `);
 
-  const headerLinks = headerLinksNodes.nodes[0].staticPageHeaderLinks;
+  let headerLinks = [];
+  headerLinksNodes.nodes.forEach((node) => {
+    if (node.countryCode === countryCode) {
+      headerLinks = node.staticPageHeaderLinks;
+    }
+  });
 
   return (
     <div>

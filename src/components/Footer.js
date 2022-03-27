@@ -1,10 +1,10 @@
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import React from 'react';
 
-export default function Footer() {
+export default function Footer({ countryCode }) {
   const { footerLinksNodes } = useStaticQuery(graphql`
     query {
-      footerLinksNodes: allSanityCountry(filter: {countryCode: {eq: "at"}}) {
+      footerLinksNodes: allSanityCountry {
         nodes {
           staticPageFooterLinks {
             id
@@ -16,12 +16,18 @@ export default function Footer() {
               countryCode
             }
           }
+          countryCode
         }
       }
     }
   `);
 
-  const footerLinks = footerLinksNodes.nodes[0].staticPageFooterLinks;
+  let footerLinks = [];
+  footerLinksNodes.nodes.forEach((node) => {
+    if (node.countryCode === countryCode) {
+      footerLinks = node.staticPageFooterLinks;
+    }
+  });
 
   return (
     <footer className="px-40 py-10 text-white bg-fonline-500 flex flex-col text-center md:text-left md:flex-row md:justify-between">

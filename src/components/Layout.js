@@ -3,16 +3,16 @@ import Footer from './Footer';
 import '../styles/tailwind.css';
 import Nav from './Nav';
 
-export default function Layout({ children }) {
+export default function Layout({ children, countryCode }) {
   return (
     <div className="flex flex-col h-screen justify-between">
-      <Nav />
+      <Nav countryCode={countryCode} />
 
       <main className="mb-auto">
         {children}
       </main>
 
-      <Footer />
+      <Footer countryCode={countryCode} />
     </div>
   );
 }

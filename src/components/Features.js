@@ -1,26 +1,30 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import React from 'react';
+import filterNodeByMultipleCountryCodes from '../utils/filterNodeByMultipleCountryCodes';
 
-export default function Features({ limit }) {
+export default function Features({ limit, countryCode }) {
   const { features } = useStaticQuery(graphql`
-  query {
-    features: allSanityFeature(filter: {countries: {elemMatch: {countryCode: {eq: "at"}}}}) {
-      nodes {
-        id
-        name
-        info
-        image {
-          asset {
-            gatsbyImageData
+    query {
+      features: allSanityFeature {
+        nodes {
+          id
+          name
+          info
+          image {
+            asset {
+              gatsbyImageData
+            }
+          }
+          countries {
+            countryCode
           }
         }
       }
     }
-  }
-`);
+  `);
 
-  let featureNodes = features.nodes;
+  let featureNodes = filterNodeByMultipleCountryCodes(features.nodes, countryCode);
 
   if (limit > 0) {
     featureNodes = featureNodes.slice(0, limit);

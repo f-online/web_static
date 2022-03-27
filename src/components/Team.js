@@ -1,30 +1,35 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import React from 'react';
+import filterNodeByMultipleCountryCodes from '../utils/filterNodeByMultipleCountryCodes';
 
-export default function Team() {
+export default function Team({ countryCode }) {
   const { team } = useStaticQuery(graphql`
-  query { team: allSanityTeam(
-    filter: {countries: {elemMatch: {countryCode: {eq: "at"}}}}
-    ) {
-      nodes {
-        id
-        name
-        mail
-        position
-        image {
-          asset {
-            gatsbyImageData
+  query {
+      team: allSanityTeam {
+        nodes {
+          id
+          name
+          mail
+          position
+          image {
+            asset {
+              gatsbyImageData
+            }
+          }
+          countries {
+            countryCode
           }
         }
       }
     }
-  }
-`);
+  `);
+
+  const teamNodes = filterNodeByMultipleCountryCodes(team.nodes, countryCode);
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-      {team.nodes.map((teammember) => (
+      {teamNodes.map((teammember) => (
         <div className="flex flex-col align-items-center text-center p-5" key={teammember.id}>
           <div className="mx-auto mb-5 relative">
             <GatsbyImage image={teammember.image.asset.gatsbyImageData} alt={teammember.name} className="h-40 w-40 rounded-xl" />

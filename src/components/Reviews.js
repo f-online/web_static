@@ -3,24 +3,28 @@ import React from 'react';
 import {
   AiFillApple, AiFillAndroid, AiOutlineStar, AiFillStar,
 } from 'react-icons/ai';
+import filterNodeByMultipleCountryCodes from '../utils/filterNodeByMultipleCountryCodes';
 import ButtonLink from './ButtonLink';
 
-export default function Reviews({ limit }) {
+export default function Reviews({ limit, countryCode }) {
   const { reviews } = useStaticQuery(graphql`
     query {
-      reviews: allSanityReview(filter: {countries: {elemMatch: {countryCode: {eq: "at"}}}}) {
+      reviews: allSanityReview {
         nodes {
           id
           name
           platform
           stars
           reviewText
+          countries {
+            countryCode
+          }
         }
       }
     }
   `);
 
-  let reviewNodes = reviews.nodes;
+  let reviewNodes = filterNodeByMultipleCountryCodes(reviews.nodes, countryCode);
 
   if (limit > 0) {
     reviewNodes = reviewNodes.slice(0, limit);
