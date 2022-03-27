@@ -43,7 +43,7 @@ export default function Nav({ countryCode }) {
   return (
     <div>
       <nav className="relative px-6 py-6 flex justify-between items-center bg-white">
-        <Link className="text-3xl font-bold leading-none flex items-center" to="/at">
+        <Link className="text-3xl font-bold leading-none flex items-center" to={`/${countryCode}`}>
           <Logo className="w-14 h-14 pr-4" />
           {' '}
           F-Online
@@ -64,7 +64,7 @@ export default function Nav({ countryCode }) {
             <Link
               className="text-sm"
               activeClassName="text-sm text-fonline-500 font-bold"
-              to="/at"
+              to={`/${countryCode}`}
             >
               Start
             </Link>
@@ -100,7 +100,7 @@ export default function Nav({ countryCode }) {
         <div className="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25" onClick={() => closeMenu()} />
         <nav className="relative flex flex-col py-6 px-6 h-full w-full bg-white border-r overflow-y-auto">
           <div className="flex justify-between pb-8">
-            <Link className="text-3xl font-bold leading-none flex items-center" to="/at">
+            <Link className="text-3xl font-bold leading-none flex items-center" to={`/${countryCode}`}>
               <Logo className="w-14 h-14 pr-4" />
               {' '}
               F-Online
@@ -116,7 +116,7 @@ export default function Nav({ countryCode }) {
               <li className="mb-1">
                 <Link
                   className="block text-fonline-400 p-3 hover:bg-fonline-50 hover:font-semibold hover:text-fonline-500 rounded"
-                  to="/at"
+                  to={`/${countryCode}`}
                 >
                   Startseite
                 </Link>
