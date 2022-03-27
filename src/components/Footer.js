@@ -30,13 +30,20 @@ export default function Footer({ countryCode }) {
   });
 
   return (
-    <footer className="px-40 py-10 text-white bg-fonline-500 flex flex-col text-center md:text-left md:flex-row md:justify-between">
+    <footer className="md:px-40 py-10 text-white bg-fonline-500 flex flex-col text-center md:text-left md:flex-row md:justify-between">
       <div>
         Made with ♥ by F-Online.
       </div>
-      <div>
+      <div className="flex flex-col md:block pt-4 md:pt-0">
         {footerLinks.map((footerLink) => (
-          <Link to={`/${footerLink.country.countryCode}/${footerLink.slug.current}`} key={footerLink.id} className="pr-4">{footerLink.title}</Link>
+          <Link
+            to={`/${footerLink.country.countryCode}/${footerLink.slug.current}`}
+            key={footerLink.id}
+            className="pt-2 md:pr-4 md:pt-0"
+          >
+            {footerLink.title}
+
+          </Link>
         ))}
       </div>
 
