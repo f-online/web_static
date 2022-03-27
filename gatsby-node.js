@@ -62,6 +62,7 @@ async function generateCountryIndexPages(countries, actions) {
     actions.createRedirect({
       fromPath: '/',
       toPath: `${activeCountry.countryCode}`,
+      redirectInBrowser: true,
       isPermanent: true,
     });
 
