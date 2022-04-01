@@ -5,4 +5,4 @@
   environment = { NODE_VERSION = "16" }
  
 [[plugins]]
-  package = "netlify-plugin-gatsby-cache"
+  package = "@netlify/plugin-gatsby"
