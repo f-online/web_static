@@ -13,7 +13,7 @@ export default function Login({ title, subTitle, screenshot }) {
         </div>
         <div className="bg-white p-6 rounded text-center order-1 lg:order-2">
           <h1 className="text-3xl md:text-4xl font-semibold">{title}</h1>
-          <h2 className="text-gray-500 mt-3">{subTitle}</h2>
+          <h2 className="font-bold mt-3">{subTitle}</h2>
 
           <form action="//app.f-online.at/auth" method="post" className="mt-5 md:mt-10 mb-8 text-left">
             <div className="mb-5">
