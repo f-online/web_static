@@ -82,8 +82,6 @@ function Stars({
   const fullStars = new Array(value).fill(0);
   const emptyStars = new Array(max - value).fill(0);
 
-  console.log(keySuffix);
-
   return (
     <span className={`inline-flex text-fonline-500 ${className}`}>
       {fullStars.map(() => (
