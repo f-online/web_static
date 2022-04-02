@@ -1,4 +1,4 @@
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery, Link } from 'gatsby';
 import React from 'react';
 import {
   AiFillApple, AiFillAndroid, AiOutlineStar, AiFillStar,
@@ -16,6 +16,7 @@ export default function Reviews({ limit, countryCode }) {
           platform
           stars
           reviewText
+          url
           countries {
             countryCode
           }
@@ -43,6 +44,10 @@ export default function Reviews({ limit, countryCode }) {
             <div className="flex justify-between mt-2 text-gray-500">
               <div>
                 {`- ${review.name}`}
+                {' '}
+                (
+                <a href={review.url} target="_blank" rel="noreferrer">Link</a>
+                )
               </div>
 
               <div className="text-xs inline-flex items-center ml-2">
