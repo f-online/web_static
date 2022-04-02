@@ -28,14 +28,14 @@ export default function Team({ countryCode }) {
   const teamNodes = filterNodeByMultipleCountryCodes(team.nodes, countryCode);
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+    <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4">
       {teamNodes.map((teammember) => (
         <div className="flex flex-col align-items-center text-center p-5" key={teammember.id}>
           <div className="mx-auto mb-5 relative">
-            <GatsbyImage image={teammember.image.asset.gatsbyImageData} alt={teammember.name} className="h-40 w-40 rounded-xl" />
+            <GatsbyImage image={teammember.image.asset.gatsbyImageData} alt={teammember.name} className="h-32 w-32 rounded-xl" />
           </div>
-          <p className="text-xl p-0">{teammember.name}</p>
-          <p className="text-gray-500 p-0">{teammember.position}</p>
+          <p className="text-xl text-center p-0">{teammember.name}</p>
+          <p className="text-gray-500 text-center p-0">{teammember.position}</p>
         </div>
       ))}
     </div>
