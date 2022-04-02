@@ -69,7 +69,7 @@ export default function Reviews({ limit, countryCode }) {
       {limit > 0
         && (
           <div className="text-center mt-10">
-            <ButtonLink to="/reviews" text="Mehr Reviews anzeigen" />
+            <ButtonLink to={`/${countryCode}/reviews`} text="Mehr Reviews anzeigen" />
           </div>
         )}
     </>
