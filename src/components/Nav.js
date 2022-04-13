@@ -13,7 +13,7 @@ export default function Nav({ countryCode }) {
     setMenuOpen(true);
   }
 
-  const { headerLinksNodes } = useStaticQuery(graphql`
+  const { headerLinksNodes, drivingSchools } = useStaticQuery(graphql`
     query {
       headerLinksNodes: allSanityCountry {
         nodes {
@@ -30,6 +30,9 @@ export default function Nav({ countryCode }) {
           countryCode
         }
       }
+      drivingSchools: allSanityDrivingSchool {
+        countries: distinct(field: country___countryCode)
+      }
     }
   `);
 
@@ -39,6 +42,12 @@ export default function Nav({ countryCode }) {
       headerLinks = node.staticPageHeaderLinks;
     }
   });
+
+  // check if there is at least on driving school for this country
+  let hydrateDrivingSchools = false;
+  if (Array.isArray(drivingSchools.countries) && drivingSchools.countries.includes(countryCode)) {
+    hydrateDrivingSchools = true;
+  }
 
   return (
     <div>
@@ -69,6 +78,17 @@ export default function Nav({ countryCode }) {
               Start
             </Link>
           </li>
+          {hydrateDrivingSchools && (
+            <li>
+              <Link
+                className="text-sm"
+                activeClassName="text-sm text-fonline-500 font-bold"
+                to={`/${countryCode}/fahrschulen`}
+              >
+                Fahrschulen
+              </Link>
+            </li>
+          )}
           {headerLinks.map((headerLink) => (
             <li key={`desktop-${headerLink.id}`}>
               <Link
@@ -121,6 +141,18 @@ export default function Nav({ countryCode }) {
                   Startseite
                 </Link>
               </li>
+              {hydrateDrivingSchools && (
+              <li>
+                <li className="mb-1">
+                  <Link
+                    className="block text-fonline-400 p-3 hover:bg-fonline-50 hover:font-semibold hover:text-fonline-500 rounded"
+                    to={`/${countryCode}/fahrschulen`}
+                  >
+                    Fahrschulen
+                  </Link>
+                </li>
+              </li>
+              )}
               {headerLinks.map((headerLink) => (
                 <li
                   className="mb-1"
