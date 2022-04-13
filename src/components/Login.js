@@ -41,10 +41,10 @@ export default function Login({ title, subTitle, screenshot }) {
               </div>
             </div>
 
-            <div className="flex flex-col md:flex-row">
+            <div className="flex flex-col sm:flex-row">
               <input type="submit" value="Anmelden" className="w-full cursor-pointer py-4 px-10 bg-fonline-500 hover:bg-fonline-700 text-white font-bold rounded-l-xl rounded-t-xl transition duration-200 no-underline hover:text-white" />
               <a
-                className="bg-teal-600 text-white hover:bg-teal-800 hover:text-white md:ml-2 py-4 px-10 inline-flex items-center rounded-l-xl md:rounded-tl-xl md:rounded-bl-none md:rounded-r-xl rounded-t-xl no-underline mt-4 md:mt-0"
+                className="bg-teal-600 text-white hover:bg-teal-800 hover:text-white sm:ml-2 py-4 px-10 inline-flex items-center rounded-l-xl sm:rounded-tl-xl sm:rounded-bl-none sm:rounded-r-xl rounded-t-xl no-underline mt-4 sm:mt-0"
                 href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RL9PYUBA3MJ2S&source=url"
               >
                 <BiDonateHeart className="mr-2" />
