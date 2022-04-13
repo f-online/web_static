@@ -103,16 +103,10 @@ export default function Nav({ countryCode }) {
         </ul>
 
         <a
-          className="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 font-bold rounded-l-xl rounded-t-xl transition duration-200"
-          href="#"
-        >
-          Sign In
-        </a>
-        <a
           className="hidden lg:inline-block py-2 px-6 bg-fonline-500 hover:bg-fonline-300 text-sm text-white font-bold rounded-l-xl rounded-t-xl transition duration-200"
-          href="https://app.f-online.at/#register"
+          href="https://app.f-online.at/"
         >
-          Sign up
+          Anmelden
         </a>
       </nav>
 
@@ -170,8 +164,8 @@ export default function Nav({ countryCode }) {
           </div>
           <div className="mt-auto">
             <div className="pt-6">
-              <a className="block px-4 py-3 mb-3 leading-loose text-xs text-center font-semibold leading-none bg-gray-50 hover:bg-gray-100 rounded-l-xl rounded-t-xl" href="#">Sign in</a>
-              <a className="block px-4 py-3 mb-2 leading-loose text-xs text-center text-white font-semibold bg-fonline-600 hover:bg-fonline-700 rounded-l-xl rounded-t-xl" href="https://app.f-online.at/#register">Sign Up</a>
+              <a className="block px-4 py-3 mb-3 leading-loose text-xs text-center font-semibold leading-none bg-gray-50 hover:bg-gray-100 rounded-l-xl rounded-t-xl" href="https://app.f-online.at/#register">Account erstellen</a>
+              <a className="block px-4 py-3 mb-2 leading-loose text-xs text-center text-white font-semibold bg-fonline-600 hover:bg-fonline-700 rounded-l-xl rounded-t-xl" href="https://app.f-online.at/">Anmelden</a>
             </div>
           </div>
         </nav>
