@@ -24,6 +24,7 @@ export default function Login({ title, subTitle, screenshot }) {
                   name="username"
                   placeholder="max@mustermann.de"
                   id="mail"
+                  required
                   className="w-full border-gray-500 rounded py-2 focus:border-fonline-500 focus:ring-fonline-500"
                 />
               </div>
@@ -36,6 +37,7 @@ export default function Login({ title, subTitle, screenshot }) {
                   type="password"
                   name="password"
                   id="password"
+                  required
                   className="w-full border-gray-500 rounded py-2 focus:border-fonline-500 focus:ring-fonline-500"
                 />
               </div>
