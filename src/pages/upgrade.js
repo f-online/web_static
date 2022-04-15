@@ -104,7 +104,7 @@ export default function UpgradePage({ location }) {
 
               <PayPalScriptProvider options={paypalOptions}>
                 <PayPalButtons
-                  style={{ layout: 'horizontal' }}
+                  style={{ color: 'blue' }}
                   createOrder={(data, actions) => actions.order.create({
                     payer: {
                       email_address: accountMail,
