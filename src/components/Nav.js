@@ -136,7 +136,6 @@ export default function Nav({ countryCode }) {
                 </Link>
               </li>
               {hydrateDrivingSchools && (
-              <li>
                 <li className="mb-1">
                   <Link
                     className="block text-fonline-400 p-3 hover:bg-fonline-50 hover:font-semibold hover:text-fonline-500 rounded"
@@ -145,7 +144,6 @@ export default function Nav({ countryCode }) {
                     Fahrschulen
                   </Link>
                 </li>
-              </li>
               )}
               {headerLinks.map((headerLink) => (
                 <li
