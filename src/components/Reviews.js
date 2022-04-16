@@ -84,16 +84,16 @@ export default function Reviews({ limit, countryCode }) {
 function Stars({
   value, max = 5, size = 25, className, keySuffix,
 }) {
-  const fullStars = new Array(value).fill(0);
-  const emptyStars = new Array(max - value).fill(0);
+  const fullStars = Array.from(Array(value).keys());
+  const emptyStars = Array.from(Array(max - value).keys());
 
   return (
     <span className={`inline-flex text-fonline-500 ${className}`}>
-      {fullStars.map(() => (
-        <AiFillStar size={size} key={`filled-${keySuffix}`} />
+      {fullStars.map((mapValue) => (
+        <AiFillStar size={size} key={`filled-${mapValue}-${keySuffix}`} />
       ))}
-      {emptyStars.map(() => (
-        <AiOutlineStar size={size} key={`empty-${keySuffix}`} />
+      {emptyStars.map((mapValue) => (
+        <AiOutlineStar size={size} key={`empty-${mapValue}-${keySuffix}`} />
       ))}
     </span>
   );
