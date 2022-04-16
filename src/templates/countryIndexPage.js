@@ -22,7 +22,6 @@ export default function countryIndexPage({ data: { country } }) {
       />
 
       {country.sections.map((section, index) => {
-        console.log(section.key);
         // Stripe background
         let cssClass = 'bg-fonline-50';
         if (index === 0 || index % 2 === 0) {
