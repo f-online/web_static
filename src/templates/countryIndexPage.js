@@ -22,6 +22,7 @@ export default function countryIndexPage({ data: { country } }) {
       />
 
       {country.sections.map((section, index) => {
+        console.log(section.key);
         // Stripe background
         let cssClass = 'bg-fonline-50';
         if (index === 0 || index % 2 === 0) {
@@ -34,14 +35,14 @@ export default function countryIndexPage({ data: { country } }) {
               title={section.title}
               subTitle={section.subTitle}
               screenshot={section.screenshot.asset.gatsbyImageData}
-              key={section.key}
+              key={section._key}
               />
           );
         }
 
         if (section._type === 'section') {
           return (
-            <Section className={cssClass} key={section.key}>
+            <Section className={cssClass} key={section._key}>
               <SectionHeader
                 title={section.title}
                 subtitle={section.subtitle}
@@ -58,14 +59,14 @@ export default function countryIndexPage({ data: { country } }) {
               qoute={section.quote}
               author={section.author}
               year={section.year}
-              key={section.key}
+              key={section._key}
             />
           );
         }
 
         if (section._type === 'teamObject') {
           return (
-            <Section className={cssClass} key={section.key}>
+            <Section className={cssClass} key={section._key}>
               <SectionHeader
                 title={section.title}
                 subtitle={section.subTitle}
@@ -78,7 +79,7 @@ export default function countryIndexPage({ data: { country } }) {
 
         if (section._type === 'faqObject') {
           return (
-            <Section className={cssClass} key={section.key}>
+            <Section className={cssClass} key={section._key}>
               <SectionHeader
                 title={section.title}
                 subtitle={section.subTitle}
@@ -91,7 +92,7 @@ export default function countryIndexPage({ data: { country } }) {
 
         if (section._type === 'reviewObject') {
           return (
-            <Section className={cssClass} key={section.key}>
+            <Section className={cssClass} key={section._key}>
               <SectionHeader
                 title={section.title}
                 subtitle={section.subTitle}
@@ -104,7 +105,7 @@ export default function countryIndexPage({ data: { country } }) {
 
         if (section._type === 'featureObject') {
           return (
-            <Section className={cssClass} key={section.key}>
+            <Section className={cssClass} key={section._key}>
               <SectionHeader
                 title={section.title}
                 subtitle={section.subTitle}
@@ -139,41 +140,48 @@ export const query = graphql`
       }
       sections {
         ... on SanityQuote {
+          _key
           _type
           author
           quote
           year(formatString: "YYYY")
         }
         ... on SanitySection {
+          _key
           _type
           title
           subTitle
           _rawContent
         }
         ... on SanityTeamObject {
+          _key
           _type
           title
           subTitle
         }
         ... on SanityFaqObject {
+          _key
           _type
           title
           subTitle
           limit
         }
         ... on SanityReviewObject {
+          _key
           _type
           title
           subTitle
           limit
         }
         ... on SanityFeatureObject {
+          _key
           _type
           title
           subTitle
           limit
         }
         ... on SanityLoginObject {
+          _key
           _type
           title
           subTitle
