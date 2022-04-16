@@ -26,12 +26,12 @@ export default function UpgradePage({ location }) {
     <Layout countryCode="at">
       <SEO title="Upgrade zur werbefreien Version" />
 
-      <Section className="bg-fonline-50">
+      <Section className="bg-fonline-50 px-5">
         <SectionHeader
           title="Werbefreie F-Online Version"
         />
 
-        <div className="bg-white px-10 py-4 rounded-xl max-w-2xl mx-auto">
+        <div className="bg-white px-6 md:px-10 py-2 md:py-4 rounded-xl max-w-2xl">
           {!paymentSuccessful && (
             <p>
               Für nur 4.99 EUR kannst du dein F-Online Lernkonto von der Werbung befreien.
