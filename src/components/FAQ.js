@@ -45,7 +45,7 @@ export default function FAQ({ limit = 0, countryCode }) {
       {limit > 0
         && (
           <div className="text-center mt-10">
-            <ButtonLink to="/faq" text="Alle Fragen anzeigen" />
+            <ButtonLink to={`/${countryCode}/faq`} text="Alle Fragen anzeigen" />
           </div>
         )}
     </>
