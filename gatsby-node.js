@@ -56,18 +56,6 @@ async function generateCountryIndexPages(countries, actions) {
     }
   });
   console.info('[GenerateCountryIndexPages] Finished generating');
-
-  if (countries.nodes.filter((country) => country.render).length === 1) {
-    const activeCountry = countries.nodes.filter((country) => country.render)[0];
-    actions.createRedirect({
-      fromPath: '/',
-      toPath: `${activeCountry.countryCode}`,
-      redirectInBrowser: true,
-      isPermanent: true,
-    });
-
-    console.info(`[GenerateCountryIndexPages] Created redirect from / to /${activeCountry.countryCode} as only one country is active`);
-  }
 }
 
 async function generateDrivingSchoolPages(drivingSchools, actions) {
