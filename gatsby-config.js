@@ -24,7 +24,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-matomo',
       options: {
-        siteId: '16',
+        siteId: '1',
         matomoUrl: 'https://piwik.inlupus.at/',
         matomoPhpScript: 'matomo.php',
         matomoJsScript: 'matomo.js',
