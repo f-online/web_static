@@ -2,7 +2,7 @@ require('dotenv').config({ path: '.env' });
 
 module.exports = {
   siteMetadata: {
-    siteUrl: 'https://www.f-online.at',
+    siteUrl: 'https://www.f-online.app',
     title: 'F-Online',
   },
   plugins: [
@@ -12,6 +12,7 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     'gatsby-plugin-postcss',
+    'gatsby-plugin-sitemap',
     {
       resolve: 'gatsby-source-sanity',
       options: {
