@@ -6,7 +6,7 @@ async function generateStaticPages(staticPages, actions) {
   const template = path.resolve('./src/templates/staticPage.js');
   staticPages.nodes.forEach((staticPage) => {
     if (staticPage.country.render === true) {
-      const nodePath = `${staticPage.country.countryCode}/${staticPage.slug.current}`;
+      const nodePath = `${staticPage.country.countryCode}/${staticPage.slug.current}/`;
 
       actions.createPage({
         path: nodePath,
@@ -35,7 +35,7 @@ async function generateCountryIndexPages(countries, actions) {
   const template = path.resolve('./src/templates/countryIndexPage.js');
   countries.nodes.forEach((node) => {
     if (node.render) {
-      const nodePath = `${node.countryCode}`;
+      const nodePath = `${node.countryCode}/`;
 
       actions.createPage({
         path: nodePath,
@@ -56,6 +56,17 @@ async function generateCountryIndexPages(countries, actions) {
     }
   });
   console.info('[GenerateCountryIndexPages] Finished generating');
+
+  if (countries.nodes.filter((country) => country.render).length === 1) {
+    const activeCountry = countries.nodes.filter((country) => country.render)[0];
+    actions.createRedirect({
+      fromPath: '/',
+      toPath: `${activeCountry.countryCode}/`,
+      isPermanent: true,
+    });
+
+    console.info(`[GenerateCountryIndexPages] Created redirect from / to /${activeCountry.countryCode}/ as only one country is active`);
+  }
 }
 
 async function generateDrivingSchoolPages(drivingSchools, actions) {
@@ -63,7 +74,7 @@ async function generateDrivingSchoolPages(drivingSchools, actions) {
 
   const template = path.resolve('./src/templates/drivingSchoolCountry.js');
   drivingSchools.countryCode.forEach((drivingSchoolCountryCode) => {
-    const nodePath = `${drivingSchoolCountryCode}/fahrschulen`;
+    const nodePath = `${drivingSchoolCountryCode}/fahrschulen/`;
 
     actions.createPage({
       path: nodePath,
