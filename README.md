@@ -1,6 +1,19 @@
-# F-Online Static Website Base Repo
+# F-Online Landing Page Main
 
-## Build for dev:
-- you need a docker env
-- run `make build` to run hugo in a container, results will be in `./public`
-- run `make watch` to watch file changes and build it on the fly, accessible at http://localhost:1313/
+As I personally tend to forget the following, here are some small development docs.
+
+## Development
+
+### Install
+
+- Install dependencies via `npm install`
+- Add SANITY credentials to `.env` file
+  - `SANITY_TOKEN=<Your Token>`
+  - Access can be granted through the sanity web ui:
+    - https://www.sanity.io/manage/personal/project/t9maew4z/api
+
+### Local dev server
+
+Run `npm run develop`, that's it.
+
+In case of some caching problems you can run `npm run clean`.

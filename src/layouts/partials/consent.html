@@ -1,4 +1,0 @@
-{{ $config := resources.Get "klaro/config.js" }}
-{{ $klaro := resources.Get "klaro/klaro.js" }}
-{{ $js := slice $config $klaro | resources.Concat "fonline.js" | minify | fingerprint }}
-<script src="{{ $js.RelPermalink }}"></script>

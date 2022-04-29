@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  p {
+    @apply py-5;
+  }
+
+  section a {
+    @apply underline decoration-fonline-500 decoration-2 transition-colors;
+  }
+
+  section a:hover {
+    @apply text-fonline-500;
+  }
+
+  section strong {
+    @apply font-semibold text-fonline-500;
+  }
+
+  ol {
+    @apply list-decimal list-inside;
+  }
+
+  li:not(:first-child) {
+    @apply py-2;
+  }
+}
