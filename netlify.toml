@@ -3,6 +3,3 @@
   publish = "public"
   base = ""
   environment = { NODE_VERSION = "16" }
- 
-[[plugins]]
-  package = "@netlify/plugin-gatsby"
