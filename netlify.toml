@@ -1,3 +1,38 @@
+[[redirects]]
+  from = "https://www.f-online.at"
+  to = "https://www.f-online.app/at"
+  status = 301
+  force = true
+  query = {path = ":path"}
+
+[[redirects]]
+  from = "https://www.f-online.at/fahrschulen/"
+  to = "https://www.f-online.app/at/fahrschulen"
+  status = 301
+  force = true
+  query = {path = ":path"}
+
+[[redirects]]
+  from = "https://www.f-online.at/faq/"
+  to = "https://www.f-online.app/at/faq"
+  status = 301
+  force = true
+  query = {path = ":path"}
+
+[[redirects]]
+  from = "https://www.f-online.at/about/"
+  to = "https://www.f-online.app/at/about-us"
+  status = 301
+  force = true
+  query = {path = ":path"}
+
+[[redirects]]
+  from = "https://www.f-online.at/*"
+  to = "https://www.f-online.app/at"
+  status = 301
+  force = true
+  query = {path = ":path"}
+
 [build]
   command = "npm install && npm run build"
   publish = "public"
