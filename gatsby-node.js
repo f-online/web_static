@@ -61,7 +61,7 @@ async function generateCountryIndexPages(countries, actions) {
     const activeCountry = countries.nodes.filter((country) => country.render)[0];
     actions.createRedirect({
       fromPath: '/',
-      toPath: `${activeCountry.countryCode}/`,
+      toPath: `/${activeCountry.countryCode}/`,
       isPermanent: true,
     });
 
