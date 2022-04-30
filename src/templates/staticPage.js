@@ -48,9 +48,12 @@ export default function StaticPage({ data: { staticPage } }) {
         if (section._type === 'quote') {
           return (
             <Quote
-              qoute={section.quote}
+              quote={section.quote}
               author={section.author}
+              role={section.role}
+              authorImage={section.authorImage?.asset?.gatsbyImageData}
               year={section.year}
+              website={section.website}
               key={section.key}
             />
           );
@@ -139,7 +142,14 @@ export const query = graphql`
         ... on SanityQuote {
           _type
           author
+          role
+          authorImage {
+            asset {
+              gatsbyImageData
+            }
+          }
           quote
+          website
           year(formatString: "YYYY")
         }
         ... on SanitySection {

@@ -55,9 +55,12 @@ export default function countryIndexPage({ data: { country } }) {
         if (section._type === 'quote') {
           return (
             <Quote
-              qoute={section.quote}
+              quote={section.quote}
               author={section.author}
+              role={section.role}
+              authorImage={section.authorImage?.asset?.gatsbyImageData}
               year={section.year}
+              website={section.website}
               key={section._key}
             />
           );
@@ -142,7 +145,14 @@ export const query = graphql`
           _key
           _type
           author
+          role
+          authorImage {
+            asset {
+              gatsbyImageData
+            }
+          }
           quote
+          website
           year(formatString: "YYYY")
         }
         ... on SanitySection {
