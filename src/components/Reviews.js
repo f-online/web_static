@@ -42,30 +42,40 @@ export default function Reviews({ limit, countryCode }) {
             <Stars value={review.stars} keySuffix={review.id} />
             <div className="mt-2 mb-auto italic">{review.reviewText}</div>
             <div className="flex justify-between mt-2 text-gray-500">
-              <div>
+              <a
+                href={review.url}
+                target="_blank"
+                rel="noreferrer"
+                className="no-underline underline-offset-2 hover:underline "
+              >
                 {`- ${review.name}`}
-                {' '}
-                (
-                <a href={review.url} target="_blank" rel="noreferrer">Link</a>
-                )
-              </div>
+              </a>
 
-              <div className="text-xs inline-flex items-center ml-2">
-                {review.platform === 'ios'
+              <a
+                href={review.url}
+                target="_blank"
+                rel="noreferrer"
+                className="no-underline underline-offset-2 hover:underline "
+              >
+                <div className="text-xs inline-flex items-center ml-2">
+                  {review.platform === 'ios'
                 && (
                 <>
-                  <AiFillApple className="inline mr-1" />
+                  See on
+                  <AiFillApple className="inline mr-1 ml-1" />
                   App Store
                 </>
                 )}
-                {review.platform === 'android'
+                  {review.platform === 'android'
                 && (
                 <>
-                  <AiFillAndroid className="inline mr-1" />
+                  See on
+                  <AiFillAndroid className="inline mr-1 ml-1" />
                   Play Store
                 </>
                 )}
-              </div>
+                </div>
+              </a>
             </div>
           </div>
         ))}
