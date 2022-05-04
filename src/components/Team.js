@@ -32,7 +32,16 @@ export default function Team({ countryCode }) {
       {teamNodes.map((teammember) => (
         <div className="flex flex-col align-items-center text-center p-5" key={teammember.id}>
           <div className="mx-auto mb-5 relative">
-            <GatsbyImage image={teammember.image.asset.gatsbyImageData} alt={teammember.name} className="h-32 w-32 rounded-xl" />
+            <GatsbyImage
+              image={teammember.image.asset.gatsbyImageData}
+              alt={teammember.name}
+              className="h-32 w-32 rounded-l-xl rounded-t-xl"
+              imgStyle={{
+                borderBottomLeftRadius: '0.75rem',
+                borderTopLeftRadius: '0.75rem',
+                borderTopRightRadius: '0.75rem',
+              }}
+            />
           </div>
           <p className="text-xl text-center p-0">{teammember.name}</p>
           <p className="text-gray-500 text-center p-0">{teammember.position}</p>

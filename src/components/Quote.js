@@ -25,6 +25,11 @@ export default function Quote({
               image={authorImage}
               alt={`Bild von ${author}`}
               className="w-20 h-20 rounded-l-xl rounded-t-xl"
+              imgStyle={{
+                borderBottomLeftRadius: '0.75rem',
+                borderTopLeftRadius: '0.75rem',
+                borderTopRightRadius: '0.75rem',
+              }}
             />
           </div>
           <div className="ml-4">
