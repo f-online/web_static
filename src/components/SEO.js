@@ -12,7 +12,8 @@ export default function SEO({
       <title>{title}</title>
 
       {/* Fav icons */}
-      <link rel="icon" type="image/jpg" href="/logo.svg" />
+      <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+      <link rel="icon" type="image/png" href="/logo.png" />
 
       {/* Meta tags */}
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
