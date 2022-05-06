@@ -17,6 +17,7 @@ export default function Reviews({ limit, countryCode }) {
           stars
           reviewText
           url
+          date(formatString: "DD.MM.YYYY")
           countries {
             countryCode
           }
@@ -39,14 +40,23 @@ export default function Reviews({ limit, countryCode }) {
             className="flex flex-col justify-between bg-fonline-50 rounded-l-xl rounded-t-xl p-4"
             key={review.id}
           >
-            <Stars value={review.stars} keySuffix={review.id} />
+            <div className="flex justify-between items-end">
+              <Stars value={review.stars} keySuffix={review.id} />
+
+              <a
+                href="#"
+                className="text-xs no-underline underline-offset-2 hover:underline text-gray-500"
+              >
+                {review.date}
+              </a>
+            </div>
             <div className="mt-2 mb-auto italic">{review.reviewText}</div>
             <div className="flex justify-between mt-2 text-gray-500">
               <a
                 href={review.url}
                 target="_blank"
                 rel="noreferrer"
-                className="no-underline underline-offset-2 hover:underline "
+                className="no-underline underline-offset-2 hover:underline"
               >
                 {`- ${review.name}`}
               </a>
@@ -55,7 +65,7 @@ export default function Reviews({ limit, countryCode }) {
                 href={review.url}
                 target="_blank"
                 rel="noreferrer"
-                className="no-underline underline-offset-2 hover:underline "
+                className="no-underline underline-offset-2 hover:underline"
               >
                 <div className="text-xs inline-flex items-center ml-2">
                   {review.platform === 'ios'
