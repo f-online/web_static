@@ -44,7 +44,7 @@ export default function Reviews({ limit, countryCode }) {
               <Stars value={review.stars} keySuffix={review.id} />
 
               <a
-                href="#"
+                href={review.url}
                 className="text-xs no-underline underline-offset-2 hover:underline text-gray-500"
               >
                 {review.date}
