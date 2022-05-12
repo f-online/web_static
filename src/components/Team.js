@@ -5,22 +5,27 @@ import filterNodeByMultipleCountryCodes from '../utils/filterNodeByMultipleCount
 
 export default function Team({ countryCode }) {
   const { team } = useStaticQuery(graphql`
-  query {
-      team: allSanityTeam {
-        nodes {
-          id
-          name
-          mail
-          position
-          image {
-            asset {
-              gatsbyImageData
+    query {
+      team: allSanityTeam(
+          sort: {
+            fields: name,
+            order: ASC
+          }
+        ) {
+          nodes {
+            id
+            name
+            mail
+            position
+            image {
+              asset {
+                gatsbyImageData
+              }
+            }
+            countries {
+              countryCode
             }
           }
-          countries {
-            countryCode
-          }
-        }
       }
     }
   `);
