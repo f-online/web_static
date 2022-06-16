@@ -93,7 +93,7 @@ async function generateDrivingSchoolPages(drivingSchools, drivingSchoolsRegions,
   drivingSchoolsRegions.nodes.forEach((drivingSchoolRegion) => {
     // eslint-disable-next-line no-use-before-define
     const urlEncodedName = encodeURI(replaceUmlauts(drivingSchoolRegion.name.toLowerCase()));
-    const nodePath = `${drivingSchoolRegion.country.countryCode}/fahrschulen/in/${urlEncodedName}`;
+    const nodePath = `${drivingSchoolRegion.country.countryCode}/fahrschulen/${urlEncodedName}`;
 
     actions.createPage({
       path: nodePath,

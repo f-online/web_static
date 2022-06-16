@@ -43,7 +43,7 @@ export default function drivingSchoolsPerCountryPage({ pageContext, data: { driv
           {drivingSchoolsRegions.map((region) => (
             <div className="my-10" key={region.regionName}>
               <h3 className="text-2xl text-center font-bold mb-2 text-gray-800">
-                <Link to={`/${pageContext.countryCode}/fahrschulen/in/${replaceUmlauts(region.regionName)}`} className="no-underline">{region.regionName}</Link>
+                <Link to={`/${pageContext.countryCode}/fahrschulen/${replaceUmlauts(region.regionName)}`} className="no-underline">{region.regionName}</Link>
               </h3>
               <div className="w-10 h-0.5 bg-fonline-500 mx-auto mb-3" />
               <h4 className="text-center text-gray-500 max-w-md mx-auto mb-5">{`${region.drivingSchools.length} Fahrschulen sind in ${region.regionName} zu finden`}</h4>
