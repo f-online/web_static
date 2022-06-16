@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 const path = require('path');
 
 async function generateStaticPages(staticPages, actions) {
@@ -69,31 +70,57 @@ async function generateCountryIndexPages(countries, actions) {
   }
 }
 
-async function generateDrivingSchoolPages(drivingSchools, actions) {
-  console.info('[GenerateDricingSchoolPages] Start generating');
+async function generateDrivingSchoolPages(drivingSchools, drivingSchoolsRegions, actions) {
+  console.info('[GenerateDrivingSchoolPages] Start generating');
 
-  const template = path.resolve('./src/templates/drivingSchoolCountry.js');
+  // generate per country code
   drivingSchools.countryCode.forEach((drivingSchoolCountryCode) => {
     const nodePath = `${drivingSchoolCountryCode}/fahrschulen/`;
 
     actions.createPage({
       path: nodePath,
-      component: template,
+      component: path.resolve('./src/templates/drivingSchools/perCountry.js'),
       context: {
         countryCode: drivingSchoolCountryCode,
       },
     });
     console.info(
-      `[GenerateDricingSchoolPages] Created page for Fahrschulen (${drivingSchoolCountryCode}) (path: /${nodePath})`,
+      `[GenerateDrivingSchoolPages] Created page for Fahrschulen (${drivingSchoolCountryCode}) (path: /${nodePath})`,
     );
   });
-  console.info('[GenerateDricingSchoolPages] Finished generating');
+
+  // generate per region
+  drivingSchoolsRegions.nodes.forEach((drivingSchoolRegion) => {
+    // eslint-disable-next-line no-use-before-define
+    const urlEncodedName = encodeURI(replaceUmlauts(drivingSchoolRegion.name.toLowerCase()));
+    const nodePath = `${drivingSchoolRegion.country.countryCode}/fahrschulen/in/${urlEncodedName}`;
+
+    actions.createPage({
+      path: nodePath,
+      component: path.resolve('./src/templates/drivingSchools/perRegion.js'),
+      context: {
+        regionId: drivingSchoolRegion.id,
+        regionName: drivingSchoolRegion.name,
+        countryCode: drivingSchoolRegion.country.countryCode,
+      },
+    });
+
+    console.info(
+      `[GenerateDrivingSchoolPages] Created page for Fahrschulen in ${drivingSchoolRegion.name} (${drivingSchoolRegion.country.countryCode}) (path: /${nodePath})`,
+    );
+  });
+
+  console.info('[GenerateDrivingSchoolPages] Finished generating');
 }
 
 exports.createPages = async ({ graphql, actions }) => {
   console.info('[SiteGeneration] Fetching data');
 
-  const { data: { staticPages, countries, drivingSchools } } = await graphql(`
+  const {
+    data: {
+      staticPages, countries, drivingSchools, drivingSchoolsRegions,
+    },
+  } = await graphql(`
     query {
       staticPages: allSanityStaticPage {
         nodes {
@@ -136,7 +163,15 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
         countryCode: distinct(field: region___country___countryCode)
-        regionNames: distinct(field: region___name)
+      }
+      drivingSchoolsRegions: allSanityRegion {
+        nodes {
+          id
+          name
+          country {
+            countryCode
+          }
+        }
       }
     }
   `);
@@ -147,8 +182,23 @@ exports.createPages = async ({ graphql, actions }) => {
   await Promise.all([
     generateStaticPages(staticPages, actions),
     generateCountryIndexPages(countries, actions),
-    generateDrivingSchoolPages(drivingSchools, actions),
+    generateDrivingSchoolPages(drivingSchools, drivingSchoolsRegions, actions),
   ]);
 
   console.info('[SiteGeneration] Finished generating pages');
 };
+
+// helper
+function replaceUmlauts(value) {
+  value = value.toLowerCase();
+  value = value.replace(/ä/g, 'ae');
+  value = value.replace(/ö/g, 'oe');
+  value = value.replace(/ü/g, 'ue');
+  value = value.replace(/ß/g, 'ss');
+  value = value.replace(/ /g, '-');
+  value = value.replace(/\./g, '');
+  value = value.replace(/,/g, '');
+  value = value.replace(/\(/g, '');
+  value = value.replace(/\)/g, '');
+  return value;
+}

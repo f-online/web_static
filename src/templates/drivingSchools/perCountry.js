@@ -1,12 +1,13 @@
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import React from 'react';
-import Layout from '../components/Layout';
-import Section from '../components/Section';
-import SectionHeader from '../components/SectionHeader';
-import SEO from '../components/SEO';
+import Layout from '../../components/Layout';
+import Section from '../../components/Section';
+import SectionHeader from '../../components/SectionHeader';
+import SEO from '../../components/SEO';
+import replaceUmlauts from '../../utils/replaceUmlauts';
 
-export default function countryIndexPage({ pageContext, data: { drivingSchools } }) {
+export default function drivingSchoolsPerCountryPage({ pageContext, data: { drivingSchools } }) {
   const drivingSchoolNodes = drivingSchools.nodes;
 
   const drivingSchoolsGroupedByRegion = [];
@@ -41,7 +42,9 @@ export default function countryIndexPage({ pageContext, data: { drivingSchools }
         <div>
           {drivingSchoolsRegions.map((region) => (
             <div className="my-10" key={region.regionName}>
-              <h3 className="text-2xl text-center font-bold mb-2 text-gray-800">{region.regionName}</h3>
+              <h3 className="text-2xl text-center font-bold mb-2 text-gray-800">
+                <Link to={`/${pageContext.countryCode}/fahrschulen/in/${replaceUmlauts(region.regionName)}`} className="no-underline">{region.regionName}</Link>
+              </h3>
               <div className="w-10 h-0.5 bg-fonline-500 mx-auto mb-3" />
               <h4 className="text-center text-gray-500 max-w-md mx-auto mb-5">{`${region.drivingSchools.length} Fahrschulen sind in ${region.regionName} zu finden`}</h4>
               <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10">
