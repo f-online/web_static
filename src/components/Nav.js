@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { graphql, Link, useStaticQuery } from 'gatsby';
+import { FaInstagram } from 'react-icons/fa';
 import Logo from './Logo';
 
 export default function Nav({ countryCode }) {
@@ -100,6 +101,19 @@ export default function Nav({ countryCode }) {
               </Link>
             </li>
           ))}
+          <li>
+            <a
+              className="text-sm inline-flex items-center text-pink-600 hover:text-pink-700"
+              activeClassName="text-sm text-fonline-500 font-bold"
+              href="https://instagram.com/fonline.app"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <FaInstagram className="mr-1" />
+              {' '}
+              Instagram
+            </a>
+          </li>
         </ul>
 
         <a
@@ -158,6 +172,22 @@ export default function Nav({ countryCode }) {
                   </Link>
                 </li>
               ))}
+              <li>
+                <a
+                  className="block text-pink-600 p-3 hover:bg-pink-50 hover:font-semibold hover:text-pink-700 rounded"
+                  href="https://instagram.com/fonline.app"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <div className="inline-flex items-center">
+                    <FaInstagram className="mr-1" />
+                    {' '}
+                    Instagram
+                  </div>
+
+                </a>
+
+              </li>
             </ul>
           </div>
           <div className="mt-auto">
