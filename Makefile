@@ -15,3 +15,7 @@ dev: ## run dev webserver on localhost
 .PHONY: clean 
 clean: ## clean dev environment
 	npm clean
+
+.PHONY: build 
+build: ## build project locally
+	npm build
