@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { graphql, Link, useStaticQuery } from 'gatsby';
-import { FaInstagram } from 'react-icons/fa';
+import { FaInstagram, FaFacebook } from 'react-icons/fa';
 import Logo from './Logo';
 
 export default function Nav({ countryCode }) {
@@ -101,17 +101,22 @@ export default function Nav({ countryCode }) {
               </Link>
             </li>
           ))}
-          <li>
+          <li className="pl-8 flex">
             <a
-              className="text-sm inline-flex items-center text-pink-600 hover:text-pink-700"
-              activeClassName="text-sm text-fonline-500 font-bold"
+              className="text-sm inline-flex items-center text-gray-500 hover:text-fonline-500"
               href="https://instagram.com/fonline.app"
               target="_blank"
               rel="noreferrer"
             >
-              <FaInstagram className="mr-1" />
-              {' '}
-              Instagram
+              <FaInstagram className="w-8 h-8" title="Instagram" />
+            </a>
+            <a
+              className="text-sm inline-flex items-center text-gray-500 hover:text-fonline-500"
+              href="https://facebook.com/fonline.at"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <FaFacebook className="ml-2 w-7 h-7" title="Facebook" />
             </a>
           </li>
         </ul>
@@ -172,21 +177,23 @@ export default function Nav({ countryCode }) {
                   </Link>
                 </li>
               ))}
-              <li>
+              <li className="ml-2 flex">
                 <a
-                  className="block text-pink-600 p-3 hover:bg-pink-50 hover:font-semibold hover:text-pink-700 rounded"
+                  className="text-sm inline-flex items-center text-gray-500 hover:text-fonline-500"
                   href="https://instagram.com/fonline.app"
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <div className="inline-flex items-center">
-                    <FaInstagram className="mr-1" />
-                    {' '}
-                    Instagram
-                  </div>
-
+                  <FaInstagram className="w-8 h-8" title="Instagram" />
                 </a>
-
+                <a
+                  className="text-sm inline-flex items-center text-gray-500 hover:text-fonline-500"
+                  href="https://facebook.com/fonline.at"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <FaFacebook className="ml-4 w-7 h-7" title="Facebook" />
+                </a>
               </li>
             </ul>
           </div>
