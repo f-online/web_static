@@ -37,7 +37,12 @@ https://fonline.at/upgrade/* https://www.f-online.app/upgrade/:splat 301!
 https://fonline.at/media/fonline_ad_technology_providers.pdf https://www.f-online.app/media/fonline_ad_technology_providers.pdf 301!
 https://fonline.at/* https://www.f-online.app/at/ 301!
 
+# permalink for questions (used e.g. in books to link to questions)
 https://www.f-online.app/at/frage/* https://app.f-online.at/#question/:splat 302!
+
+# permalink for topics (used e.g. in books to link to topics)
+https://www.f-online.app/at/thema/* https://app.f-online.at/#topic/:splat/Fragen%20zum%20Buch 302!
+
 
 https://www.fonline.app/* https://www.f-online.app/:splat 301!
 
