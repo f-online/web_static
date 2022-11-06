@@ -41,7 +41,7 @@ https://fonline.at/* https://www.f-online.app/at/ 301!
 https://www.f-online.app/at/frage/* https://app.f-online.at/#question/:splat 302!
 
 # permalink for topics (used e.g. in books to link to topics)
-https://www.f-online.app/at/thema/:id pkc=pk_campaign https://app.f-online.at/#topic/:id/Fragen%20zum%20Buch/?pk_campaign=:pkc 302!
+https://www.f-online.app/at/thema/:id pkc=:pk_campaign https://app.f-online.at/#topic/:id/Fragen%20zum%20Buch/?pk_campaign=:pkc 302!
 
 
 https://www.fonline.app/* https://www.f-online.app/:splat 301!
