@@ -1,9 +1,24 @@
 import { Link } from 'gatsby';
 import React from 'react';
 
-export default function ButtonLink({ to, text }) {
+export default function ButtonLink({
+  to, text, type = 'primary', className,
+}) {
+  let cssClass;
+  switch (type) {
+    case 'primary':
+      cssClass = 'bg-fonline-500 hover:bg-fonline-700 text-white hover:text-white';
+      break;
+    case 'secondary':
+      cssClass = 'bg-white border-2 border-fonline-500 text-fonline-500 hover:bg-fonline-500 hover:text-white';
+      break;
+    default:
+      cssClass = '';
+      break;
+  }
+
   return (
-    <Link to={to} className="block sm:inline py-4 px-10 bg-fonline-500 hover:bg-fonline-700 text-white font-bold rounded-l-xl rounded-t-xl transition duration-200 no-underline hover:text-white">
+    <Link to={to} className={`${className} ${cssClass} block sm:inline py-4 px-10 font-bold rounded-l-xl rounded-t-xl transition duration-200 no-underline`}>
       {text}
     </Link>
   );

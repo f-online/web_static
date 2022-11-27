@@ -120,13 +120,20 @@ export default function Nav({ countryCode }) {
             </a>
           </li>
         </ul>
-
-        <a
-          className="hidden lg:inline-block py-2 px-6 bg-fonline-500 hover:bg-fonline-300 text-sm text-white font-bold rounded-l-xl rounded-t-xl transition duration-200"
-          href="https://app.f-online.at/"
-        >
-          Anmelden
-        </a>
+        <div className="hidden lg:inline-block">
+          <a
+            className="hidden lg:inline-block py-2 px-6 border-2 border-fonline-500 bg-fonline-500 hover:border-fonline-700 hover:bg-fonline-700 text-sm text-white font-bold rounded-l-xl rounded-t-xl transition duration-200"
+            href="https://app.f-online.at/#login"
+          >
+            Anmelden
+          </a>
+          <a
+            className="hidden lg:inline-block py-2 px-6 border-2 border-fonline-500 text-fonline-500 hover:bg-fonline-500 hover:text-white text-sm font-bold rounded-r-xl rounded-t-xl transition duration-200 ml-2"
+            href="https://app.f-online.at/#register"
+          >
+            Registrieren
+          </a>
+        </div>
       </nav>
 
       <div className={`navbar-menu fixed top-0 left-0 bottom-0 w-5/6 max-w-sm z-50 ${menuOpen ? '' : 'hidden'}`}>
@@ -199,8 +206,8 @@ export default function Nav({ countryCode }) {
           </div>
           <div className="mt-auto">
             <div className="pt-6">
-              <a className="block px-4 py-3 mb-3 leading-loose text-xs text-center font-semibold leading-none bg-gray-50 hover:bg-gray-100 rounded-l-xl rounded-t-xl" href="https://app.f-online.at/#register">Account erstellen</a>
-              <a className="block px-4 py-3 mb-2 leading-loose text-xs text-center text-white font-semibold bg-fonline-600 hover:bg-fonline-700 rounded-l-xl rounded-t-xl" href="https://app.f-online.at/">Anmelden</a>
+              <a className="block px-4 py-3 mb-3 leading-loose text-xs text-center font-semibold border-2 border-fonline-500 text-fonline-500 hover:bg-fonline-500 hover:text-white rounded-l-xl rounded-t-xl" href="https://app.f-online.at/#register">Registrieren</a>
+              <a className="block px-4 py-3 mb-2 leading-loose text-xs text-center border-2 border-fonline-500 hover:border-fonline-700 text-white font-semibold bg-fonline-600 hover:bg-fonline-700 rounded-l-xl rounded-t-xl" href="https://app.f-online.at/">Anmelden</a>
             </div>
           </div>
         </nav>

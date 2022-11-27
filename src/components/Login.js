@@ -1,6 +1,7 @@
 import { GatsbyImage } from 'gatsby-plugin-image';
 import React from 'react';
 import { BiDonateHeart } from 'react-icons/bi';
+import ButtonLink from './ButtonLink';
 import Section from './Section';
 import Waves from './Waves';
 
@@ -46,7 +47,7 @@ export default function Login({ title, subTitle, screenshot }) {
             <div className="flex flex-col sm:flex-row">
               <input type="submit" value="Anmelden" className="w-full cursor-pointer py-4 px-10 bg-fonline-500 hover:bg-fonline-700 text-white font-bold rounded-l-xl rounded-t-xl transition duration-200 no-underline hover:text-white" />
               <a
-                className="bg-teal-600 text-white hover:bg-teal-800 hover:text-white sm:ml-2 py-4 px-10 inline-flex items-center rounded-l-xl sm:rounded-tl-xl sm:rounded-bl-none sm:rounded-r-xl rounded-t-xl no-underline mt-4 sm:mt-0"
+                className="text-teal-600 bg-teal-50 hover:bg-teal-600 hover:text-white sm:ml-2 py-4 px-10 inline-flex items-center rounded-l-xl sm:rounded-tl-xl sm:rounded-bl-none sm:rounded-r-xl rounded-t-xl no-underline mt-4 sm:mt-0"
                 href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RL9PYUBA3MJ2S&source=url"
               >
                 <BiDonateHeart className="mr-2" />
@@ -57,16 +58,16 @@ export default function Login({ title, subTitle, screenshot }) {
 
           <hr />
 
-          <p className="text-gray-700 pb-0">
-            Du hast keinen Account?
-            {' '}
-            <br />
-            Erstelle
-            {' '}
-            <a href="https://app.f-online.at/#register">hier</a>
-            {' '}
-            dein gratis Lernkonto!
+          <p className="text-gray-700 pb-0 mb-8">
+            <div>
+              Du hast keinen Account?
+            </div>
+            <div className="mt-6">
+              <ButtonLink to="https://app.f-online.at/#register" text="Kostenloses Lernkonto erstellen" type="secondary" />
+            </div>
           </p>
+
+          <hr />
 
           <p className="flex gap-4 justify-center">
             <a href="https://apps.apple.com/at/app/f-online/id1119605799">
