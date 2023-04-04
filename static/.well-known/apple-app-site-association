@@ -1,0 +1,17 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appID": "6L83KM46HP.at.f-online.app",
+        "components": [
+          {
+            "/": "/at/thema/*"
+          },
+          {
+            "/": "/at/frage/*"
+          }
+        ]
+      }
+    ]
+  }
+}
