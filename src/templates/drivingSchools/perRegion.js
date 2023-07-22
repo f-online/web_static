@@ -25,7 +25,7 @@ export default function drivingSchoolsPerCountryPage({ pageContext, data: { driv
           {drivingSchoolNodes.map((drivingSchool) => (
             <div
               className="p-5 rounded-lg text-center border-b-4 hover:bg-white border-transparent hover:border-fonline-500 hover:shadow-2xl transition-shadow duration-300"
-              key={drivingSchool.id}
+              key={drivingSchool._id}
             >
               <div className="flex items-center justify-center h-40 mb-3">
                 <GatsbyImage
@@ -59,11 +59,11 @@ export default function drivingSchoolsPerCountryPage({ pageContext, data: { driv
 export const query = graphql`
   query ($regionId: String!) {
     drivingSchools: allSanityDrivingSchool(
-        filter: {region: {id: {eq: $regionId}}}
+        filter: {region: {_id: {eq: $regionId}}}
         sort: {fields: zip}
       ) {
         nodes {
-          id
+          _id
           name
           zip
           street

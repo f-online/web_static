@@ -13,7 +13,7 @@ export default function Team({ countryCode }) {
           }
         ) {
           nodes {
-            id
+            _id
             name
             mail
             position
@@ -35,7 +35,7 @@ export default function Team({ countryCode }) {
   return (
     <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4">
       {teamNodes.map((teammember) => (
-        <div className="flex flex-col align-items-center text-center p-5" key={teammember.id}>
+        <div className="flex flex-col align-items-center text-center p-5" key={teammember._id}>
           <div className="mx-auto mb-5 relative">
             <GatsbyImage
               image={teammember.image.asset.gatsbyImageData}

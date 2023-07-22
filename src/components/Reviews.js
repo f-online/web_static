@@ -16,7 +16,7 @@ export default function Reviews({ limit, countryCode }) {
           }
         ) {
         nodes {
-          id
+          _id
           name
           platform
           stars
@@ -43,10 +43,10 @@ export default function Reviews({ limit, countryCode }) {
         {reviewNodes.map((review) => (
           <div
             className="flex flex-col justify-between bg-fonline-50 rounded-l-xl rounded-t-xl p-4"
-            key={review.id}
+            key={review._id}
           >
             <div className="flex justify-between items-end">
-              <Stars value={review.stars} keySuffix={review.id} />
+              <Stars value={review.stars} keySuffix={review._id} />
 
               <a
                 href={review.url}

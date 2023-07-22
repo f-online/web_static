@@ -9,7 +9,7 @@ export default function FAQ({ limit = 0, countryCode }) {
     query {
       faqs: allSanityFaq {
         nodes {
-          id
+          _id
           question
           _rawAnswer
           countries {
@@ -30,7 +30,7 @@ export default function FAQ({ limit = 0, countryCode }) {
     <>
       <div>
         {faqNodes.map((faq) => (
-          <details key={faq.id} className="bg-white p-5 text-center mb-5 drop-shadow-lg text-lg transition-all rounded">
+          <details key={faq._id} className="bg-white p-5 text-center mb-5 drop-shadow-lg text-lg transition-all rounded">
             <summary className="font-semibold cursor-pointer select-none">
               {faq.question}
             </summary>

@@ -19,7 +19,7 @@ export default function Nav({ countryCode }) {
       headerLinksNodes: allSanityCountry {
         nodes {
           staticPageHeaderLinks {
-            id
+            _id
             title
             slug {
               current
@@ -91,7 +91,7 @@ export default function Nav({ countryCode }) {
             </li>
           )}
           {headerLinks.map((headerLink) => (
-            <li key={`desktop-${headerLink.id}`}>
+            <li key={`desktop-${headerLink._id}`}>
               <Link
                 className="text-sm"
                 activeClassName="text-sm text-fonline-500 font-bold"
@@ -174,7 +174,7 @@ export default function Nav({ countryCode }) {
               {headerLinks.map((headerLink) => (
                 <li
                   className="mb-1"
-                  key={`mobile-${headerLink.id}`}
+                  key={`mobile-${headerLink._id}`}
                 >
                   <Link
                     className="block text-fonline-400 p-3 hover:bg-fonline-50 hover:font-semibold hover:text-fonline-500 rounded"
