@@ -96,7 +96,7 @@ export default function Nav({ countryCode }) {
               <Link
                 className="text-sm"
                 activeClassName="text-sm text-fonline-500 font-bold"
-                to={`/${headerLink.country.countryCode}/${headerLink.slug.current}`}
+                to={`/${countryCode}/${headerLink.slug.current}`}
               >
                 {headerLink.title}
               </Link>
@@ -179,7 +179,7 @@ export default function Nav({ countryCode }) {
                 >
                   <Link
                     className="block text-fonline-400 p-3 hover:bg-fonline-50 hover:font-semibold hover:text-fonline-500 rounded"
-                    to={`/${headerLink.country.countryCode}/${headerLink.slug.current}`}
+                    to={`/${countryCode}/${headerLink.slug.current}`}
                   >
                     {headerLink.title}
                   </Link>
