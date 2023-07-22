@@ -16,6 +16,7 @@ export default function Footer({ countryCode }) {
               countryCode
             }
           }
+          links: _rawStaticPageFooterLinks(resolveReferences: {maxDepth: 1})
           countryCode
         }
       }
@@ -25,7 +26,7 @@ export default function Footer({ countryCode }) {
   let footerLinks = [];
   footerLinksNodes.nodes.forEach((node) => {
     if (node.countryCode === countryCode) {
-      footerLinks = node.staticPageFooterLinks;
+      footerLinks = node.links;
     }
   });
 

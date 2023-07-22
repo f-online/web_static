@@ -28,6 +28,7 @@ export default function Nav({ countryCode }) {
               countryCode
             }
           }
+          links: _rawStaticPageHeaderLinks(resolveReferences: {maxDepth: 1})
           countryCode
         }
       }
@@ -40,7 +41,7 @@ export default function Nav({ countryCode }) {
   let headerLinks = [];
   headerLinksNodes.nodes.forEach((node) => {
     if (node.countryCode === countryCode) {
-      headerLinks = node.staticPageHeaderLinks;
+      headerLinks = node.links;
     }
   });
 
