@@ -18,9 +18,7 @@ export default function Reviews({ limit, countryCode }) {
           reviewText
           url
           date(formatString: "DD.MM.YYYY")
-          countries {
-            countryCode
-          }
+          countries: _rawCountries(resolveReferences: {maxDepth: 1})
         }
       }
     }

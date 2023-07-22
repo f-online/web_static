@@ -16,7 +16,7 @@ export default function Footer({ countryCode }) {
               countryCode
             }
           }
-          links: _rawStaticPageFooterLinks(resolveReferences: {maxDepth: 1})
+          links: _rawStaticPageFooterLinks(resolveReferences: {maxDepth: 2})
           countryCode
         }
       }
@@ -38,7 +38,7 @@ export default function Footer({ countryCode }) {
       <div className="flex flex-col md:block pt-4 md:pt-0">
         {footerLinks.map((footerLink) => (
           <Link
-            to={`/${countryCode}/${footerLink.slug.current}`}
+            to={`/${footerLink.country.countryCode}/${footerLink.slug.current}`}
             key={footerLink._id}
             className="pt-2 md:pr-4 md:pt-0"
           >

@@ -12,9 +12,7 @@ export default function FAQ({ limit = 0, countryCode }) {
           _id
           question
           _rawAnswer
-          countries {
-            countryCode
-          }
+          countries: _rawCountries(resolveReferences: {maxDepth: 1})
         }
       }
     }

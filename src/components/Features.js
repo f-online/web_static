@@ -16,9 +16,7 @@ export default function Features({ limit, countryCode }) {
               gatsbyImageData
             }
           }
-          countries {
-            countryCode
-          }
+          countries: _rawCountries(resolveReferences: {maxDepth: 1})
         }
       }
     }
