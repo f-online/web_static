@@ -85,9 +85,9 @@ export default function drivingSchoolsPerCountryPage({ pageContext, data: { driv
 export const query = graphql`
   query ($countryCode: String!) {
     drivingSchools: allSanityDrivingSchool(
-        filter: {country: {countryCode: {eq: $countryCode}}}
-        sort: {fields: zip}
-      ) {
+    filter: {country: {countryCode: {eq: $countryCode}}}
+    sort: {zip: ASC}
+  ) {
         nodes {
           _id
           name

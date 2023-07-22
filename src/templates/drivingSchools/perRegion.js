@@ -10,7 +10,6 @@ import SEO from '../../components/SEO';
 export default function drivingSchoolsPerCountryPage({ pageContext, data: { drivingSchools } }) {
   const drivingSchoolNodes = drivingSchools.nodes;
 
-  console.log(pageContext);
   return (
     <Layout countryCode={pageContext.countryCode}>
       <SEO title={`Fahrschulen in ${pageContext.regionName}`} />
@@ -59,9 +58,9 @@ export default function drivingSchoolsPerCountryPage({ pageContext, data: { driv
 export const query = graphql`
   query ($regionId: String!) {
     drivingSchools: allSanityDrivingSchool(
-        filter: {region: {_id: {eq: $regionId}}}
-        sort: {fields: zip}
-      ) {
+    filter: {region: {_id: {eq: $regionId}}}
+    sort: {zip: ASC}
+  ) {
         nodes {
           _id
           name

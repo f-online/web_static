@@ -6,12 +6,7 @@ import filterNodeByMultipleCountryCodes from '../utils/filterNodeByMultipleCount
 export default function Team({ countryCode }) {
   const { team } = useStaticQuery(graphql`
     query {
-      team: allSanityTeam(
-          sort: {
-            fields: name,
-            order: ASC
-          }
-        ) {
+      team: allSanityTeam(sort: {name: ASC}) {
           nodes {
             _id
             name

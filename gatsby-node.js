@@ -162,7 +162,7 @@ exports.createPages = async ({ graphql, actions }) => {
             countryCode
           }
         }
-        countryCode: distinct(field: region___country___countryCode)
+        countryCode: distinct(field: {region: {country: {countryCode: SELECT}}})
       }
       drivingSchoolsRegions: allSanityRegion {
         nodes {

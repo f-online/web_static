@@ -9,12 +9,7 @@ import ButtonLink from './ButtonLink';
 export default function Reviews({ limit, countryCode }) {
   const { reviews } = useStaticQuery(graphql`
     query {
-      reviews: allSanityReview(
-          sort: {
-            fields: date,
-            order: DESC
-          }
-        ) {
+      reviews: allSanityReview(sort: {date: DESC}) {
         nodes {
           _id
           name

@@ -32,7 +32,7 @@ export default function Nav({ countryCode }) {
         }
       }
       drivingSchools: allSanityDrivingSchool {
-        countries: distinct(field: country___countryCode)
+        countries: distinct(field: {country: {countryCode: SELECT}})
       }
     }
   `);
