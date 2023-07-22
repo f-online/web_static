@@ -28,7 +28,7 @@ export default function Nav({ countryCode }) {
               countryCode
             }
           }
-          links: _rawStaticPageHeaderLinks(resolveReferences: {maxDepth: 1})
+          links: _rawStaticPageHeaderLinks(resolveReferences: {maxDepth: 4})
           countryCode
         }
       }

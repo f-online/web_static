@@ -16,7 +16,7 @@ export default function Footer({ countryCode }) {
               countryCode
             }
           }
-          links: _rawStaticPageFooterLinks(resolveReferences: {maxDepth: 2})
+          links: _rawStaticPageFooterLinks(resolveReferences: {maxDepth: 4})
           countryCode
         }
       }
