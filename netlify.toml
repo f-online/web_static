@@ -2,4 +2,4 @@
   command = "npm install && npm run build"
   publish = "public"
   base = ""
-  environment = { NODE_VERSION = "16" }
+  environment = { NODE_VERSION = "18" }
