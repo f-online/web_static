@@ -7,7 +7,7 @@ import ButtonLink from './ButtonLink';
 export default function FAQ({ limit = 0, countryCode }) {
   const { faqs } = useStaticQuery(graphql`
     query {
-      faqs: allSanityFaq(sort: { fields: _updatedAt, order: DESC }) {
+      faqs: allSanityFaq(sort: {_updatedAt: DESC}) {
         nodes {
           _id
           question
