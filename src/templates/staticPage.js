@@ -34,7 +34,7 @@ export default function StaticPage({ data: { staticPage } }) {
           }
 
           return (
-            <Section className={cssClass} key={section.id}>
+            <Section className={cssClass} key={section._id}>
               <SectionHeader
                 title={section.title}
                 subtitle={section.subtitle}
@@ -61,7 +61,7 @@ export default function StaticPage({ data: { staticPage } }) {
 
         if (section._type === 'teamObject') {
           return (
-            <Section className={cssClass} key={section.id}>
+            <Section className={cssClass} key={section._id}>
               <SectionHeader
                 title={section.title}
                 subtitle={section.subTitle}
@@ -74,7 +74,7 @@ export default function StaticPage({ data: { staticPage } }) {
 
         if (section._type === 'faqObject') {
           return (
-            <Section className={cssClass} key={section.id}>
+            <Section className={cssClass} key={section._id}>
               <SectionHeader
                 title={section.title}
                 subtitle={section.subTitle}
@@ -87,7 +87,7 @@ export default function StaticPage({ data: { staticPage } }) {
 
         if (section._type === 'reviewObject') {
           return (
-            <Section className={cssClass} key={section.id}>
+            <Section className={cssClass} key={section._id}>
               <SectionHeader
                 title={section.title}
                 subtitle={section.subTitle}
@@ -100,7 +100,7 @@ export default function StaticPage({ data: { staticPage } }) {
 
         if (section._type === 'featureObject') {
           return (
-            <Section className={cssClass} key={section.id}>
+            <Section className={cssClass} key={section._id}>
               <SectionHeader
                 title={section.title}
                 subtitle={section.subTitle}
@@ -120,8 +120,8 @@ export default function StaticPage({ data: { staticPage } }) {
 
 export const query = graphql`
   query ($documentId: String!) {
-    staticPage: sanityStaticPage(id: { eq: $documentId }) {
-      id
+    staticPage: sanityStaticPage(_id: { eq: $documentId }) {
+      _id
       title
       slug {
         current

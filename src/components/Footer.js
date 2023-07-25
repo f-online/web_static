@@ -7,7 +7,7 @@ export default function Footer({ countryCode }) {
       footerLinksNodes: allSanityCountry {
         nodes {
           staticPageFooterLinks {
-            id
+            _id
             title
             slug {
               current
@@ -16,6 +16,7 @@ export default function Footer({ countryCode }) {
               countryCode
             }
           }
+          links: _rawStaticPageFooterLinks(resolveReferences: {maxDepth: 4})
           countryCode
         }
       }
@@ -25,7 +26,7 @@ export default function Footer({ countryCode }) {
   let footerLinks = [];
   footerLinksNodes.nodes.forEach((node) => {
     if (node.countryCode === countryCode) {
-      footerLinks = node.staticPageFooterLinks;
+      footerLinks = node.links;
     }
   });
 
@@ -38,7 +39,7 @@ export default function Footer({ countryCode }) {
         {footerLinks.map((footerLink) => (
           <Link
             to={`/${footerLink.country.countryCode}/${footerLink.slug.current}`}
-            key={footerLink.id}
+            key={footerLink._id}
             className="pt-2 md:pr-4 md:pt-0"
           >
             {footerLink.title}

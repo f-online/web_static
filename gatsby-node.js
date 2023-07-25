@@ -13,7 +13,7 @@ async function generateStaticPages(staticPages, actions) {
         path: nodePath,
         component: template,
         context: {
-          documentId: staticPage.id,
+          documentId: staticPage._id,
           seo: {
             title: staticPage.seo.title,
             description: staticPage.seo.description,
@@ -42,7 +42,7 @@ async function generateCountryIndexPages(countries, actions) {
         path: nodePath,
         component: template,
         context: {
-          documentId: node.id,
+          documentId: node._id,
           seo: {
             title: node.seo.title,
             description: node.seo.description,
@@ -99,7 +99,7 @@ async function generateDrivingSchoolPages(drivingSchools, drivingSchoolsRegions,
       path: nodePath,
       component: path.resolve('./src/templates/drivingSchools/perRegion.js'),
       context: {
-        regionId: drivingSchoolRegion.id,
+        regionId: drivingSchoolRegion._id,
         regionName: drivingSchoolRegion.name,
         countryCode: drivingSchoolRegion.country.countryCode,
       },
@@ -124,7 +124,7 @@ exports.createPages = async ({ graphql, actions }) => {
     query {
       staticPages: allSanityStaticPage {
         nodes {
-          id
+          _id
           title
           slug {
             current
@@ -141,7 +141,7 @@ exports.createPages = async ({ graphql, actions }) => {
       }
       countries: allSanityCountry {
         nodes {
-          id
+          _id
           name
           countryCode
           seo {
@@ -153,7 +153,7 @@ exports.createPages = async ({ graphql, actions }) => {
       }
       drivingSchools: allSanityDrivingSchool {
         nodes {
-          id
+          _id
           name
           region {
             name
@@ -162,11 +162,11 @@ exports.createPages = async ({ graphql, actions }) => {
             countryCode
           }
         }
-        countryCode: distinct(field: region___country___countryCode)
+        countryCode: distinct(field: {region: {country: {countryCode: SELECT}}})
       }
       drivingSchoolsRegions: allSanityRegion {
         nodes {
-          id
+          _id
           name
           country {
             countryCode

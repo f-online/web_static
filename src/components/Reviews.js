@@ -9,23 +9,16 @@ import ButtonLink from './ButtonLink';
 export default function Reviews({ limit, countryCode }) {
   const { reviews } = useStaticQuery(graphql`
     query {
-      reviews: allSanityReview(
-          sort: {
-            fields: date,
-            order: DESC
-          }
-        ) {
+      reviews: allSanityReview(sort: {date: DESC}) {
         nodes {
-          id
+          _id
           name
           platform
           stars
           reviewText
           url
           date(formatString: "DD.MM.YYYY")
-          countries {
-            countryCode
-          }
+          countries: _rawCountries(resolveReferences: {maxDepth: 1})
         }
       }
     }
@@ -43,10 +36,10 @@ export default function Reviews({ limit, countryCode }) {
         {reviewNodes.map((review) => (
           <div
             className="flex flex-col justify-between bg-fonline-50 rounded-l-xl rounded-t-xl p-4"
-            key={review.id}
+            key={review._id}
           >
             <div className="flex justify-between items-end">
-              <Stars value={review.stars} keySuffix={review.id} />
+              <Stars value={review.stars} keySuffix={review._id} />
 
               <a
                 href={review.url}

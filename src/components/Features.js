@@ -8,7 +8,7 @@ export default function Features({ limit, countryCode }) {
     query {
       features: allSanityFeature {
         nodes {
-          id
+          _id
           name
           info
           image {
@@ -16,9 +16,7 @@ export default function Features({ limit, countryCode }) {
               gatsbyImageData
             }
           }
-          countries {
-            countryCode
-          }
+          countries: _rawCountries(resolveReferences: {maxDepth: 1})
         }
       }
     }
@@ -33,7 +31,7 @@ export default function Features({ limit, countryCode }) {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-20">
       {featureNodes.map((feature) => (
-        <div className="text-center" key={feature.id}>
+        <div className="text-center" key={feature._id}>
           <GatsbyImage image={feature.image.asset.gatsbyImageData} alt={feature.name} className="h-20 w-20" />
           <h5 className="text-2xl mt-2 md:mt-5 mb-0">{feature.name}</h5>
           <p className="text-gray-500">{feature.info}</p>

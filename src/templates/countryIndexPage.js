@@ -127,8 +127,8 @@ export default function countryIndexPage({ data: { country } }) {
 
 export const query = graphql`
   query ($documentId: String!) {
-    country: sanityCountry(id: { eq: $documentId }) {
-      id
+    country: sanityCountry(_id: { eq: $documentId }) {
+      _id
       name
       countryCode
       seo {
