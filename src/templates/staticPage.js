@@ -37,7 +37,7 @@ export default function StaticPage({ data: { staticPage } }) {
             <Section className={cssClass} key={section._id}>
               <SectionHeader
                 title={section.title}
-                subtitle={section.subtitle}
+                subtitle={section.subTitle}
               />
 
               <BlockContent blocks={section._rawContent} ignoreUnknownTypes />
