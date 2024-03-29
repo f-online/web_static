@@ -1,6 +1,27 @@
 /* eslint-disable no-param-reassign */
 const path = require('path');
 
+async function generateQuestions(actions) {
+  console.info('[GenerateQuestions] Start generating');
+
+  const template = path.resolve('./src/templates/question.js');
+  const questions = []; // TODO fetch data
+
+  // Create a page for each question
+  console.log(`[GenerateQuestions] Found ${questions.length} questions`);
+  questions.forEach((question) => {
+    actions.createPage({
+      path: `/at/fragenkatalog/frage/${question.id}`,
+      component: template,
+      context: {
+        question,
+      },
+    });
+  });
+
+  console.info('[GenerateQuestions] Finished generating');
+}
+
 async function generateStaticPages(staticPages, actions) {
   console.info('[GenerateStaticPages] Start generating');
 
@@ -183,6 +204,7 @@ exports.createPages = async ({ graphql, actions }) => {
     generateStaticPages(staticPages, actions),
     generateCountryIndexPages(countries, actions),
     generateDrivingSchoolPages(drivingSchools, drivingSchoolsRegions, actions),
+    generateQuestions(actions),
   ]);
 
   console.info('[SiteGeneration] Finished generating pages');
