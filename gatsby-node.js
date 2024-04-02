@@ -1,17 +1,55 @@
 /* eslint-disable no-param-reassign */
 const path = require('path');
 
+/* get all questions recursively as they are stored
+ * in a tree structure of topics and subtopics
+ */
+const getQuestions = function (topic, path) {
+  const questions = [];
+  if (topic.subTopics && topic.subTopics.length > 0) {
+    topic.subTopics.forEach((subTopic) => {
+      questions.push(...getQuestions(subTopic, [...path, subTopic.txt_text]));
+    });
+    return questions;
+  }
+  if (topic.questions && topic.questions.length > 0) {
+    return [{
+      path,
+      questions: topic.questions,
+    }];
+  }
+  return [];
+};
+
 async function generateQuestions(actions) {
   console.info('[GenerateQuestions] Start generating');
 
   const template = path.resolve('./src/templates/question.js');
-  const questions = []; // TODO fetch data
+
+  const questions = [];
+  console.info('[GenerateQuestions] Fetching questions');
+  const data = await fetch(`http://app.f-online.local/json/export/${process.env.FONLINE_API_KEY}`);
+  if (!data.ok) {
+    console.error('[GenerateQuestions] Failed to fetch questions');
+  } else {
+    const topics = await data.json();
+    topics.forEach((topic) => {
+      const questionSets = getQuestions(topic, [topic.txt_text]);
+      // flatten structure to one array of questions
+      // each question contains the path to the question as well
+      questionSets.forEach((questionSet) => {
+        questions.push(...questionSet.questions.map((question) => (
+          { ...question, path: questionSet.path }
+        )));
+      });
+    });
+  }
 
   // Create a page for each question
-  console.log(`[GenerateQuestions] Found ${questions.length} questions`);
+  console.info(`[GenerateQuestions] Found ${questions.length} questions`);
   questions.forEach((question) => {
     actions.createPage({
-      path: `/at/fragenkatalog/frage/${question.id}`,
+      path: `/at/fragenkatalog/frage/${question.qst_id}`,
       component: template,
       context: {
         question,
