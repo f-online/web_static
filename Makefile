@@ -18,4 +18,4 @@ clean: ## clean dev environment
 
 .PHONY: build 
 build: ## build project locally
-	npm build
+	npm run build
