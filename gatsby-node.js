@@ -26,36 +26,60 @@ async function generateQuestions(actions) {
 
   const template = path.resolve('./src/templates/question.js');
 
-  const questions = [];
   console.info('[GenerateQuestions] Fetching questions');
-  const data = await fetch(`http://app.f-online.local/json/export/${process.env.FONLINE_API_KEY}`);
-  if (!data.ok) {
-    console.error('[GenerateQuestions] Failed to fetch questions');
-  } else {
-    const topics = await data.json();
-    topics.forEach((topic) => {
-      const questionSets = getQuestions(topic, [topic.txt_text]);
-      // flatten structure to one array of questions
-      // each question contains the path to the question as well
-      questionSets.forEach((questionSet) => {
-        questions.push(...questionSet.questions.map((question) => (
-          { ...question, path: questionSet.path }
-        )));
-      });
-    });
+
+  // TODO: this should be moved to gatsby-config.js but I couldn't make it work
+  const fonlineApiUrl = 'https://stage.app.f-online.at/json/export';
+  const fonlineApiKey = process.env.FONLINE_API_KEY;
+
+  if (!fonlineApiKey) {
+    console.error('[GenerateQuestions] No API key provided');
+    return;
   }
 
-  // Create a page for each question
-  console.info(`[GenerateQuestions] Found ${questions.length} questions`);
-  questions.forEach((question) => {
-    actions.createPage({
-      path: `/at/fragenkatalog/frage/${question.qst_id}`,
-      component: template,
-      context: {
-        question,
-      },
+  if (!fonlineApiUrl) {
+    console.error('[GenerateQuestions] No API URL provided');
+    return;
+  }
+
+  const url = `${fonlineApiUrl}/${fonlineApiKey}`;
+  console.info(`[GenerateQuestions] Fetching questions from ${url}`);
+  try {
+    const questions = [];
+    const data = await fetch(url);
+    if (!data.ok) {
+      console.error('[GenerateQuestions] Failed to fetch questions');
+    } else {
+      const topics = await data.json();
+      topics.forEach((topic) => {
+        const questionSets = getQuestions(topic, [topic.txt_text]);
+        // flatten structure to one array of questions
+        // each question contains the path to the question as well
+        questionSets.forEach((questionSet) => {
+          questions.push(...questionSet.questions.map((question) => (
+            { ...question, path: questionSet.path }
+          )));
+        });
+      });
+    }
+
+    // Create a page for each question
+    console.info(`[GenerateQuestions] Found ${questions.length} questions`);
+
+    // TODO: remove the slice after SEO optimation is done
+    // limit to 100 questions for now
+    questions.slice(0, 100).forEach((question) => {
+      actions.createPage({
+        path: `/at/fragenkatalog/frage/${question.qst_id}`,
+        component: template,
+        context: {
+          question,
+        },
+      });
     });
-  });
+  } catch (error) {
+    console.error('[GenerateQuestions] Failed to fetch questions', error);
+  }
 
   console.info('[GenerateQuestions] Finished generating');
 }
