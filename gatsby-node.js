@@ -1,6 +1,99 @@
 /* eslint-disable no-param-reassign */
 const path = require('path');
 
+/* get all questions recursively as they are stored
+ * in a tree structure of topics and subtopics
+ */
+const getQuestions = (topic, path) => {
+  const questions = [];
+  if (topic.subTopics && topic.subTopics.length > 0) {
+    topic.subTopics.forEach((subTopic) => {
+      questions.push(...getQuestions(subTopic, [...path, subTopic.txt_text]));
+    });
+    return questions;
+  }
+  if (topic.questions && topic.questions.length > 0) {
+    return [{
+      path,
+      questions: topic.questions,
+    }];
+  }
+  return [];
+};
+
+async function generateQuestions(actions) {
+  console.info('[GenerateQuestions] Start generating');
+
+  const template = path.resolve('./src/templates/question.js');
+
+  console.info('[GenerateQuestions] Fetching questions');
+
+  // TODO: this should be moved to gatsby-config.js but I couldn't make it work
+  const fonlineApiUrl = 'https://stage.app.f-online.at/json/export';
+  const fonlineApiKey = process.env.FONLINE_API_KEY;
+  const SEOQuestionLimit = 100;
+
+  if (!fonlineApiKey) {
+    console.error('[GenerateQuestions] No API key provided');
+    return;
+  }
+
+  if (!fonlineApiUrl) {
+    console.error('[GenerateQuestions] No API URL provided');
+    return;
+  }
+
+  const url = `${fonlineApiUrl}/${fonlineApiKey}`;
+  console.info(`[GenerateQuestions] Fetching questions from ${url}`);
+  try {
+    const questions = [];
+    const data = await fetch(url);
+    if (!data.ok) {
+      console.error('[GenerateQuestions] Failed to fetch questions');
+    } else {
+      const topics = await data.json();
+      topics.forEach((topic) => {
+        const questionSets = getQuestions(topic, [topic.txt_text]);
+        // flatten structure to one array of questions
+        // each question contains the path to the question as well
+        questionSets.forEach((questionSet) => {
+          questions.push(...questionSet.questions.map((question) => (
+            { ...question, path: questionSet.path }
+          )));
+        });
+      });
+    }
+
+    // Create a page for each question
+    console.info(`[GenerateQuestions] Found ${questions.length} questions`);
+
+    // TODO: remove the slice after SEO optimation is done
+    // limit to 100 questions for now
+    questions.slice(0, SEOQuestionLimit).forEach((question) => {
+      actions.createPage({
+        path: `/at/fragenkatalog/frage/${question.qst_id}`,
+        component: template,
+        context: {
+          question,
+        },
+      });
+    });
+
+    // generate page for all questions
+    actions.createPage({
+      path: '/at/fragenkatalog/alle-fragen/',
+      component: path.resolve('./src/templates/allQuestions.js'),
+      context: {
+        questions: questions.slice(0, SEOQuestionLimit),
+      },
+    });
+  } catch (error) {
+    console.error('[GenerateQuestions] Failed to fetch questions', error);
+  }
+
+  console.info('[GenerateQuestions] Finished generating');
+}
+
 async function generateStaticPages(staticPages, actions) {
   console.info('[GenerateStaticPages] Start generating');
 
@@ -183,6 +276,7 @@ exports.createPages = async ({ graphql, actions }) => {
     generateStaticPages(staticPages, actions),
     generateCountryIndexPages(countries, actions),
     generateDrivingSchoolPages(drivingSchools, drivingSchoolsRegions, actions),
+    generateQuestions(actions),
   ]);
 
   console.info('[SiteGeneration] Finished generating pages');
