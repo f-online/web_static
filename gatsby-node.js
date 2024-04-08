@@ -4,7 +4,7 @@ const path = require('path');
 /* get all questions recursively as they are stored
  * in a tree structure of topics and subtopics
  */
-const getQuestions = function (topic, path) {
+const getQuestions = (topic, path) => {
   const questions = [];
   if (topic.subTopics && topic.subTopics.length > 0) {
     topic.subTopics.forEach((subTopic) => {
@@ -31,6 +31,7 @@ async function generateQuestions(actions) {
   // TODO: this should be moved to gatsby-config.js but I couldn't make it work
   const fonlineApiUrl = 'https://stage.app.f-online.at/json/export';
   const fonlineApiKey = process.env.FONLINE_API_KEY;
+  const SEOQuestionLimit = 100;
 
   if (!fonlineApiKey) {
     console.error('[GenerateQuestions] No API key provided');
@@ -68,7 +69,7 @@ async function generateQuestions(actions) {
 
     // TODO: remove the slice after SEO optimation is done
     // limit to 100 questions for now
-    questions.slice(0, 100).forEach((question) => {
+    questions.slice(0, SEOQuestionLimit).forEach((question) => {
       actions.createPage({
         path: `/at/fragenkatalog/frage/${question.qst_id}`,
         component: template,
@@ -76,6 +77,15 @@ async function generateQuestions(actions) {
           question,
         },
       });
+    });
+
+    // generate page for all questions
+    actions.createPage({
+      path: '/at/fragenkatalog/alle-fragen/',
+      component: path.resolve('./src/templates/allQuestions.js'),
+      context: {
+        questions: questions.slice(0, SEOQuestionLimit),
+      },
     });
   } catch (error) {
     console.error('[GenerateQuestions] Failed to fetch questions', error);

@@ -43,9 +43,15 @@ export default function Footer({ countryCode }) {
             className="pt-2 md:pr-4 md:pt-0"
           >
             {footerLink.title}
-
           </Link>
         ))}
+
+        <Link
+          to={`/${countryCode}/fragenkatalog/alle-fragen`}
+          className="pt-2 md:pr-4 md:pt-0"
+        >
+          Alle Fragen
+        </Link>
       </div>
 
     </footer>
