@@ -50,7 +50,7 @@ export default function Footer({ countryCode }) {
           to={`/${countryCode}/fragenkatalog/alle-fragen`}
           className="pt-2 md:pr-4 md:pt-0"
         >
-          fragenkatalog
+          Fragenkatalog
         </Link>
       </div>
 
