@@ -29,7 +29,7 @@ async function generateQuestions(actions) {
   console.info('[GenerateQuestions] Fetching questions');
 
   // TODO: this should be moved to gatsby-config.js but I couldn't make it work
-  const fonlineApiUrl = 'https://stage.app.f-online.at/json/export';
+  const fonlineApiUrl = 'https://app.f-online.at/json/export';
   const fonlineApiKey = process.env.FONLINE_API_KEY;
   const SEOQuestionLimit = 100;
 
