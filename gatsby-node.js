@@ -31,7 +31,7 @@ async function generateQuestions(actions) {
   // TODO: this should be moved to gatsby-config.js but I couldn't make it work
   const fonlineApiUrl = 'https://app.f-online.at/json/export';
   const fonlineApiKey = process.env.FONLINE_API_KEY;
-  const SEOQuestionLimit = 1500;
+  const SEOQuestionLimit = 5000;
 
   if (!fonlineApiKey) {
     console.error('[GenerateQuestions] No API key provided');
