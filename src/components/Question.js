@@ -1,5 +1,6 @@
 import React from 'react';
 import { IoShieldCheckmark } from 'react-icons/io5';
+import QuestionYoutubeEmbed from './QuestionYoutubeEmbed';
 
 export default function Question({ question }) {
   return (
@@ -9,7 +10,7 @@ export default function Question({ question }) {
       <div className="font-medium text-gray-500">
         {question.path.join(' > ')}
         {' '}
-        > 
+        &gt;
         {` Frage ${question.qst_id}`}
       </div>
 
@@ -57,6 +58,11 @@ export default function Question({ question }) {
           </div>
         ))}
       </div>
+
+      {/* Youtube */}
+      {question.video_url != null ? (
+        <QuestionYoutubeEmbed url={question.video_url} title={question.txt_text} />
+      ) : ''}
 
     </div>
   );
