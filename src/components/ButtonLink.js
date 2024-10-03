@@ -2,7 +2,7 @@ import { Link } from 'gatsby';
 import React from 'react';
 
 export default function ButtonLink({
-  to, text = '', type = 'primary', className, children,
+  to, text = '', type = 'primary', className, children, ...props
 }) {
   let cssClass;
   switch (type) {
@@ -19,7 +19,7 @@ export default function ButtonLink({
 
   // Why `{children || text}`: Stupid hack to support old "text" prop until usages are refactored
   return (
-    <Link to={to} className={`${className} ${cssClass} block sm:inline py-4 px-10 font-bold rounded-l-xl rounded-t-xl transition duration-200 no-underline`}>
+    <Link to={to} className={`${className} ${cssClass} block sm:inline py-4 px-10 font-bold rounded-l-xl rounded-t-xl transition duration-200 no-underline`} {...props}>
       {children || text}
     </Link>
   );
