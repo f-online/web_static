@@ -31,10 +31,10 @@ export default function QuestionYoutubeEmbed({ url, title }) {
 
           {/* Intro Text */}
           <p className="pb-2 sm:max-w-prose">
-            Unser Kollege Bernhard Hummel hat zu dieser Frage ein Video mit einer ausführlichen Erklärung erstellt.
+            Der Fahr(schul)lehrerInnenausbildner, Fahrprüfer, und Buchautor Bernhard Hummel hat zu dieser Frage ein Video mit einer ausführlichen Erklärung erstellt.
           </p>
           <p className="sm:mb-4 mt-0 pt-0">
-            In seinen anderen Videos befasst er sich mit den häufigsten und schwersten Fragen rund um die österreichische Führerscheinprüfung.
+            In seinen anderen Videos befasst er sich mit den häufigsten und schwersten Fragen rund um die österreichische Führerscheinprüfung. Schaut gerne vorbei!
           </p>
 
           {/* Button */}
@@ -44,7 +44,7 @@ export default function QuestionYoutubeEmbed({ url, title }) {
         <a href={url} className="block" target="_blank" rel="noreferrer">
           <div className="w-full aspect-video rounded-l-xl rounded-t-xl overflow-hidden sm:ml-4 mb-5 relative">
             <img
-              src={`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`}
+              src={`/thumbnails/${videoId}.jpg`}
               alt={`Video zu Frage: ${title}`}
               className="object-cover w-full h-full"
             />

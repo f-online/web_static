@@ -182,3 +182,6 @@ public
 
 # Not used yet, but just in case
 .env
+
+static/thumbnails
+sheet.csv
