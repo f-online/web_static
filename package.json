@@ -1,8 +1,9 @@
 {
-  "name": "wtf",
+  "name": "f-online-landing-page-main",
   "version": "1.0.0",
   "private": true,
-  "description": "wtf",
+  "description": "F-Online Landing Page Main",
+  "author": "Mischa Helfenstein",
   "keywords": [
     "gatsby"
   ],
