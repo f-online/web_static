@@ -33,6 +33,8 @@ export default function Question({ question }) {
           src={`https://img.f-online.at/${question.qst_image}.${question.qst_image > 100000 ? 'gif' : 'jpg'}`}
           alt={`Bild zur Frage ${question.qst_id}`}
           className="rounded-l-xl rounded-t-xl my-4"
+          width="600"
+          height="400"
         />
       ) : ''}
 
@@ -59,7 +61,7 @@ export default function Question({ question }) {
         ))}
       </div>
 
-      {/* Youtube */}
+        {/* Youtube */}
       {question.video_url != null ? (
         <QuestionYoutubeEmbed url={question.video_url} title={question.txt_text} />
       ) : ''}
