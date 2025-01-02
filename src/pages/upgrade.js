@@ -18,7 +18,7 @@ export default function UpgradePage({ location }) {
   }
 
   const paypalOptions = {
-    'client-id': 'Ad8dd58EhUXHIa-6hqrtvgkvdH7flIoFYcs6JKF5ExhcirOnbXAbFOna-TDknQamOs6pJGV592Xdfy52',
+    'client-id': 'ASIvhVhx0pHC4PHD0H4IQYHMKCfo11TngnfDXRHvkF_4rJH06ovLB1W-i49NvvpLeDvlLSFxbdAyuqFp',
     currency: 'EUR',
   };
 
