@@ -48,7 +48,7 @@ export default function Login({ title, subTitle, screenshot }) {
               <input type="submit" value="Anmelden" className="w-full cursor-pointer py-4 px-10 bg-fonline-500 hover:bg-fonline-700 text-white font-bold rounded-l-xl rounded-t-xl transition duration-200 no-underline hover:text-white" />
               <a
                 className="text-teal-600 bg-teal-50 hover:bg-teal-600 hover:text-white sm:ml-2 py-4 px-10 inline-flex items-center rounded-l-xl sm:rounded-tl-xl sm:rounded-bl-none sm:rounded-r-xl rounded-t-xl no-underline mt-4 sm:mt-0"
-                href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RL9PYUBA3MJ2S&source=url"
+                href="https://www.paypal.com/donate/?hosted_button_id=U5PY4UMX3TYDL"
               >
                 <BiDonateHeart className="mr-2" />
                 Spenden
