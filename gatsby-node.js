@@ -50,6 +50,7 @@ async function generateQuestions(actions) {
     const data = await fetch(url);
     if (!data.ok) {
       console.error('[GenerateQuestions] Failed to fetch questions');
+      process.exit(1);
     } else {
       const topics = await data.json();
       topics.forEach((topic) => {
