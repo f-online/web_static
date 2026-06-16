@@ -6,7 +6,7 @@ import Nav from './Nav';
 
 export default function Layout({ children, countryCode }) {
   return (
-    <div className="flex flex-col h-screen justify-
+    <div className="flex flex-col h-screen justify-between">
       <Nav countryCode={countryCode} />
 
       <main className="mb-auto">
