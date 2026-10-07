@@ -1,0 +1,37 @@
+---
+import { Image } from 'astro:assets';
+import davidObwaller from '../assets/team/david-obwaller.svg';
+import mischaHelfenstein from '../assets/team/mischa-helfenstein.png';
+import robertBinna from '../assets/team/robert-binna.jpg';
+import timHannemann from '../assets/team/tim-hannemann.jpg';
+import wolfgangGassler from '../assets/team/wolfgang-gassler.png';
+import wolfgangSteinlechner from '../assets/team/wolfgang-steinlechner.jpg';
+
+const team = [
+  { name: 'David Obwaller', position: 'Mobile Dev', image: davidObwaller },
+  { name: 'Mischa Helfenstein', position: 'Product / Dev', image: mischaHelfenstein },
+  { name: 'Robert Binna', position: 'Gründer / Dev', image: robertBinna },
+  { name: 'Tim Hannemann', position: 'Gründer / Dev', image: timHannemann },
+  { name: 'Wolfgang Gassler', position: 'Gründer / Dev', image: wolfgangGassler },
+  { name: 'Wolfgang Steinlechner', position: 'Gründer', image: wolfgangSteinlechner },
+];
+---
+
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4">
+  {team.map(({ name, position, image }) => (
+    <div class="flex flex-col items-center text-center p-5">
+      <div class="mx-auto mb-5 relative">
+        <Image
+          src={image}
+          alt={name}
+          width={128}
+          height={128}
+          densities={[1, 2]}
+          class="h-32 w-32 object-cover rounded-l-xl rounded-t-xl"
+        />
+      </div>
+      <p class="text-xl text-center p-0">{name}</p>
+      <p class="text-gray-500 text-center p-0">{position}</p>
+    </div>
+  ))}
+</div>

@@ -1,0 +1,52 @@
+---
+import { Image } from 'astro:assets';
+import data from '../assets/features/data.svg';
+import reminder from '../assets/features/reminder.svg';
+import speaker from '../assets/features/speaker.svg';
+import diagram from '../assets/features/diagram.svg';
+import repeat from '../assets/features/repeat.svg';
+import cloud from '../assets/features/cloud.svg';
+
+const features = [
+  {
+    name: 'Daten - Analyse',
+    info: 'Durch die vielfache Nutzung von F-Online lernen wir deine Problemstellen kennen und versuchen diese gezielt zu verbessern.',
+    icon: data,
+  },
+  {
+    name: 'Erinnerungen',
+    info: 'Lass dich regelmäßig ans Lernen erinnern und komme deinem Ziel Schritt für Schritt näher.',
+    icon: reminder,
+  },
+  {
+    name: 'Kosten? Keine!',
+    info: 'F-Online ist und war stets kostenlos und wird es auch bleiben, versprochen! Natürlich kannst du uns mit einer Spende oder dem Kauf der werbefreien Version unterstützen.',
+    icon: speaker,
+  },
+  {
+    name: 'Zahlen, Zahlen, Zahlen',
+    info: 'Du magst Statistiken? Wir auch. Mit unserem System kannst du deinen Fortschritt visualisieren und nachverfolgen.',
+    icon: diagram,
+  },
+  {
+    name: 'Spaced Repetition',
+    info: 'Mit unserem Lernalgorithmus auf der Spaced Repetition Basis, lernst du nach und nach weitere Frage bei gleichzeitiger Wiederholung und Festigung bereits gelernter Inhalte.',
+    icon: repeat,
+  },
+  {
+    name: 'Mobilität',
+    info: 'Uns ist egal, wo du lernst, hauptsache du tust es! Wir bieten eine Webseite und Apps für die gängigen Anbieter, sodass du stets da weiter machen kannst, wo du aufgehört hast...',
+    icon: cloud,
+  },
+];
+---
+
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-20">
+  {features.map(({ name, info, icon }) => (
+    <div class="text-center">
+      <Image src={icon} alt={name} class="inline-block h-20 w-20" />
+      <h5 class="text-2xl mt-2 md:mt-5 mb-0">{name}</h5>
+      <p class="text-gray-500">{info}</p>
+    </div>
+  ))}
+</div>

@@ -1,0 +1,42 @@
+---
+import { Image } from 'astro:assets';
+import Section from './Section.astro';
+import bernhardHummel from '../assets/bernhard-hummel.png';
+---
+
+<Section class="bg-fonline-800 text-white">
+  <div class="flex flex-col items-center">
+    <div>
+      <p class="text-4xl text-center italic font-light">
+        "F-Online bietet eine optimale und kostenlose Ergänzung zu meinem Fahrschulbuch bei der Vorbereitung auf die
+        theoretische Prüfung mit allen offiziellen Fragen!"
+      </p>
+    </div>
+    <div class="flex items-center mt-4">
+      <div class="overflow-hidden">
+        <Image
+          src={bernhardHummel}
+          alt="Bild von Bernhard Hummel"
+          width={80}
+          height={80}
+          densities={[1, 2]}
+          class="w-20 h-20 object-cover rounded-l-xl rounded-t-xl"
+        />
+      </div>
+      <div class="ml-4">
+        <div class="font-bold text-2xl">
+          <a
+            href="https://www.bernhardhummel.at/"
+            class="no-underline underline-offset-2 decoration-white hover:underline hover:text-white"
+            target="_blank"
+            rel="nofollow noreferrer"
+          >
+            Bernhard Hummel
+          </a>
+          <span class="font-normal ml-2 text-xs">(2022)</span>
+        </div>
+        <div class="text-fonline-200">Fahr(schul)lehrerInnenausbildner, Fahrprüfer, und Buchautor</div>
+      </div>
+    </div>
+  </div>
+</Section>
