@@ -1,0 +1,35 @@
+---
+import type { GetStaticPaths } from 'astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Section from '../../../components/Section.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import ButtonLink from '../../../components/ButtonLink.astro';
+import DrivingSchool from '../../../components/DrivingSchool.astro';
+import { getDrivingSchoolsByRegion } from '../../../lib/drivingSchools';
+
+export const getStaticPaths = (async () => {
+  const regions = await getDrivingSchoolsByRegion();
+  return regions.map((region) => ({ params: { region: region.slug }, props: { region } }));
+}) satisfies GetStaticPaths;
+
+const { region } = Astro.props;
+---
+
+<BaseLayout title={`Fahrschulen in ${region.name}`}>
+  <Section class="bg-fonline-50">
+    <SectionHeader
+      title={`Fahrschulen in ${region.name}`}
+      subtitle={`Unterstützt eure lokalen Fahrschulen in ${region.name}, die auch F-Online unterstützen. Genau diese Fahrschulen wollen nicht nur euer Geld, sondern Sie wollen euch etwas beibringen: Spaß am Fahren!`}
+    />
+
+    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10">
+      {region.schools.map((school) => (
+        <DrivingSchool school={school} class="hover:bg-white" />
+      ))}
+    </div>
+
+    <div class="text-center mt-20">
+      <ButtonLink href="/at/fahrschulen/">Alle Fahrschulregionen anzeigen</ButtonLink>
+    </div>
+  </Section>
+</BaseLayout>

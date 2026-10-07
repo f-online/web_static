@@ -1,0 +1,57 @@
+https://www.f-online.at/ads.txt https://f-online.at/ads.txt 301!
+https://www.f-online.at/app-ads.txt https://f-online.at/app-ads.txt 301!
+https://f-online.at/ads.txt /ads.txt 200!
+https://f-online.at/app-ads.txt /app-ads.txt 200!
+
+https://www.f-online.at https://www.f-online.app/at/ 301!
+https://www.f-online.at/fahrschulen/ https://www.f-online.app/at/fahrschulen/ 301!
+https://www.f-online.at/faq/ https://www.f-online.app/at/faq/ 301!
+https://www.f-online.at/about/ https://www.f-online.app/at/about-us/ 301!
+https://www.f-online.at/upgrade/* https://www.f-online.app/upgrade/:splat 301!
+https://www.f-online.at/media/fonline_ad_technology_providers.pdf https://www.f-online.app/media/fonline_ad_technology_providers.pdf 301!
+https://www.f-online.at/ads.txt https://www.f-online.app/ads.txt 301!
+https://www.f-online.at/app-ads.txt https://www.f-online.app/app-ads.txt 301!
+https://www.f-online.at/* https://www.f-online.app/at/ 301!
+
+https://f-online.at https://www.f-online.app/at/ 301!
+https://f-online.at/fahrschulen/ https://www.f-online.app/at/fahrschulen/ 301!
+https://f-online.at/faq/ https://www.f-online.app/at/faq/ 301!
+https://f-online.at/about/ https://www.f-online.app/at/about-us/ 301!
+https://f-online.at/upgrade/* https://www.f-online.app/upgrade/:splat 301!
+https://f-online.at/media/fonline_ad_technology_providers.pdf https://www.f-online.app/media/fonline_ad_technology_providers.pdf 301!
+https://f-online.at/* https://www.f-online.app/at/ 301!
+
+https://www.fonline.at https://www.f-online.app/at/ 301!
+https://www.fonline.at/fahrschulen/ https://www.f-online.app/at/fahrschulen/ 301!
+https://www.fonline.at/faq/ https://www.f-online.app/at/faq/ 301!
+https://www.fonline.at/about/ https://www.f-online.app/at/about-us/ 301!
+https://www.fonline.at/upgrade/* https://www.f-online.app/upgrade/:splat 301!
+https://www.fonline.at/media/fonline_ad_technology_providers.pdf https://www.f-online.app/media/fonline_ad_technology_providers.pdf 301!
+https://www.fonline.at/* https://www.f-online.app/at/ 301!
+
+https://fonline.at https://www.f-online.app/at/ 301!
+https://fonline.at/fahrschulen/ https://www.f-online.app/at/fahrschulen/ 301!
+https://fonline.at/faq/ https://www.f-online.app/at/faq/ 301!
+https://fonline.at/about/ https://www.f-online.app/at/about-us/ 301!
+https://fonline.at/upgrade/* https://www.f-online.app/upgrade/:splat 301!
+https://fonline.at/media/fonline_ad_technology_providers.pdf https://www.f-online.app/media/fonline_ad_technology_providers.pdf 301!
+https://fonline.at/* https://www.f-online.app/at/ 301!
+
+# permalink for questions (used e.g. in books to link to questions)
+https://www.f-online.app/at/frage/* https://app.f-online.at/#question/:splat 302!
+
+# permalink for topics (used e.g. in books to link to topics)
+https://www.f-online.app/at/thema/:id https://app.f-online.at/#topic/:id/Fragen%20zum%20Buch 302!
+
+
+https://www.fonline.app/* https://www.f-online.app/:splat 301!
+
+https://fonline.app/* https://www.f-online.app/:splat 301!
+
+https://f-online.app/* https://www.f-online.app/:splat 301!
+
+# Only one country (Austria) is live, so the root redirects to it
+/ /at/ 301
+
+# Sitemaps are generated at the site root; keep the old URLs (registered in search consoles) working
+/sitemap/* /:splat 200

@@ -1,0 +1,72 @@
+---
+import { Image } from 'astro:assets';
+import Lightbulb from '../icons/lightbulb.svg';
+import UserGraduate from '../icons/user-graduate.svg';
+import Play from '../icons/play.svg';
+import ButtonLink from './ButtonLink.astro';
+
+interface Props {
+  url: string;
+  title: string;
+}
+
+const { url, title } = Astro.props;
+
+// Thumbnails are downloaded by downloadThumbnails.sh before the build
+// (lazy glob, so only thumbnails that are actually used end up in the build)
+const thumbnails = import.meta.glob<ImageMetadata>('../assets/thumbnails/*.jpg', { import: 'default' });
+
+// supports https://www.youtube.com/watch?v=<id> and https://youtu.be/<id>?t=...
+const videoId = url.includes('v=') ? url.split('v=')[1].split('&')[0] : url.split('youtu.be/')[1]?.split('?')[0];
+const thumbnail = await thumbnails[`../assets/thumbnails/${videoId}.jpg`]?.();
+---
+
+<div>
+  <hr class="mt-4 mb-6 mx-auto" />
+  <div class="flex items-center flex-col sm:flex-row">
+    <div>
+      <h4 class="text-xl font-semibold">Du benötigst eine einfache Erklärung?</h4>
+
+      <div class="flex flex-wrap gap-2 mt-2">
+        <span class="flex items-center px-2 py-1 text-xs font-medium text-white bg-fonline-500 rounded-full">
+          <Lightbulb class="w-4 h-4 mr-2 text-white" /> Erklärungsvideo
+        </span>
+        <span class="flex items-center px-2 py-1 text-xs font-medium text-white bg-fonline-500 rounded-full">
+          <UserGraduate class="w-4 h-4 mr-2 text-white" /> Bernhard Hummel
+        </span>
+      </div>
+
+      <p class="pb-2 sm:max-w-prose">
+        Der Fahr(schul)lehrerInnenausbildner, Fahrprüfer, und Buchautor Bernhard Hummel hat zu dieser Frage ein Video
+        mit einer ausführlichen Erklärung erstellt.
+      </p>
+      <p class="sm:mb-4 mt-0 pt-0">
+        In seinen anderen Videos befasst er sich mit den häufigsten und schwersten Fragen rund um die österreichische
+        Führerscheinprüfung. Schaut gerne vorbei!
+      </p>
+
+      <ButtonLink display="hidden sm:inline" href={url} target="_blank" rel="noreferrer">
+        Jetzt ansehen
+      </ButtonLink>
+    </div>
+    <a href={url} class="block w-full sm:w-1/2 sm:shrink-0" target="_blank" rel="noreferrer">
+      <div class="w-full aspect-video rounded-l-xl rounded-t-xl overflow-hidden sm:ml-4 mb-5 relative bg-fonline-50">
+        {thumbnail && (
+          <Image
+            src={thumbnail}
+            alt={`Video zu Frage: ${title}`}
+            widths={[480, 720]}
+            sizes="(min-width: 640px) 336px, 100vw"
+            class="object-cover w-full h-full"
+          />
+        )}
+        <span class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+          <Play class="w-20 h-20 sm:w-16 sm:h-16 text-fonline-500" />
+        </span>
+      </div>
+    </a>
+    <ButtonLink display="block sm:hidden" href={url} target="_blank" rel="noreferrer">
+      Jetzt ansehen
+    </ButtonLink>
+  </div>
+</div>

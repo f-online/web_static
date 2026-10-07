@@ -1,0 +1,36 @@
+---
+// Layout for the Markdown pages src/pages/at/fragenupdate-*.md
+import BaseLayout from './BaseLayout.astro';
+import Section from '../components/Section.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import FAQ from '../components/FAQ.astro';
+
+interface Props {
+  frontmatter: {
+    title: string;
+    subtitle: string;
+    seoTitle: string;
+    description: string;
+    faqLimit?: number;
+  };
+}
+
+const { title, subtitle, seoTitle, description, faqLimit } = Astro.props.frontmatter;
+---
+
+<BaseLayout title={seoTitle} description={description}>
+  <Section class="bg-fonline-50">
+    <SectionHeader title={title} subtitle={subtitle} />
+    <div>
+      <slot />
+    </div>
+  </Section>
+
+  <Section>
+    <SectionHeader
+      title="Weitere Fragen?"
+      subtitle="Hast du Fragen oder funktioniert etwas nicht? Nachfolgend findest du die meist gestellten Fragen - vielleicht ist deine Antwort bereits dabei!"
+    />
+    <FAQ limit={faqLimit} />
+  </Section>
+</BaseLayout>

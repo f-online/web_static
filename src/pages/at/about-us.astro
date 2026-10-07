@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Section from '../../components/Section.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+import Team from '../../components/Team.astro';
+---
+
+<BaseLayout
+  title="Über uns"
+  description="Kostenlos mit den offiziellen Fragen für den Führerschein in Österreich lernen!"
+>
+  <Section class="bg-fonline-50">
+    <SectionHeader
+      title="Die erste und einzige kostenlose Führerschein-Lernplattform in Österreich"
+      subtitle="Die erste und einzige kostenlose Führerschein-Lernplattform in Österreich"
+    />
+    <div>
+      <p>
+        Um eine kostenlose Alternative zu bis dahin verbreiteten, jedoch leider teuren Lernmedien (CD-ROMs und
+        USB-Sticks) anbieten zu können, gründeten vier Informatiker – Robert Binna, Wolfgang Gassler, Tim Hannemann und
+        Wolfgang Steinlechner - im Jahr 2007 in Tirol (Österreich) die Lernplattform F-Online.
+        <br />
+        Ein mit der Universität Innsbruck entwickelter, innovativer Lernalgorithmus dient seit 2010 als Basis für einen
+        individuell angepassten Lernfortschritt und gewährleistet so einen effizienten Lernerfolg.
+        <br />
+        Dieser intelligente Lernalgorithmus, welcher ständig weiterentwickelt wurde, passt sich den Stärken und
+        Schwächen der Lernenden an: Inhalte, die noch nicht verstanden wurden, werden automatisch in den Mittelpunkt
+        gerückt, während bereits verinnerlichte Wissensgebiete seltener vorgeschlagen werden.
+      </p>
+      <p>
+        Täglich werden auf F-Online.at bis zu einer Million Fragen beantwortet. So nutzten schon zehntausende
+        Führerscheinanfänger:innen die Vorteile von F-Online und bestanden damit ihre Prüfung.
+        <br />
+        F-Online hat sich über die Jahre hinweg zu einer namhaften Marke in Österreich entwickelt und inzwischen
+        vertraut jeder dritte Führerscheinneuling auf unsere Lernplattform.
+      </p>
+      <p>
+        Im Gegensatz zu klassischen Lernmedien steht F-Online für Aktualität: Unsere Lerninhalte in Form von Fragen
+        werden sofort an jede Änderung des österreichischen Verkehrsministeriums angepasst. Unsere Lernenden arbeiten
+        also zu jeder Zeit mit einem aktuellen und allgemein gültigen Fragenkatalog.
+        <br />
+        Auf diesen offiziellen Fragenkatalog kann von überall zugegriffen werden: Für zwischendurch und unterwegs eignet
+        sich bestens die Handy-App. Wird ein größerer Bildschirm bevorzugt, steht eine dafür optimierte Website zur
+        Verfügung.
+        <br />
+        Und unabhängig vom gewählten Endgerät steigt man zu jeder Zeit mit demselben Lernfortschritt und Wissensstand in
+        sein personalisiertes Profil ein.
+      </p>
+      <p>Dein persönlicher Weg zum Führerschein mit F-Online: Individuell und intelligent.</p>
+    </div>
+  </Section>
+
+  <Section>
+    <SectionHeader
+      title="Unser Team"
+      subtitle="Das Team hinter F-Online steht mit Leidenschaft hinter der Idee, eine kostenfreie Führerscheinbildung für alle anzubieten."
+    />
+    <Team />
+  </Section>
+</BaseLayout>

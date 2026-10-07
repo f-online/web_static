@@ -1,0 +1,160 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Section from '../components/Section.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import Heart from '../icons/heart.svg';
+import CheckCircle from '../icons/check-circle.svg';
+import XCircle from '../icons/x-circle.svg';
+
+const paypalClientId = 'ASIvhVhx0pHC4PHD0H4IQYHMKCfo11TngnfDXRHvkF_4rJH06ovLB1W-i49NvvpLeDvlLSFxbdAyuqFp';
+const buttonClass =
+  'block text-center w-full cursor-pointer py-4 px-10 bg-fonline-500 hover:bg-fonline-700 text-white font-bold rounded-l-xl rounded-t-xl transition duration-200 no-underline hover:text-white';
+---
+
+<BaseLayout title="Upgrade zur werbefreien Version">
+  <Section class="bg-fonline-50" padding="px-5 md:px-20 lg:px-40 py-20">
+    <SectionHeader title="Werbefreie F-Online Version" />
+
+    <div class="bg-white px-6 md:px-10 py-2 md:py-4 rounded-xl max-w-2xl">
+      <p id="upgrade-intro">
+        Für nur 4.99 EUR kannst du dein F-Online Lernkonto von der Werbung befreien. Egal ob du am Handy, Tablet oder am
+        Computer lernst, du siehst keine Werbung mehr und unterstützt F-Online mit deinem werbefreien Konto.
+      </p>
+
+      <!-- Shown when no ?account= parameter is given -->
+      <div id="upgrade-login">
+        <div class="mt-2 mb-4">
+          Um die vollen Vorteile der werbefreien Version auszuschöpfen, melde dich bitte zuerst in deinem F-Online Konto
+          an und klicke auf "Unterstütze uns mit der werbefreien F-Online Version.".
+        </div>
+        <a class={buttonClass} href="https://app.f-online.at/">
+          Anmelden
+        </a>
+      </div>
+
+      <!-- Account given, but not paid yet -->
+      <div id="upgrade-pay" hidden>
+        <div class="mb-5">
+          <div class="mt-1 text-center font-bold border border-gray-500 rounded-sm py-2 bg-gray-100">
+            <div class="inline-flex items-center">
+              <span data-account></span>
+              <XCircle id="upgrade-failed-icon" class="ml-2 text-red-500 text-2xl" hidden />
+            </div>
+          </div>
+
+          <div class="text-gray-500 font-light text-xs text-center mt-1">
+            Werbefreies Lernkonto <span data-account></span> für 4,99 EUR (inkl. Mwst.)
+          </div>
+        </div>
+
+        <div id="upgrade-failed" class="text-center mb-2 text-red-500" hidden>
+          Ein Problem ist aufgetreten.
+          <br /> Bitte versuche es erneut oder kontaktiere uns via Mail:
+          <a href="mailto:info@f-online.at">info@f-online.at</a>
+        </div>
+
+        <div id="upgrade-canceled" class="text-center mb-2 text-fonline-500" hidden>
+          Nicht sicher?
+          <br /> Probiere die App gerne weiter kostenfrei aus und entscheide dich später!
+        </div>
+
+        <div id="paypal-buttons"></div>
+      </div>
+
+      <!-- Payment successful -->
+      <div id="upgrade-success" hidden>
+        <div class="text-center">
+          <div class="text-fonline-500 p-4 font-bold text-4xl rounded-l-xl rounded-t-xl inline-flex items-center">
+            <Heart class="mr-2" />
+            Vielen Dank!
+          </div>
+          <div class="mt-2 mb-4 text-center font-bold border border-gray-500 rounded-sm py-2 bg-gray-100">
+            <div class="inline-flex items-center">
+              <span data-account></span>
+              <CheckCircle class="ml-2 text-green-500 text-2xl" />
+            </div>
+          </div>
+          <div class="text">Dein Lernkonto wird innerhalb weniger Minuten von der Werbung freigeschaltet.</div>
+        </div>
+        <div class="mt-4 mb-4">
+          <a class={buttonClass} href="https://app.f-online.at/">
+            Zurück zur Lernapp
+          </a>
+        </div>
+      </div>
+
+      <div class="mt-8">
+        <h2 class="text-xl text-center font-bold">30-Tage Geld zurück!</h2>
+        <p>
+          Solltest du mit der werbefreien Version nicht zufrieden sein, erhältst du innerhalb 30 Tagen, auch ohne Angabe
+          von Gründen, dein Geld zurück. Sende dazu einfach ein Email an{' '}
+          <a href="mailto:info@f-online.at">info@f-online.at</a>.
+        </p>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Runs synchronously right after the markup, so the correct state is shown without flashing -->
+  <script is:inline define:vars={{ paypalClientId }}>
+    (function () {
+      var accountMail = new URLSearchParams(window.location.search).get('account') || '';
+      if (accountMail.length === 0) return;
+
+      var show = function (id, visible) {
+        document.getElementById(id).toggleAttribute('hidden', !visible);
+      };
+
+      document.querySelectorAll('[data-account]').forEach(function (element) {
+        element.textContent = accountMail;
+      });
+      show('upgrade-login', false);
+      show('upgrade-pay', true);
+
+      var sdk = document.createElement('script');
+      sdk.src = 'https://www.paypal.com/sdk/js?client-id=' + paypalClientId + '&currency=EUR';
+      sdk.onload = function () {
+        window.paypal
+          .Buttons({
+            style: { color: 'blue' },
+            createOrder: function (data, actions) {
+              return actions.order.create({
+                payer: {
+                  email_address: accountMail,
+                  address: { country_code: 'AT' },
+                },
+                application_context: {
+                  brand_name: 'F-Online',
+                  locale: 'de-AT',
+                  shipping_preference: 'NO_SHIPPING',
+                },
+                purchase_units: [
+                  {
+                    reference_id: 'werbefrei-' + accountMail,
+                    description: 'Werbefrei F-Online ' + accountMail,
+                    soft_descriptor: 'werbefrei',
+                    amount: { currency_code: 'EUR', value: '4.99' },
+                  },
+                ],
+              });
+            },
+            onApprove: function (data, actions) {
+              return actions.order.capture().then(function () {
+                show('upgrade-intro', false);
+                show('upgrade-pay', false);
+                show('upgrade-success', true);
+              });
+            },
+            onCancel: function () {
+              show('upgrade-canceled', true);
+            },
+            onError: function () {
+              show('upgrade-failed', true);
+              show('upgrade-failed-icon', true);
+            },
+          })
+          .render('#paypal-buttons');
+      };
+      document.head.appendChild(sdk);
+    })();
+  </script>
+</BaseLayout>

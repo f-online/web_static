@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Login from '../../components/Login.astro';
+import Section from '../../components/Section.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+import Reviews from '../../components/Reviews.astro';
+import Features from '../../components/Features.astro';
+import Quote from '../../components/Quote.astro';
+import Team from '../../components/Team.astro';
+import FAQ from '../../components/FAQ.astro';
+---
+
+<BaseLayout
+  title="Kostenlos für den österr. Führerschein lernen"
+  description="Lerne mit den offiziellen österreichischen Fragen auf den Führerschein. Kostenlos auf allen Handys und Computer seit über 15 Jahren."
+>
+  <Login
+    title="Kostenlos für den Führerschein lernen"
+    subtitle="mit allen offiziellen Fragen (Stand: 16.09.2026) für die österreichische Fahrprüfung. Wir sind und bleiben gratis!"
+  />
+
+  <Section class="bg-fonline-50">
+    <SectionHeader title="Reviews" subtitle="Das sagen andere Nutzer über F-Online" />
+    <Reviews limit={6} />
+  </Section>
+
+  <Section>
+    <SectionHeader
+      title="Warum F-Online?"
+      subtitle="F-Online bietet dir kostenlos eine vollumfängliche Lernapplikation mit allen offiziellen Fragen zur Führerscheinprüfung. Überzeuge dich am besten selbst!"
+    />
+    <Features />
+  </Section>
+
+  <Quote />
+
+  <Section>
+    <SectionHeader
+      title="Unser Team"
+      subtitle="Das Team hinter F-Online steht mit Leidenschaft hinter der Idee, eine kostenfreie Führerscheinbildung für alle anzubieten."
+    />
+    <Team />
+  </Section>
+
+  <Section class="bg-fonline-50">
+    <SectionHeader
+      title="Frequently Asked Questions (FAQ)"
+      subtitle="Hast du Fragen oder funktioniert etwas nicht? Nachfolgend findest du die meist gestellten Fragen - vielleicht ist deine Antwort bereits dabei!"
+    />
+    <FAQ limit={5} />
+  </Section>
+</BaseLayout>

@@ -1,0 +1,20 @@
+---
+import Star from '../icons/star.svg';
+import StarOutline from '../icons/star-outline.svg';
+
+interface Props {
+  value: number;
+  max?: number;
+}
+
+const { value, max = 5 } = Astro.props;
+---
+
+<span class="inline-flex text-fonline-500" aria-label={`${value} von ${max} Sternen`}>
+  {Array.from({ length: value }, () => (
+    <Star width={25} height={25} />
+  ))}
+  {Array.from({ length: max - value }, () => (
+    <StarOutline width={25} height={25} />
+  ))}
+</span>

@@ -10,11 +10,11 @@ install: ## install all dependencies
 
 .PHONY: dev 
 dev: ## run dev webserver on localhost
-	npm run develop
+	npm run dev
 
 .PHONY: clean 
 clean: ## clean dev environment
-	npm clean
+	rm -rf dist .astro node_modules/.astro
 
 .PHONY: build 
 build: ## build project locally

@@ -1,0 +1,56 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/forms';
+
+@theme {
+  --color-fonline-50: #e9eff7;
+  --color-fonline-100: #a9bde0;
+  --color-fonline-200: #93add9;
+  --color-fonline-300: #7d9dd1;
+  --color-fonline-400: #527cc1;
+  --color-fonline-500: #275bb2;
+  --color-fonline-600: #2351a0;
+  --color-fonline-700: #1f488e;
+  --color-fonline-800: #1b3f7c;
+  --color-fonline-900: #17366a;
+}
+
+@layer base {
+  /* Tailwind v3 default border color (v4 defaults to currentColor) */
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+
+  /* Tailwind v3 made buttons clickable-looking by default */
+  button:not(:disabled),
+  [role='button']:not(:disabled) {
+    cursor: pointer;
+  }
+
+  p {
+    @apply py-5;
+  }
+
+  section a {
+    @apply underline decoration-fonline-500 decoration-2 transition-colors;
+  }
+
+  section a:hover {
+    @apply text-fonline-500;
+  }
+
+  section strong {
+    @apply font-semibold text-fonline-500;
+  }
+
+  ol {
+    @apply list-decimal list-inside;
+  }
+
+  li:not(:first-child) {
+    @apply py-2;
+  }
+}
