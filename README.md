@@ -5,7 +5,7 @@ All content lives in this repository. There is no CMS: to change the website, ed
 
 ## Development
 
-Requires Node.js 22.12 or newer.
+Requires Node.js 22.12 or newer (the version used for builds is pinned in `.node-version`).
 
 ```sh
 npm install
