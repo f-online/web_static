@@ -36,7 +36,11 @@ function collect(topic: Topic, path: string[]): Question[] {
 
 async function fetchQuestions(): Promise<Question[]> {
   if (!API_KEY) {
-    console.warn('[questions] FONLINE_API_KEY is not set, skipping question pages');
+    // only names, never values: helps spot typos or a variable set for the wrong environment
+    const similar = Object.keys(process.env).filter((name) => /fonline|api_?key/i.test(name));
+    console.warn(
+      `[questions] FONLINE_API_KEY is not set, skipping question pages (similar variables: ${similar.join(', ') || 'none'}; CF_PAGES_BRANCH=${process.env.CF_PAGES_BRANCH ?? '-'})`,
+    );
     return [];
   }
 
