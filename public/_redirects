@@ -37,6 +37,9 @@ https://fonline.at/upgrade/* https://www.f-online.app/upgrade/:splat 301!
 https://fonline.at/media/fonline_ad_technology_providers.pdf https://www.f-online.app/media/fonline_ad_technology_providers.pdf 301!
 https://fonline.at/* https://www.f-online.app/at/ 301!
 
+# Only one country (Austria) is live, so the root redirects to it
+/ /at/ 301
+
 # permalink for questions (used e.g. in books to link to questions)
 /at/frage/* https://app.f-online.at/#question/:splat 302
 
@@ -49,9 +52,6 @@ https://www.fonline.app/* https://www.f-online.app/:splat 301!
 https://fonline.app/* https://www.f-online.app/:splat 301!
 
 https://f-online.app/* https://www.f-online.app/:splat 301!
-
-# Only one country (Austria) is live, so the root redirects to it
-/ /at/ 301
 
 # Sitemaps are generated at the site root; keep the old URLs (registered in search consoles) working
 /sitemap/* /:splat 200
