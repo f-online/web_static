@@ -1,0 +1,108 @@
+---
+import { Picture } from 'astro:assets';
+import DonateHeart from '../icons/donate-heart.svg';
+import ButtonLink from './ButtonLink.astro';
+import Section from './Section.astro';
+import Waves from './Waves.astro';
+import screenshot from '../assets/login-screenshot.png';
+
+interface Props {
+  title: string;
+  subtitle: string;
+}
+
+const { title, subtitle } = Astro.props;
+---
+
+<div class="bg-linear-to-r from-fonline-600 via-fonline-700 to-fonline-500">
+  <Section containerClass="flex flex-col lg:flex-row" padding="px-5 md:px-20 lg:px-40 py-5">
+    <div class="w-full pr-10 text-white text-left font-bold order-2 lg:order-1">
+      <Picture
+        src={screenshot}
+        alt="Screenshot"
+        formats={['avif']}
+        fallbackFormat="webp"
+        widths={[480, 800, 1100, 1500]}
+        sizes="(min-width: 1024px) 60vw, 100vw"
+        loading="eager"
+        fetchpriority="high"
+      />
+    </div>
+    <div class="bg-white p-6 rounded-sm text-center order-1 lg:order-2">
+      <h1 class="text-3xl md:text-4xl font-semibold">{title}</h1>
+      <h2 class="font-bold mt-3">{subtitle}</h2>
+
+      <form action="//app.f-online.at/auth" method="post" class="mt-5 md:mt-10 mb-8 text-left">
+        <div class="mb-5">
+          <label for="mail" class="font-semibold">
+            E-Mail:
+          </label>
+          <div class="mt-1">
+            <input
+              type="email"
+              name="username"
+              placeholder="max@mustermann.de"
+              id="mail"
+              required
+              class="w-full border-gray-500 rounded-sm py-2 focus:border-fonline-500 focus:ring-fonline-500"
+            />
+          </div>
+        </div>
+
+        <div class="mb-5">
+          <label for="password" class="font-semibold">
+            Passwort:
+          </label>
+          <div class="mt-1">
+            <input
+              type="password"
+              name="password"
+              id="password"
+              required
+              class="w-full border-gray-500 rounded-sm py-2 focus:border-fonline-500 focus:ring-fonline-500"
+            />
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row">
+          <input
+            type="submit"
+            value="Anmelden"
+            class="w-full cursor-pointer py-4 px-10 bg-fonline-500 hover:bg-fonline-700 text-white font-bold rounded-l-xl rounded-t-xl transition duration-200 no-underline hover:text-white"
+          />
+          <a
+            class="text-teal-600 bg-teal-50 hover:bg-teal-600 hover:text-white sm:ml-2 py-4 px-10 inline-flex items-center rounded-l-xl sm:rounded-tl-xl sm:rounded-bl-none sm:rounded-r-xl rounded-t-xl no-underline mt-4 sm:mt-0"
+            href="https://www.paypal.com/donate/?hosted_button_id=U5PY4UMX3TYDL"
+          >
+            <DonateHeart class="mr-2" />
+            Spenden
+          </a>
+        </div>
+      </form>
+
+      <hr />
+
+      <div class="text-gray-700 pt-5 mb-8">
+        <div>Du hast keinen Account?</div>
+        <div class="mt-6">
+          <ButtonLink href="https://app.f-online.at/#register" variant="secondary">
+            Kostenloses Lernkonto erstellen
+          </ButtonLink>
+        </div>
+      </div>
+
+      <hr />
+
+      <p class="flex gap-4 justify-center">
+        <a href="https://apps.apple.com/at/app/f-online/id1119605799">
+          <img src="/download-app-store.svg" alt="Download on App Store" class="h-16" />
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=at.f_online.android">
+          <img src="/download-play-store.svg" alt="Download on Play Store" class="h-16" />
+        </a>
+      </p>
+    </div>
+  </Section>
+
+  <Waves />
+</div>

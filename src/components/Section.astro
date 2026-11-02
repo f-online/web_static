@@ -1,0 +1,15 @@
+---
+interface Props {
+  class?: string;
+  containerClass?: string;
+  padding?: string;
+}
+
+const { class: className, containerClass, padding = 'px-10 md:px-20 lg:px-40 py-20' } = Astro.props;
+---
+
+<section class:list={[padding, className]}>
+  <div class:list={['container m-auto', containerClass]}>
+    <slot />
+  </div>
+</section>

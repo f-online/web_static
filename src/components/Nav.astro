@@ -1,0 +1,149 @@
+---
+import Instagram from '../icons/instagram.svg';
+import Facebook from '../icons/facebook.svg';
+
+const links = [
+  { href: '/at/', label: 'Start', mobileLabel: 'Startseite' },
+  { href: '/at/fahrschulen/', label: 'Fahrschulen' },
+  { href: '/at/faq/', label: 'Hilfe' },
+  { href: '/at/about-us/', label: 'Über uns' },
+  { href: '/at/kontakt/', label: 'Kontakt' },
+];
+
+const isActive = (href: string) => Astro.url.pathname === href;
+---
+
+<div>
+  <nav class="relative px-6 py-6 flex justify-between items-center bg-white">
+    <a class="text-3xl font-bold leading-none flex items-center" href="/at/">
+      <img src="/logo.svg" alt="F-Online Logo" class="w-14 h-14 pr-4" /> F-Online
+    </a>
+
+    <div class="lg:hidden">
+      <button class="navbar-burger flex items-center p-3" popovertarget="mobile-menu" aria-label="Menü öffnen">
+        <svg viewBox="0 0 100 80" width="40" height="40" class="fill-fonline-500" aria-hidden="true">
+          <rect width="100" height="10"></rect>
+          <rect y="30" width="100" height="10"></rect>
+          <rect y="60" width="100" height="10"></rect>
+        </svg>
+      </button>
+    </div>
+
+    <ul class="hidden absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:items-center lg:w-auto lg:space-x-6">
+      {links.map(({ href, label }) => (
+        <li>
+          <a class:list={['text-sm', { 'text-fonline-500 font-bold': isActive(href) }]} href={href}>
+            {label}
+          </a>
+        </li>
+      ))}
+      <li class="pl-8 flex">
+        <a
+          class="text-sm inline-flex items-center text-gray-500 hover:text-fonline-500"
+          href="https://instagram.com/fonline.app"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <Instagram class="w-8 h-8" aria-label="Instagram" />
+        </a>
+        <a
+          class="text-sm inline-flex items-center text-gray-500 hover:text-fonline-500"
+          href="https://facebook.com/fonline.at"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <Facebook class="ml-2 w-7 h-7" aria-label="Facebook" />
+        </a>
+      </li>
+    </ul>
+    <div class="hidden lg:inline-block">
+      <a
+        class="hidden lg:inline-block py-2 px-6 border-2 border-fonline-500 bg-fonline-500 hover:border-fonline-700 hover:bg-fonline-700 text-sm text-white font-bold rounded-l-xl rounded-t-xl transition duration-200"
+        href="https://app.f-online.at/#login"
+      >
+        Anmelden
+      </a>
+      <a
+        class="hidden lg:inline-block py-2 px-6 border-2 border-fonline-500 text-fonline-500 hover:bg-fonline-500 hover:text-white text-sm font-bold rounded-r-xl rounded-t-xl transition duration-200 ml-2"
+        href="https://app.f-online.at/#register"
+      >
+        Registrieren
+      </a>
+    </div>
+  </nav>
+
+  <!-- Mobile menu: native popover, opens via the burger button, closes on backdrop click or Esc -->
+  <div
+    id="mobile-menu"
+    popover
+    class="navbar-menu inset-y-0 left-0 right-auto m-0 h-full max-h-full w-5/6 max-w-sm border-0 p-0 backdrop:bg-gray-800/25"
+  >
+    <nav class="relative flex flex-col py-6 px-6 h-full w-full bg-white border-r overflow-y-auto">
+      <div class="flex justify-between pb-8">
+        <a class="text-3xl font-bold leading-none flex items-center" href="/at/">
+          <img src="/logo.svg" alt="F-Online Logo" class="w-14 h-14 pr-4" /> F-Online
+        </a>
+        <button class="navbar-close" popovertarget="mobile-menu" popovertargetaction="hide" aria-label="Menü schließen">
+          <svg
+            class="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-500"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            aria-hidden="true"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+      <div>
+        <ul>
+          {links.map(({ href, label, mobileLabel }) => (
+            <li class="mb-1">
+              <a
+                class="block text-fonline-400 p-3 hover:bg-fonline-50 hover:font-semibold hover:text-fonline-500 rounded-sm"
+                href={href}
+              >
+                {mobileLabel ?? label}
+              </a>
+            </li>
+          ))}
+          <li class="ml-2 flex">
+            <a
+              class="text-sm inline-flex items-center text-gray-500 hover:text-fonline-500"
+              href="https://instagram.com/fonline.app"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Instagram class="w-8 h-8" aria-label="Instagram" />
+            </a>
+            <a
+              class="text-sm inline-flex items-center text-gray-500 hover:text-fonline-500"
+              href="https://facebook.com/fonline.at"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Facebook class="ml-4 w-7 h-7" aria-label="Facebook" />
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="mt-auto">
+        <div class="pt-6">
+          <a
+            class="block px-4 py-3 mb-3 leading-loose text-xs text-center font-semibold border-2 border-fonline-500 text-fonline-500 hover:bg-fonline-500 hover:text-white rounded-l-xl rounded-t-xl"
+            href="https://app.f-online.at/#register"
+          >
+            Registrieren
+          </a>
+          <a
+            class="block px-4 py-3 mb-2 leading-loose text-xs text-center border-2 border-fonline-500 hover:border-fonline-700 text-white font-semibold bg-fonline-600 hover:bg-fonline-700 rounded-l-xl rounded-t-xl"
+            href="https://app.f-online.at/"
+          >
+            Anmelden
+          </a>
+        </div>
+      </div>
+    </nav>
+  </div>
+</div>

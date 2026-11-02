@@ -1,0 +1,78 @@
+---
+import { getImage } from 'astro:assets';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import socialImageSource from '../assets/og-image.jpg';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+
+const fullTitle = `${title} - F-Online`;
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
+const socialImage = await getImage({ src: socialImageSource, width: 1200, format: 'jpg' });
+const socialImageUrl = new URL(socialImage.src, Astro.site);
+const matomoNoScriptUrl = `https://piwik.inlupus.at/matomo.php?idsite=1&rec=1&url=${encodeURIComponent(canonicalUrl.href)}`;
+---
+
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{fullTitle}</title>
+    {description && <meta name="description" content={description} />}
+    <link rel="canonical" href={canonicalUrl} />
+
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <meta name="theme-color" content="#275BB2" />
+
+    <meta property="og:title" content={fullTitle} />
+    {description && <meta property="og:description" content={description} />}
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={socialImageUrl} />
+
+    <meta name="twitter:title" content={fullTitle} />
+    {description && <meta name="twitter:description" content={description} />}
+    <meta name="twitter:image" content={socialImageUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="preconnect" href="https://piwik.inlupus.at/" />
+    <script is:inline>
+      var _paq = (window._paq = window._paq || []);
+      _paq.push(['setTrackerUrl', 'https://piwik.inlupus.at/matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      _paq.push(['enableHeartBeatTimer']);
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+      (function () {
+        var d = document,
+          g = d.createElement('script'),
+          s = d.getElementsByTagName('script')[0];
+        g.async = true;
+        g.src = 'https://piwik.inlupus.at/matomo.js';
+        s.parentNode.insertBefore(g, s);
+      })();
+    </script>
+  </head>
+  <body>
+    <div class="flex flex-col h-screen justify-between">
+      <Nav />
+
+      <main class="mb-auto">
+        <slot />
+      </main>
+
+      <Footer />
+    </div>
+    <noscript>
+      <img src={matomoNoScriptUrl} style="border:0" alt="" />
+    </noscript>
+  </body>
+</html>

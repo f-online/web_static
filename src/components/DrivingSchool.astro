@@ -1,0 +1,37 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  school: CollectionEntry<'drivingSchools'>['data'];
+  class?: string;
+}
+
+const { school, class: className } = Astro.props;
+---
+
+<div
+  class:list={[
+    'p-5 rounded-lg text-center border-b-4 border-transparent hover:border-fonline-500 hover:shadow-2xl transition-shadow duration-300',
+    className,
+  ]}
+>
+  <div class="flex items-center justify-center h-40 mb-3">
+    <Image
+      src={school.logo}
+      alt={school.name}
+      width={Math.min(school.logo.width, 400)}
+      class="max-h-40 max-w-full w-auto h-auto"
+    />
+  </div>
+  <div>
+    <strong>{school.name}</strong>
+    <br />
+    {school.street}
+    <br />
+    {`${school.zip} ${school.city}`}
+    <br />
+    <a href={school.url}>{school.url}</a>
+    <br />
+  </div>
+</div>

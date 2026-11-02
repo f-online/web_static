@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Section from '../../components/Section.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+import FAQ from '../../components/FAQ.astro';
+---
+
+<BaseLayout
+  title="Häufig gestellte Fragen und Antworten (FAQs)"
+  description="Kostenlos mit den offiziellen Fragen für den Führerschein in Österreich lernen!"
+>
+  <Section class="bg-fonline-50">
+    <SectionHeader
+      title="Frequently Asked Questions (FAQ)"
+      subtitle="Hast du Fragen oder funktioniert etwas nicht? Nachfolgend findest du die meist gestellten Fragen - vielleicht ist deine Antwort bereits dabei!"
+    />
+    <FAQ />
+  </Section>
+</BaseLayout>

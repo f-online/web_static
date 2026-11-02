@@ -1,0 +1,72 @@
+---
+import type { Question } from '../lib/questions';
+import ShieldCheckmark from '../icons/shield-checkmark.svg';
+import QuestionVideo from './QuestionVideo.astro';
+
+interface Props {
+  question: Question;
+}
+
+const { question } = Astro.props;
+
+// images with ids above 100000 are animated gifs
+const imageUrl =
+  question.qst_image != null
+    ? `https://img.f-online.at/${question.qst_image}.${question.qst_image > 100000 ? 'gif' : 'jpg'}`
+    : undefined;
+---
+
+<div class="flex flex-col max-w-2xl mx-auto gap-4">
+  <div class="font-medium text-gray-500">
+    {question.path.join(' > ')} &gt; {`Frage ${question.qst_id}`}
+  </div>
+
+  <div class="flex flex-col">
+    <h1 class="text-xl font-semibold">{question.txt_text}</h1>
+
+    <div class="flex flex-wrap gap-2 mt-2">
+      <span class="flex items-center px-2 py-1 text-xs font-medium text-white bg-fonline-500 rounded-full">
+        <ShieldCheckmark class="w-4 h-4 mr-2 text-white" /> Offizielle Frage
+      </span>
+    </div>
+  </div>
+
+  {imageUrl && (
+    <img
+      src={imageUrl}
+      alt={`Bild zur Frage ${question.qst_id}`}
+      class="rounded-l-xl rounded-t-xl my-4"
+      width="600"
+      height="400"
+    />
+  )}
+
+  <div class="grid gap-4">
+    {question.answers.map((answer, index) => (
+      <div
+        class:list={[
+          'relative flex items-start px-4 py-4 rounded-l-xl rounded-t-xl',
+          answer.ans_correct === 1 ? 'bg-emerald-100' : 'bg-red-100',
+        ]}
+      >
+        <div class="flex h-6 items-center">
+          <input
+            id={`answer-${index}`}
+            name={`answer-${index}`}
+            type="checkbox"
+            disabled
+            checked={answer.ans_correct === 1}
+            class="h-4 w-4 rounded-sm text-emerald-600"
+          />
+        </div>
+        <div class="ml-3 text-sm leading-6">
+          <label for={`answer-${index}`} class="font-bold text-gray-900">
+            {answer.txt_text}
+          </label>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  {question.video_url != null && <QuestionVideo url={question.video_url} title={question.txt_text} />}
+</div>

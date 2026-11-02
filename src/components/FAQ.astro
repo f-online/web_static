@@ -1,0 +1,27 @@
+---
+import { faqs } from '../data/faq';
+import ButtonLink from './ButtonLink.astro';
+
+interface Props {
+  // show only the first N entries plus a link to the full FAQ page
+  limit?: number;
+}
+
+const { limit } = Astro.props;
+const entries = limit ? faqs.slice(0, limit) : faqs;
+---
+
+<div>
+  {entries.map(({ question, answer }) => (
+    <details class="bg-white p-5 text-center mb-5 drop-shadow-lg text-lg transition-all rounded-sm">
+      <summary class="font-semibold cursor-pointer select-none">{question}</summary>
+      <div class="mt-5 text-gray-600 text-base" set:html={answer} />
+    </details>
+  ))}
+</div>
+
+{limit && (
+  <div class="text-center mt-10">
+    <ButtonLink href="/at/faq/">Alle Fragen anzeigen</ButtonLink>
+  </div>
+)}

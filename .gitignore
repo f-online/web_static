@@ -177,11 +177,9 @@ sketch
 # End of https://www.toptal.com/developers/gitignore/api/node,macos,react
 
 # Project specific
-public
 .netlify
+.astro/
+dist/
 
-# Not used yet, but just in case
-.env
-
-static/thumbnails
+src/assets/thumbnails/
 sheet.csv

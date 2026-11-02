@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Section from '../../components/Section.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+import Reviews from '../../components/Reviews.astro';
+---
+
+<BaseLayout title="Bewertungen" description="So wurde F-Online von anderen Nutzern bewertet!">
+  <Section class="bg-fonline-50">
+    <SectionHeader title="Reviews" subtitle="Das sagen andere Nutzer über F-Online" />
+    <Reviews />
+  </Section>
+</BaseLayout>

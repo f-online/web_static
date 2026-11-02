@@ -4,7 +4,7 @@
 GOOGLE_SHEET_URL="https://docs.google.com/spreadsheets/d/1j9Vs5ndIRCIGWSb-h6T305_OD8G12h04PXcabKGFMAQ/export?format=csv"
 
 # Directory to save the thumbnails
-OUTPUT_DIR="./static/thumbnails/"
+OUTPUT_DIR="./src/assets/thumbnails/"
 
 # Create the directory if it doesn't exist
 mkdir -p "$OUTPUT_DIR"

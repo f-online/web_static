@@ -1,43 +1,29 @@
 {
   "name": "f-online-landing-page-main",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
+  "type": "module",
   "description": "F-Online Landing Page Main",
   "author": "Mischa Helfenstein",
-  "keywords": [
-    "gatsby"
-  ],
   "scripts": {
-    "develop": "gatsby develop",
-    "start": "gatsby develop",
-    "build": "./downloadThumbnails.sh && gatsby build",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "./downloadThumbnails.sh && astro build",
+    "preview": "astro preview"
+  },
+  "engines": {
+    "node": ">=22.12.0"
   },
   "dependencies": {
-    "@paypal/react-paypal-js": "^7.6.0",
-    "@sanity/block-content-to-react": "^3.0.0",
-    "@tailwindcss/forms": "^0.5.10",
-    "autoprefixer": "^10.4.20",
-    "dotenv": "^16.4.7",
-    "gatsby": "^5.14.1",
-    "gatsby-plugin-image": "^3.14.0",
-    "gatsby-plugin-matomo": "^0.17.0",
-    "gatsby-plugin-postcss": "^6.14.0",
-    "gatsby-plugin-react-helmet": "^6.14.0",
-    "gatsby-plugin-sharp": "^5.14.0",
-    "gatsby-plugin-sitemap": "^6.14.0",
-    "gatsby-source-filesystem": "^5.14.0",
-    "gatsby-source-sanity": "^7.9.1",
-    "gatsby-transformer-sharp": "^5.14.0",
-    "postcss": "^8.5.1",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-helmet": "^6.1.0",
-    "react-icons": "^4.12.0",
-    "tailwindcss": "^3.4.17"
+    "@astrojs/sitemap": "^3.7.4",
+    "@tailwindcss/forms": "^0.5.11",
+    "@tailwindcss/vite": "^4.3.3",
+    "astro": "^7.3.6",
+    "sharp": "^0.35.5",
+    "tailwindcss": "^4.3.3"
   },
   "devDependencies": {
-    "prettier": "^3.4.2"
+    "prettier": "^3.9.9",
+    "prettier-plugin-astro": "^1.1.0"
   }
 }

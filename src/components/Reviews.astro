@@ -1,0 +1,61 @@
+---
+import { getCollection } from 'astro:content';
+import Apple from '../icons/apple.svg';
+import Android from '../icons/android.svg';
+import ButtonLink from './ButtonLink.astro';
+import Stars from './Stars.astro';
+
+interface Props {
+  // show only the newest N reviews plus a link to the reviews page
+  limit?: number;
+}
+
+const { limit } = Astro.props;
+
+const reviews = (await getCollection('reviews'))
+  .map((review) => review.data)
+  .sort((a, b) => b.date.getTime() - a.date.getTime() || a.name.localeCompare(b.name, 'de'))
+  .slice(0, limit);
+
+const formatDate = (date: Date) =>
+  date.toLocaleDateString('de-AT', { day: '2-digit', month: '2-digit', year: 'numeric', timeZone: 'UTC' });
+---
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+  {reviews.map((review) => (
+    <div class="flex flex-col justify-between bg-fonline-50 rounded-l-xl rounded-t-xl p-4">
+      <div class="flex justify-between items-end">
+        <Stars value={review.stars} />
+        <a href={review.url} class="text-xs no-underline underline-offset-2 hover:underline text-gray-500">
+          {formatDate(review.date)}
+        </a>
+      </div>
+      <div class="mt-2 mb-auto italic">{review.text}</div>
+      <div class="flex justify-between mt-2 text-gray-500">
+        <a href={review.url} target="_blank" rel="noreferrer" class="no-underline underline-offset-2 hover:underline">
+          {`- ${review.name}`}
+        </a>
+        <a href={review.url} target="_blank" rel="noreferrer" class="no-underline underline-offset-2 hover:underline">
+          <div class="text-xs inline-flex items-center ml-2">
+            {review.platform === 'ios' && (
+              <>
+                See on <Apple class="inline mr-1 ml-1" /> App Store
+              </>
+            )}
+            {review.platform === 'android' && (
+              <>
+                See on <Android class="inline mr-1 ml-1" /> Play Store
+              </>
+            )}
+          </div>
+        </a>
+      </div>
+    </div>
+  ))}
+</div>
+
+{limit && (
+  <div class="text-center mt-10">
+    <ButtonLink href="/at/reviews/">Mehr Reviews anzeigen</ButtonLink>
+  </div>
+)}

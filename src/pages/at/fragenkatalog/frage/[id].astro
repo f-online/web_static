@@ -1,0 +1,20 @@
+---
+import type { GetStaticPaths } from 'astro';
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import Section from '../../../../components/Section.astro';
+import Question from '../../../../components/Question.astro';
+import { getQuestions } from '../../../../lib/questions';
+
+export const getStaticPaths = (async () => {
+  const questions = await getQuestions();
+  return questions.map((question) => ({ params: { id: String(question.qst_id) }, props: { question } }));
+}) satisfies GetStaticPaths;
+
+const { question } = Astro.props;
+---
+
+<BaseLayout title={`Frage ${question.qst_id}`} description={`Frage ${question.qst_id}: ${question.txt_text}`}>
+  <Section class="container mx-auto" padding="px-10 md:px-20 lg:px-40 pt-10 pb-20">
+    <Question question={question} />
+  </Section>
+</BaseLayout>

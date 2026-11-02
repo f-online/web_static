@@ -1,0 +1,210 @@
+# Fahrschulen, die F-Online empfehlen. Shown sorted by zip (then name), so the order in this file does not matter.
+# Each entry needs a unique `id`. Pages per region are generated automatically
+# (/at/fahrschulen/<region>/). Logos live in src/assets/driving-schools/.
+
+- id: fahrschule-drive-mistelbach
+  name: 'Fahrschule Drive Mistelbach'
+  street: 'Bahnstrasse 26a'
+  zip: '2130'
+  city: 'Mistelbach'
+  region: 'Niederösterreich'
+  url: 'https://www.drivemistelbach.at'
+  logo: ../assets/driving-schools/drive-mistelbach.png
+
+- id: fahrschule-polivka
+  name: 'Fahrschule POLIVKA'
+  street: 'Kremser Landstr. 76'
+  zip: '3100'
+  city: 'St. Pölten'
+  region: 'Niederösterreich'
+  url: 'https://www.polivka.at'
+  logo: ../assets/driving-schools/polivka.png
+
+- id: zebra-salzburg-sued
+  name: 'ZEBRA Salzburg Süd'
+  street: 'Faistauergasse 5'
+  zip: '5020'
+  city: 'Salzburg'
+  region: 'Salzburg'
+  url: 'https://www.zebra.at'
+  logo: ../assets/driving-schools/zebra.png
+
+- id: zebra-salzburg-mitte
+  name: 'ZEBRA Salzburg Mitte'
+  street: 'Schießstattstrasse 5'
+  zip: '5020'
+  city: 'Salzburg'
+  region: 'Salzburg'
+  url: 'https://www.zebra.at'
+  logo: ../assets/driving-schools/zebra.png
+
+- id: zebra-oberndorf
+  name: 'ZEBRA Oberndorf'
+  street: 'Salzburgerstrasse 47'
+  zip: '5110'
+  city: 'Oberndorf'
+  region: 'Salzburg'
+  url: 'https://www.zebra.at'
+  logo: ../assets/driving-schools/zebra.png
+
+- id: zebra-seekirchen
+  name: 'ZEBRA Seekirchen'
+  street: 'Rupertusstrasse 44'
+  zip: '5201'
+  city: 'Seekirchen'
+  region: 'Salzburg'
+  url: 'https://www.zebra.at'
+  logo: ../assets/driving-schools/zebra.png
+
+- id: zebra-neumarkt
+  name: 'ZEBRA Neumarkt'
+  street: 'Salzburger Strasse 32'
+  zip: '5202'
+  city: 'Neumarkt am Wallersee'
+  region: 'Salzburg'
+  url: 'https://www.zebra.at'
+  logo: ../assets/driving-schools/zebra.png
+
+- id: zebra-strasswalchen
+  name: 'ZEBRA Straßwalchen'
+  street: 'Mondseer Straße 5'
+  zip: '5204'
+  city: 'Straßwalchen'
+  region: 'Salzburg'
+  url: 'https://www.zebra.at'
+  logo: ../assets/driving-schools/zebra.png
+
+- id: zebra-hof
+  name: 'ZEBRA Hof'
+  street: 'Wolfgangseestrasse 54'
+  zip: '5322'
+  city: 'Hof'
+  region: 'Salzburg'
+  url: 'https://www.zebra.at'
+  logo: ../assets/driving-schools/zebra.png
+
+- id: zebra-hallein
+  name: 'ZEBRA Hallein'
+  street: 'Bahnhofstrasse 8'
+  zip: '5400'
+  city: 'Hallein'
+  region: 'Salzburg'
+  url: 'https://www.zebra.at'
+  logo: ../assets/driving-schools/zebra.png
+
+- id: zebra-st-johann
+  name: 'ZEBRA St. Johann'
+  street: 'Industriestrasse 9'
+  zip: '5600'
+  city: 'St. Johann im Pongau'
+  region: 'Salzburg'
+  url: 'https://www.zebra.at'
+  logo: ../assets/driving-schools/zebra.png
+
+- id: zebra-zell-am-see
+  name: 'ZEBRA Zell am See'
+  street: 'Brucker Bundesstraße 11'
+  zip: '5700'
+  city: 'Zell am See'
+  region: 'Salzburg'
+  url: 'https://www.zebra.at'
+  logo: ../assets/driving-schools/zebra.png
+
+- id: zebra-saalfelden
+  name: 'ZEBRA Saalfelden'
+  street: 'Leogangerstr. 21'
+  zip: '5760'
+  city: 'Saalfelden'
+  region: 'Salzburg'
+  url: 'https://www.zebra.at'
+  logo: ../assets/driving-schools/zebra.png
+
+- id: fahrschule-sappl-innsbruck
+  name: 'Fahrschule SAPPL Innsbruck'
+  street: 'Maximilianstraße 5'
+  zip: '6020'
+  city: 'Innsbruck'
+  region: 'Tirol'
+  url: 'https://www.fahrschule-sappl.at'
+  logo: ../assets/driving-schools/sappl.png
+
+- id: fahrschule-sappl-hall
+  name: 'Fahrschule SAPPL Hall'
+  street: 'Trientlstraße 9'
+  zip: '6060'
+  city: 'Hall'
+  region: 'Tirol'
+  url: 'https://www.fahrschule-sappl.at'
+  logo: ../assets/driving-schools/sappl.png
+
+- id: fahrschule-sappl-wattens
+  name: 'Fahrschule SAPPL Wattens'
+  street: 'Bahnhofstraße 21'
+  zip: '6112'
+  city: 'Wattens'
+  region: 'Tirol'
+  url: 'https://www.fahrschule-sappl.at'
+  logo: ../assets/driving-schools/sappl.png
+
+- id: fahrschule-sappl-schwaz
+  name: 'Fahrschule SAPPL Schwaz'
+  street: 'Münchner Straße 11'
+  zip: '6130'
+  city: 'Schwaz'
+  region: 'Tirol'
+  url: 'https://www.fahrschule-sappl.at'
+  logo: ../assets/driving-schools/sappl.png
+
+- id: fahrschule-sappl-woergl
+  name: 'Fahrschule SAPPL Wörgl'
+  street: 'Bahnhofstraße 4a'
+  zip: '6300'
+  city: 'Wörgl'
+  region: 'Tirol'
+  url: 'https://www.fahrschule-sappl.at'
+  logo: ../assets/driving-schools/sappl.png
+
+- id: fahrschule-sappl-kufstein
+  name: 'Fahrschule SAPPL Kufstein'
+  street: 'Josef-Egger-Straße 5'
+  zip: '6330'
+  city: 'Kufstein'
+  region: 'Tirol'
+  url: 'https://www.fahrschule-sappl.at'
+  logo: ../assets/driving-schools/sappl.png
+
+- id: fahrschule-sappl-kitzbuehel
+  name: 'Fahrschule SAPPL Kitzbühel'
+  street: 'Bahnhofstraße 3'
+  zip: '6370'
+  city: 'Kitzbühel'
+  region: 'Tirol'
+  url: 'https://www.fahrschule-sappl.at'
+  logo: ../assets/driving-schools/sappl.png
+
+- id: fahrschule-sappl-st-johann
+  name: 'Fahrschule SAPPL St. Johann'
+  street: 'Brauweg 3'
+  zip: '6380'
+  city: 'St. Johann'
+  region: 'Tirol'
+  url: 'https://www.fahrschule-sappl.at'
+  logo: ../assets/driving-schools/sappl.png
+
+- id: fahrschule-sappl-telfs
+  name: 'Fahrschule SAPPL Telfs'
+  street: 'Untermarktstraße 59'
+  zip: '6410'
+  city: 'Telfs'
+  region: 'Tirol'
+  url: 'https://www.fahrschule-sappl.at'
+  logo: ../assets/driving-schools/sappl.png
+
+- id: fahrschule-sappl-lienz
+  name: 'Fahrschule SAPPL Lienz'
+  street: 'Tiroler Straße 23'
+  zip: '9900'
+  city: 'Lienz'
+  region: 'Tirol'
+  url: 'https://www.fahrschule-sappl.at'
+  logo: ../assets/driving-schools/sappl.png
